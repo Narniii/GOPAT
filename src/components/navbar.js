@@ -1,30 +1,19 @@
 import { Menu } from "@mui/icons-material";
 import { Box, CircularProgress, Typography } from "@mui/material";
 import '../App.css';
-
+import logo from '../assets/LOGO-01.svg'
 const Navbar = () => {
-    function changeButtonClass() {
-        var element = document.getElementById("PMbutton");
-        // element.classList.remove("pmButton")
-        if (element.classList.contains("pmButtonSelected")) {
-            element.classList.remove("pmButtonSelected")
-        } else {
-            element.classList.add("pmButtonSelected")
-        }
-    }
 
     return (
         <Box sx={{
-            bgcolor: 'darkblue',
-            width: '100%',
-            height: { xs: '70px', sm: '80px', md: '120px' }, display: 'flex', alignItems: 'center'
+            bgcolor: '#08113b',
+            // width: '100%',
+            height: { xs: '70px', sm: '80px', md: '120px' }, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '32px', boxSizing: 'border-box'
         }}>
-            <Menu sx={{ color: 'white', fontSize: { xs: '16px', sm: '24px', md: '32px' } }} />
-            <button id="PMbutton" className="pmButton" onClick={changeButtonClass}>
-                <span></span>
-                <span></span>
-            </button>
-
+            <Menu sx={{ color: 'white', fontSize: { xs: '16px', sm: '24px', md: '32px' }, justifySelf: 'start', cursor: 'pointer' }} />
+            <Box sx={{ width: '200px', height: '100px', backgroundImage: `url(${logo})`, justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }} />
+            <Box />
         </Box>
     );
 }
