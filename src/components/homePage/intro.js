@@ -8,9 +8,10 @@ const Details = styled(Box)(({ theme }) => ({
 const Intro = () => {
     return (
         <Box sx={{
+            borderBottom: { xs: '1px solid #999999', md: 'none' },
             height: { xs: 'calc(100vh - 70px)', sm: 'calc(100vh - 80px)', md: 'calc(100vh - 120px)' },
             width: '100%', boxSizing: 'border-box',
-            display: 'flex', flexDirection: { xs: 'column', md: 'row' },
+            display: 'flex', flexDirection: { xs: 'column', md: 'row' }, 
         }}>
             <Box sx={{
                 height: '100%', width: '100%',

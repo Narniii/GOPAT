@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/home';
 import Navbar from './components/navbar';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
       </Routes>
-
+      <Footer />
     </BrowserRouter>
   );
 }

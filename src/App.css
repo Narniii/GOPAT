@@ -82,3 +82,21 @@
   right: 50%;
 
 }
+.slick-slider {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.slick-initialized .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.slick-slide {
+  width: max-content !important;
+}
+.slick-track {
+  display: flex !important;
+  gap: 16px !important;
+}
+.slick-initialized { overflow: hidden; }
