@@ -38,19 +38,19 @@
 }
 
 .pmButton {
-  color: #fff;
+  color: #666666;
   background: transparent;
   width: 32px;
   height: 32px;
   border: 0;
   font-size: 16px;
   position: relative;
+  cursor: pointer;
 }
-
 .pmButton span {
   position: absolute;
   transition: 300ms;
-  background: white;
+  background: #666666;
   border-radius: 2px;
 }
 
@@ -74,13 +74,11 @@
 /* Morph the shape when the button is selected */
 .pmButtonSelected span:first-child {
   transform: rotate(90deg);
-
 }
 
 .pmButtonSelected span:last-child {
   left: 50%;
   right: 50%;
-
 }
 .slick-slider {
   display: flex !important;
@@ -99,4 +97,6 @@
   display: flex !important;
   gap: 16px !important;
 }
-.slick-initialized { overflow: hidden; }
+.slick-initialized {
+  overflow: hidden;
+}

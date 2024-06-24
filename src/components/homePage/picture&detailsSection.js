@@ -14,16 +14,20 @@ const PicsAndDets = () => {
         {/* section one */}
         <Box sx={{
             display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: '32px',
-            justifyContent: 'center', alignItems: 'center', width: '100%'
+            width: '100%', justifyContent: { xs: 'unset', sm: 'center' }
         }}>
             <Box sx={{
-                height: { xs: '437px', sm: '421px', md: '731px' },
-                width: { xs: '100%', sm: '320px !important', md: '548px !important' }, mt: '32px',
+                height: { xs: '437px', sm: '421px', md: '814px' },
+                width: { xs: '100%', sm: '320px !important', md: '610px !important' }, mt: '32px',
                 backgroundImage: `url(${gopat})`,
                 justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: '24px', md: '60px' } }}>
+            <Box sx={{
+                display: 'flex', flexDirection: 'column', gap: { xs: '24px', md: '60px' },
+                width: { xs: '100%', sm: '100%', lg: 'calc(100% - 610px)' }
+            }}>
                 <Box sx={{
+                    // width: { xs: '0', sm: '383px', md: '731px' },
                     width: { xs: '0', sm: '100%', md: '100%' },
                     height: { xs: '0', sm: '378px', md: '548px' },
                     display: { xs: 'none', sm: 'block' },
@@ -33,6 +37,7 @@ const PicsAndDets = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
                     <Typography variant='h2' sx={{ color: 'black', fontWeight: 'bold', fontSize: { xs: '24px', sm: '28px', md: '32px' }, }}>GOPAT Mythology</Typography>
                     <Typography variant="p" sx={{
+                        width: '320px',
                         overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
                         textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999'
                     }}>
@@ -63,8 +68,9 @@ const PicsAndDets = () => {
                 }}>
                     Entrepreneurs</Typography>
                 <Typography variant="p" sx={{
-                    overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
-                    textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999'
+                    width: '320px', overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
+                    textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' },
+                    fontStyle: 'italic', color: '#999999'
                 }}>
                     This mythological figure symbolizes the
                     protection and prosperity of livestock, which
@@ -105,7 +111,7 @@ const PicsAndDets = () => {
                     fontSize: { xs: '24px', sm: '28px', md: '32px' },
                 }}>Diamonds</Typography>
                 <Typography variant="p" sx={{
-                    overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
+                    width: '320px', overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
                     textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999'
                 }}>
                     This mythological figure symbolizes the

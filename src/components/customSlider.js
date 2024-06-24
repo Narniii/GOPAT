@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import '../App.css'
-import { ArrowBack, ArrowBackIos, ArrowForward, ArrowForwardIos, ArrowRight } from '@mui/icons-material';
+import { ArrowBack, ArrowBackIos, ArrowBackIosNew, ArrowForward, ArrowForwardIos, ArrowRight } from '@mui/icons-material';
 function SampleNextArrow(props) {
     const { onClick } = props;
     return (
@@ -50,7 +50,7 @@ function SamplePrevArrow(props) {
             }}
             onClick={onClick}
         >
-            <ArrowBackIos sx={{ color: 'white', fontSize: { xs: '16px', sm: '24px', md: '32px' } }} />
+            <ArrowBackIosNew sx={{ color: 'white', fontSize: { xs: '16px', sm: '24px', md: '32px' } }} />
         </Box>
     );
 }
