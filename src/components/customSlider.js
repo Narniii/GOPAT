@@ -19,8 +19,9 @@ function SampleNextArrow(props) {
                 alignItems: 'center',
                 color: 'white', position: 'absolute', right: 0,
                 cursor: 'pointer'
-                , zIndex: 999
-                , transform: 'translateY(-50%)',
+                , zIndex: 999,
+                // transform: 'translateY(-100%)',
+                top: '35%',
                 p: '5px'
             }}
             onClick={onClick}
@@ -44,8 +45,9 @@ function SamplePrevArrow(props) {
                 alignItems: 'center',
                 color: 'white', position: 'absolute', left: 0,
                 cursor: 'pointer'
-                , zIndex: 999
-                , transform: 'translateY(-50%)',
+                , zIndex: 999,
+                // transform: 'translateY(-100%)',
+                top: '35%',
                 p: '5px'
             }}
             onClick={onClick}
