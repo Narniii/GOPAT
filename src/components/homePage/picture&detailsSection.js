@@ -46,7 +46,7 @@ const PicsAndDets = () => {
                         were vital to the sustenance and economy of
                         early Iranian societies.
                     </Typography>
-                    <ButtonOutline text={'Read More'} />
+                    <ButtonOutline text={'READ MORE'} />
                 </Box>
             </Box>
         </Box>
@@ -77,7 +77,7 @@ const PicsAndDets = () => {
                     were vital to the sustenance and economy of
                     early Iranian societies.
                 </Typography>
-                <ButtonOutline text={'Read More'} />
+                <ButtonOutline text={'READ MORE'} />
             </Box>
         </Box>
 
@@ -119,7 +119,7 @@ const PicsAndDets = () => {
                     were vital to the sustenance and economy of
                     early Iranian societies.
                 </Typography>
-                <ButtonOutline text={'Read More'} />
+                <ButtonOutline text={'READ MORE'} />
             </Box>
         </Box>
 

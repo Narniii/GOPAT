@@ -100,8 +100,8 @@ export default function CustomSlider({ children, slidesCount, slidesCountTablet,
             {
                 breakpoint: 400,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                 }
             }
         ]

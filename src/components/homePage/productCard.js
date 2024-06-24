@@ -11,9 +11,10 @@ const CardImage = styled(Box)(({ theme }) => ({
 
 const ProductCard = () => {
     return (
-        <Card sx={{ gap: '16px', }}>
+        <Card sx={{ gap: '16px', width: '100%' }}>
             <CardImage sx={{
-                width: { xs: '160px', sm: '354px', md: '331px' },
+                // width: { xs: '160px', sm: '354px', md: '331px' },
+                width: '100%',
                 height: { xs: '160px', sm: '354px', md: '331px' },
             }} />
             <Typography variant='h3' sx={{ mt: '16px', color: 'black', fontWeight: 'bold', fontSize: { xs: '12px', sm: '14px', md: '16px' }, }}>tishtar bangle</Typography>
