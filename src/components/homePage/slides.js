@@ -6,10 +6,10 @@ const Slider = () => {
     return (
         <Box sx={{
             display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',
-            width: '100%', px: { xs: '16px', sm: '24px', md: '32px' }, boxSizing: 'border-box', my: '60px'
+            width: '100%', px: { xs: '16px', sm: '24px', md: '32px' }, boxSizing: 'border-box', my: { xs: '50px', md: '60px' },
         }}>
             <Typography variant="h1"
-                sx={{ whiteSpace: 'nowrap', fontSize: { xs: '24px', sm: '28px', md: '32px' }, color: '#000', fontWeight: 'bold' }}>
+                sx={{ whiteSpace: 'nowrap', fontSize: { xs: '24px', sm: '28px', md: '32px' }, color: '#000', fontWeight: '500' }}>
                 Iconic Products
             </Typography>
             <Box sx={{

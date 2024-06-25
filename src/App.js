@@ -9,6 +9,7 @@ import "./fonts/FuturaPTLight.otf"
 import "./fonts/FuturaPTLightOblique.otf"
 import "./fonts/FuturaPTMedium.otf"
 import "./fonts/FuturaPTMediumOblique.otf"
+import "./fonts/FuturaMedium.ttf"
 import {
   BrowserRouter,
   Routes,
@@ -17,16 +18,37 @@ import {
 import Home from './pages/home';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
-
+import './index.css';
+import { createTheme, ThemeProvider } from '@mui/material';
+import futura from "./fonts/FuturaMedium.ttf"
 function App() {
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: 'Jost',
+    },
+    // components: {
+    //   MuiCssBaseline: {
+    //     styleOverrides: `
+    //       @font-face {
+    //         font-family: 'Futura';
+    //         src: local('Futura'), url(${futura}) format('truetype');
+    //       }
+    //     `,
+    //   },
+    // },
+  });
+
   return (
-    <BrowserRouter forceRefresh={true} >
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter forceRefresh={true} >
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

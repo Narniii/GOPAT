@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: "Futura";
+  src: local("FuturaMedium"), url(./fonts/FuturaMedium.ttf) format('truetype');
+
+}
+/* @font-face {
+  font-family: "Futura";
+  src: local("Futura"),
+    url("./fonts/FuturaPTDemiOblique.otf") format("opentype"),
+    url("./fonts/FuturaPTExtraBold.otf") format("opentype"),
+    url("./fonts/FuturaPTExtraBoldOblique.otf") format("opentype"),
+    url("./fonts/FuturaPTHeavy.otf") format("opentype"),
+    url("./fonts/FuturaPTHeavyOblique.otf") format("opentype"),
+    url("./fonts/FuturaPTLight.otf") format("opentype"),
+    url("./fonts/FuturaPTLightOblique.otf") format("opentype"),
+    url("./fonts/FuturaPTMedium.otf") format("opentype"),
+    url("./fonts/FuturaPTMediumOblique.otf") format("opentype");
+} */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Jost", sans-serif;
 }
+/* * {
+  font-family: "Futura", sans-serif;
+} */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

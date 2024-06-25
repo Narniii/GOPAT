@@ -7,7 +7,8 @@ import { useState } from "react";
 const Foot = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column',
     borderTop: '1px solid #999999',
-    justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box', paddingTop: '60px'
+    justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box',
+    //  paddingTop: '60px'
 }))
 const FootDesktop = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box', padding: '32px', backgroundColor: '#f2f2f2', gap: '60px', width: '100%'
@@ -23,58 +24,58 @@ const ExpDesktop = styled(Box)(({ theme }) => ({
 const ExpMobile = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box',
     borderTop: '1px solid #999999', color: '#666666', width: '100%',
-    padding: '32px'
+    padding: '12px'
 }))
 
 const Footer = () => {
     const [csDetOpened, setCSDetOpened] = useState(false)
     const [policiesDetOpened, setpoliciesDetOpened] = useState(false)
     const [aboutDetOpened, setAboutDetOpened] = useState(false)
-    function changeButtonClass(e) {
+    function changeCSOpened(e) {
         e.preventDefault()
-        if (e.target.id == 'PMbuttoncs') {
-            var element = document.getElementById("PMbuttoncs");
-            if (csDetOpened) {
-                setCSDetOpened(false)
-                element.classList.remove("pmButtonSelected")
-            } else {
-                setCSDetOpened(true)
-                element.classList.add("pmButtonSelected")
-            }
-        } else if (e.target.id == 'PMbuttonpc') {
-            var element = document.getElementById("PMbuttonpc");
-            if (policiesDetOpened) {
-                setpoliciesDetOpened(false)
-                element.classList.remove("pmButtonSelected")
-            } else {
-                setpoliciesDetOpened(true)
-                element.classList.add("pmButtonSelected")
-            }
-        } else if (e.target.id == 'PMbuttonAbout') {
-            var element = document.getElementById("PMbuttonAbout");
-            if (aboutDetOpened) {
-                setAboutDetOpened(false)
-                element.classList.remove("pmButtonSelected")
-            } else {
-                setAboutDetOpened(true)
-                element.classList.add("pmButtonSelected")
-            }
+        var element = document.getElementById("PMbuttoncs");
+        if (csDetOpened || element.classList.contains("pmButtonSelected")) {
+            setCSDetOpened(false)
+            element.classList.remove("pmButtonSelected")
         } else {
-            
+            setCSDetOpened(true)
+            element.classList.add("pmButtonSelected")
+        }
+    }
+    function changeAboutOpened(e) {
+        e.preventDefault()
+        var element = document.getElementById("PMbuttonAbout");
+        if (aboutDetOpened || element.classList.contains("pmButtonSelected")) {
+            setAboutDetOpened(false)
+            element.classList.remove("pmButtonSelected")
+        } else {
+            setAboutDetOpened(true)
+            element.classList.add("pmButtonSelected")
+        }
+    }
+    function changePoliciesOpened(e) {
+        e.preventDefault()
+        var element = document.getElementById("PMbuttonpc");
+        if (policiesDetOpened || element.classList.contains("pmButtonSelected")) {
+            setpoliciesDetOpened(false)
+            element.classList.remove("pmButtonSelected")
+        } else {
+            setpoliciesDetOpened(true)
+            element.classList.add("pmButtonSelected")
         }
     }
 
     return (
-        <Foot>
+        <Foot sx={{ paddingTop: { xs: '50px', md: '60px' } }}>
             <ButtonFill text={'Contact Us'} />
             <Instagram sx={{ color: '#08113b', my: '32px', fontSize: '32px' }} />
             <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' } }}>Follow us on</Typography>
-            <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' }, mb: '60px' }}>@gopat.official</Typography>
+            <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' }, mb: { xs: '50px', md: '60px' } }}>@gopat.official</Typography>
             <FootDesktop sx={{ display: { xs: 'none', md: 'flex' } }}>
                 <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex' }}>
                         <ExpDesktop>
-                            <Typography sx={{ fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' } }}>
+                            <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                                 About
                             </Typography>
                             <Typography sx={{
@@ -94,7 +95,7 @@ const Footer = () => {
                             </Typography>
                         </ExpDesktop>
                         <ExpDesktop>
-                            <Typography sx={{ fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' } }}>
+                            <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                                 Policies
                             </Typography>
                             <Typography sx={{
@@ -109,7 +110,7 @@ const Footer = () => {
                             </Typography>
                         </ExpDesktop>
                         <ExpDesktop>
-                            <Typography sx={{ fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' } }}>
+                            <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                                 Customer Service
                             </Typography>
                             <Typography sx={{
@@ -138,10 +139,10 @@ const Footer = () => {
             <FootMobile sx={{ display: { xs: 'flex', md: 'none' } }}>
                 <ExpMobile>
                     <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Typography sx={{ fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' } }}>
+                        <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                             Customer Service
                         </Typography>
-                        <button id="PMbuttoncs" className="pmButton" onClick={changeButtonClass}>
+                        <button id="PMbuttoncs" className="pmButton" onClick={changeCSOpened}>
                             <span></span>
                             <span></span>
                         </button>
@@ -164,10 +165,10 @@ const Footer = () => {
                 </ExpMobile>
                 <ExpMobile>
                     <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Typography sx={{ fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' } }}>
-                            Return & Exchange
+                        <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
+                            Policies
                         </Typography>
-                        <button id="PMbuttonpc" className="pmButton" onClick={changeButtonClass}>
+                        <button id="PMbuttonpc" className="pmButton" onClick={changePoliciesOpened}>
                             <span></span>
                             <span></span>
                         </button>
@@ -190,10 +191,10 @@ const Footer = () => {
                 </ExpMobile>
                 <ExpMobile>
                     <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Typography sx={{ fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' } }}>
+                        <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                             About
                         </Typography>
-                        <button id="PMbuttonAbout" className="pmButton" onClick={changeButtonClass}>
+                        <button id="PMbuttonAbout" className="pmButton" onClick={changeAboutOpened}>
                             <span></span>
                             <span></span>
                         </button>

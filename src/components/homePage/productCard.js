@@ -17,7 +17,7 @@ const ProductCard = () => {
                 width: '100%',
                 height: { xs: '160px', sm: '354px', md: '331px' },
             }} />
-            <Typography variant='h3' sx={{ mt: '16px', color: 'black', fontWeight: 'bold', fontSize: { xs: '12px', sm: '14px', md: '16px' }, }}>tishtar bangle</Typography>
+            <Typography variant='h3' sx={{ mt: '16px', color: 'black', fontWeight: '500', fontSize: { xs: '12px', sm: '14px', md: '16px' }, }}>tishtar bangle</Typography>
             <Typography variant="h6" sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999' }}>
                 0.07ct D, Silver 950, Unisex
             </Typography>

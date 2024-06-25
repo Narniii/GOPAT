@@ -1,39 +1,14 @@
-/* @font-face {
-  font-family: "Futura";
-  src: local("Futura"), url("./fonts/FuturaPTMedium.otf") format("opentype");
-} */
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
   font-family: "Futura";
-  src: local("Futura"),
-    url("./fonts/FuturaPTDemiOblique.otf") format("opentype"),
-    url("./fonts/FuturaPTExtraBold.otf") format("opentype"),
-    url("./fonts/FuturaPTExtraBoldOblique.otf") format("opentype"),
-    url("./fonts/FuturaPTHeavy.otf") format("opentype"),
-    url("./fonts/FuturaPTHeavyOblique.otf") format("opentype"),
-    url("./fonts/FuturaPTLight.otf") format("opentype"),
-    url("./fonts/FuturaPTLightOblique.otf") format("opentype"),
-    url("./fonts/FuturaPTMedium.otf") format("opentype"),
-    url("./fonts/FuturaPTMediumOblique.otf") format("opentype");
-  /* Add additional font formats if necessary */
-  /* Specify the correct path to the font files */
+  src: local("FuturaMedium"), url("./fonts/FuturaMedium.ttf") format("truetype");
 }
 body {
-  font-family: "Futura";
+    font-family: "Jost", sans-serif;
 }
-div {
-  font-family: "Futura";
-}
-p {
-  font-family: "Futura";
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Futura";
-}
+/* * {
+    font-family: "Futura", sans-serif;
+} */
 
 .App-header {
   background-color: #282c34;

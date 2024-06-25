@@ -9,7 +9,7 @@ const ButtonFill = ({ text, action }) => {
             display: 'flex', alignItems: 'center', textTransform: 'uppercase',
         }}
         onClick={action}>
-        <Typography>
+        <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '16px' }, }}>
             {text}
         </Typography>
     </Box>);
