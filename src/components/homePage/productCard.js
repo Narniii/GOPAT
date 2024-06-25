@@ -11,7 +11,7 @@ const CardImage = styled(Box)(({ theme }) => ({
 
 const ProductCard = () => {
     return (
-        <Card sx={{ gap: '6px', width: '100%' }}>
+        <Card sx={{ gap: { xs: '8px', sm: '12px', md: '16px' }, width: '100%' }}>
             <CardImage sx={{
                 // width: { xs: '160px', sm: '354px', md: '331px' },
                 width: '100%',

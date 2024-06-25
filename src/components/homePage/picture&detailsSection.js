@@ -40,7 +40,8 @@ const PicsAndDets = () => {
                     <Typography variant="p" sx={{
                         width: '320px',
                         overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
-                        textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999'
+                        textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' },
+                        fontStyle: 'italic', color: '#999999'
                     }}>
                         This mythological figure symbolizes the
                         protection and prosperity of livestock, which

@@ -221,7 +221,7 @@ const Footer = () => {
                 </ExpMobile>
                 <Box sx={{
                     width: '100%', color: '#999999', backgroundColor: '#f2f2f2',
-                    padding: '32px', boxSizing: 'border-box',
+                    padding: '16px', boxSizing: 'border-box',
                     display: 'flex', flexDirection: 'column',
                     alignItems: 'center', justifyContent: 'center', textAlign: 'center'
                 }}>

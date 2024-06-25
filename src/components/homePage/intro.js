@@ -3,7 +3,7 @@ import ButtonOutline from "../buttonOutline";
 import styled from "@emotion/styled/macro";
 import bangle from '../../assets/Landing.jpg'
 const Details = styled(Box)(({ theme }) => ({
-    display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '6px',
+    display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
 const Intro = () => {
     return (
@@ -18,11 +18,11 @@ const Intro = () => {
                 backgroundImage: `url(${bangle})`,
                 justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
-            <Details sx={{ mx: '60px', my: { xs: '50px', md: '60px' } }}>
+            <Details sx={{ mx: '60px', my: { xs: '50px', md: '60px' }, gap: { xs: '8px', sm: '12px', md: '16px' } }}>
                 <Typography variant="h1" sx={{ whiteSpace: 'nowrap', fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 600, color: '#000' }}>
                     Tishtar Unisex Bangle</Typography>
                 <Typography variant="h6" sx={{
-                    mb: '8px',
+                    // mb: '8px',
                     whiteSpace: 'nowrap', fontSize: { xs: '16px', sm: '18px', md: '18px' }, fontStyle: 'italic', color: '#999999'
                 }}>
                     In dialogue with Persepolis</Typography>
