@@ -3,6 +3,7 @@ import ButtonFill from "./buttonFill";
 import { Instagram } from "@mui/icons-material";
 import '../App.css';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Foot = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column',
@@ -19,12 +20,18 @@ const FootMobile = styled(Box)(({ theme }) => ({
 const ExpDesktop = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box',
     paddingRight: '32px', paddingLeft: '32px',
-    borderRight: '1px solid #999999', color: '#666666'
+    borderRight: '1px solid #999999', color: '#666666',
 }))
 const ExpMobile = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box',
     borderTop: '1px solid #999999', color: '#666666', width: '100%',
     padding: '12px'
+}))
+const Links = styled(Typography)(({ theme }) => ({
+    width: 'max-content',
+    color: '#666666', '&:hover': {
+        color: '#08113b'
+    }
 }))
 
 const Footer = () => {
@@ -68,7 +75,12 @@ const Footer = () => {
     return (
         <Foot sx={{ paddingTop: { xs: '50px', md: '60px' } }}>
             <ButtonFill text={'Contact Us'} />
-            <Instagram sx={{ color: '#08113b', my: '32px', fontSize: '32px' }} />
+            <Instagram sx={{
+                color: '#08113b', my: '32px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
+                '&:hover': {
+                    color: '#999999'
+                }
+            }} />
             <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' } }}>Follow us on</Typography>
             <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' }, mb: { xs: '50px', md: '60px' } }}>@gopat.official</Typography>
             <FootDesktop sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -78,51 +90,65 @@ const Footer = () => {
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                                 About
                             </Typography>
-                            <Typography sx={{
+                            <Links sx={{
+                                fontSize: { xs: '12px', md: '14px' },
+                            }}>
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    GOPAT team
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                GOPAT team
-                            </Typography>
-                            <Typography sx={{
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Diamond And Material
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Diamond And Material
-                            </Typography>
-                            <Typography sx={{
-                                fontSize: { xs: '12px', md: '14px' }
-                            }}>
-                                Find A Store
-                            </Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Find A Store
+                                </Link>
+                            </Links>
                         </ExpDesktop>
                         <ExpDesktop>
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                                 Policies
                             </Typography>
-                            <Typography sx={{
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Return & exchange
-                            </Typography>
-                            <Typography sx={{
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Return & exchange
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Deliveries timeline
-                            </Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Deliveries timeline
+                                </Link>
+                            </Links>
                         </ExpDesktop>
                         <ExpDesktop>
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                                 Customer Service
                             </Typography>
-                            <Typography sx={{
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Free Polishing
-                            </Typography>
-                            <Typography sx={{
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Free Polishing
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Gifting
-                            </Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Gifting
+                                </Link>
+                            </Links>
                         </ExpDesktop>
                     </Box>
                     <Typography variant="p" sx={{
@@ -150,16 +176,20 @@ const Footer = () => {
                     </Box>
                     {csDetOpened ?
                         <Box id="details-cs" sx={{ display: 'flex', flexDirection: 'column', transition: '500ms ease' }}>
-                            <Typography sx={{
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Free Polishing
-                            </Typography>
-                            <Typography sx={{
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Free Polishing
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Gifting
-                            </Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Gifting
+                                </Link>
+                            </Links>
                         </Box> : undefined
                     }
                 </ExpMobile>
@@ -175,16 +205,20 @@ const Footer = () => {
                     </Box>
                     {policiesDetOpened ?
                         <Box id="details-policies" sx={{ display: 'flex', flexDirection: 'column', transition: '500ms ease' }}>
-                            <Typography sx={{
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Return & Exchange
-                            </Typography>
-                            <Typography sx={{
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Return & Exchange
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Deliveries Timeline
-                            </Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Deliveries Timeline
+                                </Link>
+                            </Links>
                         </Box> : undefined
                     }
 
@@ -201,21 +235,27 @@ const Footer = () => {
                     </Box>
                     {aboutDetOpened ?
                         <Box id="details-about" sx={{ display: 'flex', flexDirection: 'column', transition: '500ms ease' }}>
-                            <Typography sx={{
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                GOPAT team
-                            </Typography>
-                            <Typography sx={{
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    GOPAT team
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Diamond And Material
-                            </Typography>
-                            <Typography sx={{
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Diamond And Material
+                                </Link>
+                            </Links>
+                            <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                Find A Store
-                            </Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Find A Store
+                                </Link>
+                            </Links>
                         </Box> : undefined
                     }
                 </ExpMobile>

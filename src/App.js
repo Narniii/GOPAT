@@ -21,6 +21,7 @@ import Footer from './components/footer';
 import './index.css';
 import { createTheme, ThemeProvider } from '@mui/material';
 import futura from "./fonts/FuturaMedium.ttf"
+import NotFound from './pages/notFound';
 function App() {
 
   const theme = createTheme({
@@ -45,6 +46,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>

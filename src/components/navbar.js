@@ -12,7 +12,7 @@ const Navbar = () => {
             padding: { xs: '16px', sm: '24px', md: '32px' }, boxSizing: 'border-box'
         }}>
             <Menu sx={{ color: 'white', fontSize: { xs: '16px', sm: '24px', md: '32px' }, justifySelf: 'start', cursor: 'pointer' }} />
-            <Box sx={{ width: '200px', height: '100px', backgroundImage: `url(${logo})`, justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }} />
+            <Box sx={{ width: { xs: '105px', md: '185px' }, height: '64px', backgroundImage: `url(${logo})`, justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }} />
             <Box />
         </Box>
     );
