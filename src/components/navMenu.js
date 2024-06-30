@@ -1,12 +1,10 @@
 import { Box, Drawer, List, Typography } from "@mui/material";
 import { useState } from "react";
 import { MenuTab, MenuTabOpenable } from "./menuTab";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavMenu = ({ open, setOpenMenu }) => {
-    const productsMenu = () => {
-
-    }
+    const navigate = useNavigate()
     const list = () => (
         <Box
             sx={{
@@ -20,11 +18,16 @@ const NavMenu = ({ open, setOpenMenu }) => {
             // onClick={() => setOpenMenu(false)}
             onKeyDown={() => setOpenMenu(false)}
         >
-            <MenuTab text={'Home'} />
+            <MenuTab text={'Home'} link={'/'} onClick={() => {
+                navigate('/')
+                setOpenMenu(false)
+            }} />
             <MenuTabOpenable text={'Products'}
                 children={
                     <Box sx={{ width: 'max-content', display: 'flex', flexDirection: 'column' }}>
-                        <Link style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }} to={'/collection/tishtar'}>
+                        <Link style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }}
+                            onClick={() => setOpenMenu(false)}
+                            to={'/collection/tishtar'}>
                             <Typography sx={{
                                 fontSize: '14px',
                                 color: '#666', '&:hover': {
@@ -35,12 +38,18 @@ const NavMenu = ({ open, setOpenMenu }) => {
                             </Typography>
                         </Link>
                     </Box>} />
-            <MenuTab text={'About'} />
-            <MenuTab text={'Contact'} />
+            <MenuTab text={'About'} link={'/about-us'} onClick={() => {
+                navigate('/about-us')
+                setOpenMenu(false)
+            }} />
+            <MenuTab text={'Contact'} link={'/contact-us'} onClick={() => {
+                navigate('/contact-us')
+                setOpenMenu(false)
+            }} />
             <MenuTab text={'Gopatron Service'} />
             <MenuTab text={'Blog'} />
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', width: '100%' }}>
-                <Typography sx={{ fontSize: '16px', color: 'black', fontWeight: 500 }}>
+                <Typography sx={{ fontSize: '16px', color: '#08113b', fontWeight: 500 }}>
                     English | Farsi
                 </Typography>
             </Box>

@@ -36,7 +36,7 @@ const PicsAndDets = () => {
                     justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                 }} />
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
-                    <Typography variant='h2' sx={{ color: 'black', fontWeight: '500', fontSize: { xs: '24px', sm: '28px', md: '32px' }, }}>GOPAT Mythology</Typography>
+                    <Typography variant='h2' sx={{ color: '#08113b', fontWeight: '500', fontSize: { xs: '24px', sm: '28px', md: '32px' }, }}>GOPAT Mythology</Typography>
                     <Typography variant="p" sx={{
                         width: '320px',
                         overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
@@ -65,7 +65,7 @@ const PicsAndDets = () => {
             }} />
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
                 <Typography variant='h2' sx={{
-                    color: 'black',
+                    color: '#08113b',
                     fontWeight: '500', fontSize: { xs: '24px', sm: '28px', md: '32px' },
                 }}>
                     Entrepreneurs</Typography>
@@ -109,7 +109,7 @@ const PicsAndDets = () => {
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
                 <Typography variant='h2' sx={{
-                    color: 'black', fontWeight: '500',
+                    color: '#08113b', fontWeight: '500',
                     fontSize: { xs: '24px', sm: '28px', md: '32px' },
                 }}>Diamonds</Typography>
                 <Typography variant="p" sx={{

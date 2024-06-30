@@ -19,7 +19,10 @@ const Intro = () => {
                 justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
             <Details sx={{ mx: '60px', my: { xs: '50px', md: '60px' }, gap: { xs: '8px', sm: '12px', md: '16px' } }}>
-                <Typography variant="h1" sx={{ whiteSpace: 'nowrap', fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 600, color: '#000' }}>
+                <Typography variant="h1" sx={{
+                    whiteSpace: 'nowrap',
+                    fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 600, color: '#08113b'
+                }}>
                     Tishtar Unisex Bangle</Typography>
                 <Typography variant="h6" sx={{
                     // mb: '8px',

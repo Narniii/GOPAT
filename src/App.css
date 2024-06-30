@@ -55,7 +55,7 @@ body {
 .pmButton span:first-child {
   top: 25%;
   bottom: 25%;
-  width: 2px;
+  width: 1px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -63,7 +63,7 @@ body {
 .pmButton span:last-child {
   left: 25%;
   right: 25%;
-  height: 2px;
+  height: 1px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -140,6 +140,6 @@ body {
   }
   &:hover {
     background-color: transparent;
-    color: black;
+    color: #08113b;
   }
 }

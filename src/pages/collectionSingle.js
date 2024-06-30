@@ -36,7 +36,7 @@ const CollectionSingle = () => {
             display: { xs: 'grid', md: 'flex' },
             flexDirection: 'column', gap: '32px',
             gridTemplateColumns: 'auto auto', rowGap: '16px', columnGap: '8px',
-            boxSizing: 'border-box', padding: { xs: '16px', sm: '24px', md: '32px' },
+            boxSizing: 'border-box', padding: { xs: '16px', sm: '24px', md: '64px' },
         }}>
             <ProductCard />
             <ProductCard />

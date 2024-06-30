@@ -22,11 +22,17 @@ export const MenuTabOpenable = ({ text, children }) => {
             display: 'flex', flexDirection: 'column', width: '100%',
             transition: '500ms ease', borderBottom: '1px solid #999'
         }}>
-            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '35px' }}>
-                <Typography sx={{ fontSize: '16px', color: 'black', fontWeight: 500 }}>
+            <Box
+                onClick={changeButtonClass}
+                sx={{
+                    width: '100%',
+                    cursor: 'pointer',
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '35px'
+                }}>
+                <Typography sx={{ fontSize: '16px', color: '#08113b', fontWeight: 500 }}>
                     {text}
                 </Typography>
-                <button id="PMbutton" className="pmButton" onClick={changeButtonClass}>
+                <button id="PMbutton" className="pmButton" >
                     <span></span>
                     <span></span>
                 </button>
@@ -42,11 +48,12 @@ export const MenuTab = ({ text, onClick, link }) => {
     return (
         <Box onClick={onClick}
             sx={{
+                cursor: 'pointer',
                 display: 'flex', justifyContent: 'start', alignItems: 'center',
                 borderBottom: '1px solid #999', height: '35px', width: '100%',
             }}>
-            <Link style={{ textDecoration: 'none', color: 'inherit', }}>
-                <Typography sx={{ fontSize: '16px', color: 'black', fontWeight: 500 }}>
+            <Link style={{ textDecoration: 'none', color: 'inherit', }} to={link}>
+                <Typography sx={{ fontSize: '16px', color: '#08113b', fontWeight: 500 }}>
                     {text}
                 </Typography>
             </Link>
