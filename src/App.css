@@ -108,12 +108,12 @@ body {
 
 #fill {
   position: relative;
-  border: none;
+  /* border: none; */
 
   &::before,
   &::after {
     content: "";
-    transition: 1000ms ease;
+    transition: 500ms ease;
     position: absolute;
     width: 0px;
     height: 0px;

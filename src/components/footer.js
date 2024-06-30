@@ -223,12 +223,14 @@ const Footer = () => {
                     }
 
                 </ExpMobile>
-                <ExpMobile>
-                    <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+                <ExpMobile >
+                    <Box
+                        onClick={changeAboutOpened}
+                        sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                             About
                         </Typography>
-                        <button id="PMbuttonAbout" className="pmButton" onClick={changeAboutOpened}>
+                        <button id="PMbuttonAbout" className="pmButton" >
                             <span></span>
                             <span></span>
                         </button>
