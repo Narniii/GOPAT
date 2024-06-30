@@ -62,7 +62,7 @@ const ProductCard = () => {
                         tishtar bangle</Typography>
                     <Typography
                         variant="h6"
-                        sx={{ my: '8px', whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
+                        sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
                         14.350.000 T
                     </Typography>
                 </Box>
