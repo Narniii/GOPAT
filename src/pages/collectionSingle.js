@@ -21,7 +21,7 @@ const CollectionSingle = () => {
                 backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
             <Details sx={{
-                mx: '60px',
+                mx: { xs: '32px', md: '100px' },
                 my: { xs: '50px', md: '60px' },
                 gap: { xs: '8px', sm: '12px', md: '16px' }
             }}>
