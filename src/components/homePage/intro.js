@@ -21,12 +21,13 @@ const Intro = () => {
             <Details sx={{ mx: '60px', my: { xs: '50px', md: '60px' }, gap: { xs: '8px', sm: '12px', md: '16px' } }}>
                 <Typography variant="h1" sx={{
                     whiteSpace: 'nowrap',
-                    fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 600, color: '#08113b'
+                    fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113b'
                 }}>
                     Tishtar Unisex Bangle</Typography>
                 <Typography variant="h6" sx={{
                     // mb: '8px',
-                    whiteSpace: 'nowrap', fontSize: { xs: '16px', sm: '18px', md: '18px' }, fontStyle: 'italic', color: '#999999'
+                    whiteSpace: 'nowrap',
+                    fontSize: { xs: '16px', sm: '18px', md: '18px' }, fontStyle: 'italic', color: '#999999'
                 }}>
                     In dialogue with Persepolis</Typography>
                 <ButtonOutline text={'Discover More'} />
