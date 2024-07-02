@@ -2,6 +2,7 @@ import { Box, Typography, styled } from "@mui/material";
 import stars from '../assets/stars.svg'
 import boutique from '../assets/boutique.svg'
 import hourglass from '../assets/hourglass.svg'
+import gopat from '../assets/Landing.jpg'
 import polish from '../assets/Polishing.svg'
 import durable from '../assets/Durable.svg'
 import ButtonOutline from "../components/buttonOutline";
@@ -24,24 +25,25 @@ const DesktopImage = styled(Box)(({ theme }) => ({
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
     backgroundColor: '#999',
     width: '100%',
-    height: 'calc(100vh - 188px) !important',
+    height: 'calc(100vh - 188px)',
+    height: '840px',
 }))
 const DesktopImagesScroll = styled(Box)(({ theme }) => ({
-    display: 'flex', flexDirection: 'column', flexWrap: 'nowrap !important',
+    // display: 'flex', flexDirection: 'column', flexWrap: 'nowrap',
     boxSizing: 'border-box', gap: '8px',
     width: '100%',
     // height: '100%',
-    // height: 'calc(100vh - 188px)',
-    // overflowY: 'scroll !important',
-    // '&::-webkit-scrollbar': {
-    //     display: 'none',
-    // },
-    // '&::-webkit-scrollbar-thumb': {
-    //     display: 'none',
-    // },
-    // '&::-webkit-scrollbar-button': {
-    //     display: 'none',
-    // },
+    height: '840px',
+    overflowY: 'scroll',
+    '&::-webkit-scrollbar': {
+        display: 'none',
+    },
+    '&::-webkit-scrollbar-thumb': {
+        display: 'none',
+    },
+    '&::-webkit-scrollbar-button': {
+        display: 'none',
+    },
 }))
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', boxSizing: 'border-box',
@@ -76,9 +78,21 @@ const ProductSingle = () => {
             position: 'relative',
         }}>
             <DesktopImagesScroll>
-                <DesktopImage />
-                <DesktopImage />
-                <DesktopImage />
+                <Box sx={{
+                    display: 'flex', flexDirection: 'column', flexWrap: 'nowrap',
+                    boxSizing: 'border-box', gap: '8px',
+                    width: '100%',
+                }}>
+                    <DesktopImage sx={{
+                        backgroundImage: `url(${gopat})`,
+                    }} />
+                    <DesktopImage sx={{
+                        backgroundImage: `url(${stars})`,
+                    }} />
+                    <DesktopImage sx={{
+                        backgroundImage: `url(${gopat})`,
+                    }} />
+                </Box>
             </DesktopImagesScroll>
             <Details
             // sx={{
