@@ -25,7 +25,7 @@ const DesktopImage = styled(Box)(({ theme }) => ({
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
     backgroundColor: '#999',
     width: '100%',
-    height: 'calc(100vh - 188px)',
+    // height: 'calc(100vh - 188px)',
     height: '840px',
 }))
 const DesktopImagesScroll = styled(Box)(({ theme }) => ({
@@ -33,6 +33,7 @@ const DesktopImagesScroll = styled(Box)(({ theme }) => ({
     boxSizing: 'border-box', gap: '8px',
     width: '100%',
     // height: '100%',
+    // height: 'calc(100vh - 188px)',
     height: '840px',
     overflowY: 'scroll',
     '&::-webkit-scrollbar': {
@@ -64,6 +65,38 @@ const ExtraImageIcon = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
 }))
+const MobileImage = styled(Box)(({ theme }) => ({
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
+    backgroundColor: '#999',
+    width: '100vw',
+    // height: 'calc(100vh - 188px)',
+    height: '100%',
+}))
+const MobileImagesScroll = styled(Box)(({ theme }) => ({
+    boxSizing: 'border-box',
+    width: '100%',
+    height: 'calc(100vh - 70px)',
+    overflowY: 'hidden',
+    overflowX: 'scroll',
+    '&::-webkit-scrollbar': {
+        // display: 'none',
+        background: 'transparent',
+        height: '8px',
+        width: '8px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+        height: '8px',
+        width: '8px',
+        background: '#08113b',
+        color: '#08113b',
+        border: 'none',
+        borderRadius: '0px'
+    },
+    '&::-webkit-scrollbar-button': {
+        display: 'none'
+    },
+}))
 
 
 const ProductSingle = () => {
@@ -75,7 +108,6 @@ const ProductSingle = () => {
         <Box sx={{
             width: '100%', flexWrap: 'nowrap',
             display: { xs: 'none', md: 'flex' },
-            position: 'relative',
         }}>
             <DesktopImagesScroll>
                 <Box sx={{
@@ -185,6 +217,32 @@ const ProductSingle = () => {
         </Box>
 
         {/* mobile */}
+        <Box sx={{
+            display: 'flex', flexDirection: 'column',
+            width: '100%',
+            display: { xs: 'flex', sm: 'none' },
+        }}>
+            <MobileImagesScroll>
+                <Box sx={{
+                    display: 'flex',
+                    height: '100%',
+                    boxSizing: 'border-box',
+                    width: 'max-content', flexWrap: 'nowrap'
+                }}>
+                    <MobileImage sx={{
+                        backgroundImage: `url(${gopat})`,
+                    }} />
+                    <MobileImage />
+                    <MobileImage sx={{
+                        backgroundImage: `url(${gopat})`,
+                    }} />
+                </Box>
+            </MobileImagesScroll>
+        </Box>
+
+
+
+
 
 
         <StarSection sx={{
