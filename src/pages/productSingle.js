@@ -2,7 +2,9 @@ import { Box, Typography, styled } from "@mui/material";
 import stars from '../assets/stars.svg'
 import boutique from '../assets/boutique.svg'
 import hourglass from '../assets/hourglass.svg'
-import gopat from '../assets/Landing.jpg'
+import product from '../assets/product.svg'
+import product1 from '../assets/product1.svg'
+import product2 from '../assets/product2.svg'
 import polish from '../assets/Polishing.svg'
 import durable from '../assets/Durable.svg'
 import ButtonOutline from "../components/buttonOutline";
@@ -48,7 +50,11 @@ const DesktopImagesScroll = styled(Box)(({ theme }) => ({
 }))
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', boxSizing: 'border-box',
-    justifyContent: 'start', alignItems: 'center', padding: '0 32px'
+    justifyContent: 'start', alignItems: 'center', width: 'max-content',
+    "@media (max-width: 900px)": {
+        width: '100%'
+    },
+
 }))
 const LineDesktp = styled(Box)(({ theme }) => ({
     height: '1px', backgroundColor: '#b3b3b3'
@@ -76,7 +82,7 @@ const MobileImage = styled(Box)(({ theme }) => ({
 const MobileImagesScroll = styled(Box)(({ theme }) => ({
     boxSizing: 'border-box',
     width: '100%',
-    height: 'calc(100vh - 70px)',
+    // height: 'calc(100vh - 70px)',
     overflowY: 'hidden',
     overflowX: 'scroll',
     '&::-webkit-scrollbar': {
@@ -104,125 +110,37 @@ const ProductSingle = () => {
         padding: { xs: '0 0 50px', md: '60px 32px' },
         display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: '100%', alignItems: 'center'
     }}>
-        {/* desktop  */}
         <Box sx={{
+            display: 'flex', flexDirection: { xs: 'column', md: 'row' },
             width: '100%', flexWrap: 'nowrap',
-            display: { xs: 'none', md: 'flex' },
+            display: 'flex',
         }}>
-            <DesktopImagesScroll>
+            <DesktopImagesScroll sx={{
+                display: { xs: 'none', md: 'block' }
+            }}>
                 <Box sx={{
                     display: 'flex', flexDirection: 'column', flexWrap: 'nowrap',
                     boxSizing: 'border-box', gap: '8px',
                     width: '100%',
                 }}>
                     <DesktopImage sx={{
-                        backgroundImage: `url(${gopat})`,
+                        backgroundImage: `url(${product2})`,
                     }} />
                     <DesktopImage sx={{
-                        backgroundImage: `url(${stars})`,
+                        backgroundImage: `url(${product1})`,
                     }} />
                     <DesktopImage sx={{
-                        backgroundImage: `url(${gopat})`,
+                        backgroundImage: `url(${product})`,
                     }} />
                 </Box>
             </DesktopImagesScroll>
-            <Details
-            // sx={{
-            //     position: 'sticky', right: '0',
-            // }}
-            >
-                <Typography variant="h1" sx={{
-                    whiteSpace: 'nowrap', mt: '50px',
-                    fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500,
-                    color: '#08113b'
-                }}>
-                    Tishtar Necklace
-                </Typography>
-                <Typography variant="p" sx={{
-                    whiteSpace: 'nowrap',
-                    fontSize: { xs: '14px', sm: '16px', md: '16px' }, fontWeight: 400,
-                    color: '#b3b3b3'
-                }}>
-                    0.07ct Diamond, 925 Silver
-                </Typography>
-                <Typography variant="p" sx={{
-                    whiteSpace: 'nowrap', my: '32px',
-                    fontSize: { xs: '16px', sm: '16px', md: '18px' }, fontWeight: 500,
-                    color: '#08113b'
-                }}>
-                    16,064,000 T
-                </Typography>
-                <ButtonWhatsapp maxwidth={'290px'} width={'100%'} mb={'8px'} />
-                <ButtonFillIcon maxwidth={'290px'} width={'100%'} icon={boutique} text={'Find A Boutique'} />
-                <LineDesktp sx={{ width: { md: '100%', lg: '490px' }, my: '32px' }} />
-                <Box sx={{
-                    boxSizing: 'border-box', px: { md: '24px', lg: '32px' },
-                    display: 'flex', flexDirection: 'column', mb: '16px',
-                    width: '100%', gap: { xs: '8px', sm: '16px', md: '16px' }
-                }}>
-                    <Typography variant="p" sx={{
-                        whiteSpace: 'nowrap',
-                        fontSize: { xs: '14px', sm: '16px', md: '16px' }, fontWeight: 400,
-                        color: '#b3b3b3', borderBottom: '1px solid #b3b3b3',
-                        pb: { xs: '8px', sm: '16px', md: '16px' }
-                    }}>
-                        Craftmanship Info
-                    </Typography>
-                    <MenuTabOpenable text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-                    <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-                    <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-                    <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-                </Box>
-                <Box sx={{
-                    boxSizing: 'border-box', px: { md: '24px', lg: '32px' },
-                    display: 'flex', flexDirection: 'row', mb: '16px',
-                    width: '100%', gap: '32px', justifyContent: 'center'
-                }}>
-                    <DetailsExtra>
-                        <ExtraImage>
-                            <ExtraImageIcon sx={{ backgroundImage: `url(${hourglass})`, width: '32px', height: '32px' }} />
-                        </ExtraImage>
-                        <Typography sx={{
-                            fontSize: '14px',
-                            color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
-                        }}>
-                            Timeless
-                            Design
-                        </Typography>
-                    </DetailsExtra>
-                    <DetailsExtra>
-                        <ExtraImage>
-                            <ExtraImageIcon sx={{ backgroundImage: `url(${polish})`, width: '32px', height: '32px' }} />
-                        </ExtraImage>
-                        <Typography sx={{
-                            fontSize: '14px',
-                            color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
-                        }}>
-                            Free Polishing
-                        </Typography>
-                    </DetailsExtra>
-                    <DetailsExtra>
-                        <ExtraImage>
-                            <ExtraImageIcon sx={{ backgroundImage: `url(${durable})`, width: '32px', height: '32px' }} />
-                        </ExtraImage>
-                        <Typography sx={{
-                            fontSize: '14px',
-                            color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
-                        }}>
-                            Durable Material
-                        </Typography>
-                    </DetailsExtra>
-                </Box>
-            </Details>
-        </Box>
 
-        {/* mobile */}
-        <Box sx={{
-            display: 'flex', flexDirection: 'column',
-            width: '100%',
-            display: { xs: 'flex', sm: 'none' },
-        }}>
-            <MobileImagesScroll>
+            <MobileImagesScroll
+                sx={{
+                    display: { xs: 'block', md: 'none' },
+                    // height: { xs: 'calc(100vh - 70px)', sm: 'calc(100vh - 80px)' },
+                    height: '420px'
+                }}>
                 <Box sx={{
                     display: 'flex',
                     height: '100%',
@@ -230,14 +148,119 @@ const ProductSingle = () => {
                     width: 'max-content', flexWrap: 'nowrap'
                 }}>
                     <MobileImage sx={{
-                        backgroundImage: `url(${gopat})`,
+                        backgroundImage: `url(${product2})`,
                     }} />
-                    <MobileImage />
                     <MobileImage sx={{
-                        backgroundImage: `url(${gopat})`,
+                        backgroundImage: `url(${product1})`,
+                    }} />
+                    <MobileImage sx={{
+                        backgroundImage: `url(${product})`,
                     }} />
                 </Box>
             </MobileImagesScroll>
+
+            <Details
+                sx={{
+                    // position: 'sticky', right: '0',
+                    padding: { xs: '0px', md: '0px 32px' }
+                }}
+            >
+                <Details
+                    sx={{
+                        padding: { xs: '0px 16px', sm: '0px 24px', md: '0px' }
+                    }}
+                >
+                    <Typography variant="h1" sx={{
+                        whiteSpace: 'nowrap', mt: '50px',
+                        fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500,
+                        color: '#08113b'
+                    }}>
+                        Tishtar Necklace
+                    </Typography>
+                    <Typography variant="p" sx={{
+                        whiteSpace: 'nowrap',
+                        fontSize: { xs: '14px', sm: '16px', md: '16px' }, fontWeight: 400,
+                        color: '#b3b3b3'
+                    }}>
+                        0.07ct Diamond, 925 Silver
+                    </Typography>
+                    <Typography variant="p" sx={{
+                        whiteSpace: 'nowrap', my: { xs: '16px', sm: '24px', md: '32px' },
+                        fontSize: { xs: '16px', sm: '16px', md: '18px' }, fontWeight: 500,
+                        color: '#08113b'
+                    }}>
+                        16,064,000 T
+                    </Typography>
+                    <ButtonWhatsapp maxwidth={'290px'} width={'100%'} mb={'8px'} />
+                    <ButtonFillIcon maxwidth={'290px'} width={'100%'} icon={boutique} text={'Find A Boutique'} />
+                </Details>
+                <LineDesktp sx={{ width: '100%', my: '32px' }} />
+                <Details
+                    sx={{
+                        padding: { xs: '0px 16px', sm: '0px 24px', md: '0px' }
+                    }}
+                >
+                    <Box sx={{
+                        boxSizing: 'border-box', px: { md: '24px', lg: '32px' },
+                        display: 'flex', flexDirection: 'column', mb: '16px',
+                        width: '100%', gap: { xs: '8px', sm: '16px', md: '16px' }
+                    }}>
+                        <Typography variant="p" sx={{
+                            whiteSpace: 'nowrap',
+                            fontSize: { xs: '14px', sm: '16px', md: '16px' }, fontWeight: 400,
+                            color: '#b3b3b3', borderBottom: '1px solid #b3b3b3',
+                            pb: { xs: '16px', sm: '16px', md: '16px' }
+                        }}>
+                            Craftmanship Info
+                        </Typography>
+                        <MenuTabOpenable text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+                        <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+                        <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+                        <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+                    </Box>
+                    <Box sx={{
+                        boxSizing: 'border-box', px: { md: '24px', lg: '32px' },
+                        display: 'flex', flexDirection: 'row', mb: '16px',
+                        width: '100%', gap: '32px', justifyContent: 'center'
+                    }}>
+                        <DetailsExtra>
+                            <ExtraImage>
+                                <ExtraImageIcon sx={{ backgroundImage: `url(${hourglass})`, width: '32px', height: '32px' }} />
+                            </ExtraImage>
+                            <Typography sx={{
+                                fontSize: '14px',
+                                color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
+                            }}>
+                                Timeless
+                                Design
+                            </Typography>
+                        </DetailsExtra>
+                        <DetailsExtra>
+                            <ExtraImage>
+                                <ExtraImageIcon sx={{ backgroundImage: `url(${polish})`, width: '32px', height: '32px' }} />
+                            </ExtraImage>
+                            <Typography sx={{
+                                fontSize: '14px',
+                                color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
+                            }}>
+                                Free Polishing
+                            </Typography>
+                        </DetailsExtra>
+                        <DetailsExtra>
+                            <ExtraImage>
+                                <ExtraImageIcon sx={{ backgroundImage: `url(${durable})`, width: '32px', height: '32px' }} />
+                            </ExtraImage>
+                            <Typography sx={{
+                                fontSize: '14px',
+                                color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
+                            }}>
+                                Durable Material
+                            </Typography>
+                        </DetailsExtra>
+                    </Box>
+                </Details>
+            </Details>
+
         </Box>
 
 
@@ -274,7 +297,7 @@ const ProductSingle = () => {
             </Box>
         </StarSection>
 
-    </Box>);
+    </Box >);
 }
 
 export default ProductSingle;

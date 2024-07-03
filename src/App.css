@@ -43,6 +43,7 @@ body {
   font-size: 16px;
   position: relative;
   cursor: pointer;
+  padding: 0;
 }
 .pmButton span {
   position: absolute;
@@ -143,3 +144,11 @@ body {
     color: #08113b;
   }
 }
+
+/* 
+@media only screen and (max-width: 600px) {
+  .pmButton {
+    width: 16px;
+    height: 16px;
+  }
+} */
