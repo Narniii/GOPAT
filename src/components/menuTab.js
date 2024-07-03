@@ -21,6 +21,7 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
             display: 'flex', flexDirection: 'column', width: '100%',
             transition: '500ms ease', borderBottom: '1px solid #b3b3b3',
             py: py ? py : 'unset',
+            pb: pb ? pb : 'unset'
         }}>
             <Box
                 onClick={changeButtonClass}
@@ -28,7 +29,6 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
                     width: '100%',
                     cursor: 'pointer',
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '35px',
-                    pb: pb ? pb : 'unset'
                 }}>
                 <Typography sx={{ fontSize: '16px', color: '#08113b', fontWeight: 500 }}>
                     {text}

@@ -162,7 +162,7 @@ const ProductSingle = () => {
             <Details
                 sx={{
                     // position: 'sticky', right: '0',
-                    padding: { xs: '0px', md: '0px 32px' }
+                    padding: { xs: '0px', md: '0px 24px', lg: '0px 32px' }
                 }}
             >
                 <Details
