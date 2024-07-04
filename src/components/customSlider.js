@@ -11,7 +11,7 @@ function SampleNextArrow(props) {
         <Box
             sx={{
                 display: "flex",
-                background: '#666666',
+                background: '#999',
                 width: 'max-content',
                 height: 'max-content',
                 borderRadius: '50%',
@@ -22,7 +22,8 @@ function SampleNextArrow(props) {
                 , zIndex: 999,
                 // transform: 'translateY(-100%)',
                 top: '35%',
-                p: '5px'
+                p: '5px',
+                opacity: '0.7'
             }}
             onClick={onClick}
         >
@@ -37,7 +38,7 @@ function SamplePrevArrow(props) {
         <Box
             sx={{
                 display: "flex",
-                background: '#666666',
+                background: '#999',
                 width: 'max-content',
                 height: 'max-content',
                 borderRadius: '50%',
@@ -48,7 +49,8 @@ function SamplePrevArrow(props) {
                 , zIndex: 999,
                 // transform: 'translateY(-100%)',
                 top: '35%',
-                p: '5px'
+                p: '5px',
+                opacity: '0.7'
             }}
             onClick={onClick}
         >

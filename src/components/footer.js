@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Foot = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column',
-    borderTop: '1px solid #999999',
+    borderTop: '1px solid #b3b3b3',
     justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box',
     //  paddingTop: '60px'
 }))
@@ -29,7 +29,7 @@ const ExpMobile = styled(Box)(({ theme }) => ({
 }))
 const Links = styled(Typography)(({ theme }) => ({
     width: 'max-content',
-    color: '#666666', '&:hover': {
+    color: '#999', '&:hover': {
         color: '#08113b'
     }
 }))
@@ -76,7 +76,7 @@ const Footer = () => {
         <Foot sx={{ paddingTop: { xs: '50px', md: '60px' } }}>
             <ButtonFill text={'Contact Us'} />
             <Instagram sx={{
-                color: '#08113b', my: '32px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
+                color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
                 '&:hover': {
                     color: '#999999'
                 }
@@ -158,7 +158,7 @@ const Footer = () => {
                         Nation: International (EN) | Iran (FA)
                     </Typography>
                 </Box>
-                <Typography sx={{ color: '#999999', textAlign: 'center' }}>
+                <Typography sx={{ color: '#999999', textAlign: 'center', fontSize: '14px' }}>
                     Copyright GOPAT fine jewelry. All rights reserved.
                 </Typography>
             </FootDesktop>
@@ -267,10 +267,10 @@ const Footer = () => {
                     display: 'flex', flexDirection: 'column',
                     alignItems: 'center', justifyContent: 'center', textAlign: 'center'
                 }}>
-                    <Typography>
+                    <Typography sx={{ fontSize: '12px' }}>
                         Copyright GOPAT fine jewelry.
                     </Typography>
-                    <Typography>
+                    <Typography sx={{ fontSize: '12px' }}>
                         All rights reserved.
                     </Typography>
                 </Box>

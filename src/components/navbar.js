@@ -10,18 +10,18 @@ const Navbar = () => {
         <>
             <Box sx={{
                 bgcolor: '#08113b',
-                // width: '100%',
-                height: { xs: '70px', sm: '80px', md: '120px' }, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: { xs: '16px', sm: '24px', md: '32px' }, boxSizing: 'border-box'
+                height: { xs: '50px', sm: '50px', md: '60px' }, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: { xs: '0 16px', sm: '0 24px', md: '0 32px' }, boxSizing: 'border-box'
             }}>
                 <Menu
                     onClick={() => setOpenMenu(!openMenu)}
                     sx={{
-                        color: 'white', fontSize: { xs: '16px', sm: '24px', md: '32px' },
+                        color: 'white', fontSize: { xs: '24px', sm: '24px', md: '32px' },
                         justifySelf: 'start', cursor: 'pointer'
                     }} />
                 <Box sx={{
-                    width: { xs: '105px', md: '185px' }, height: '64px',
+                    width: { xs: '80px', sm: '90px', md: '105px' },
+                    height: '40px',
                     backgroundImage: `url(${logo})`,
                     justifySelf: 'center',
                     backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'

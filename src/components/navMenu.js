@@ -8,7 +8,8 @@ const NavMenu = ({ open, setOpenMenu }) => {
     const list = () => (
         <Box
             sx={{
-                width: { xs: '100%', md: '500px' }, height: { xs: 'calc(100vh - 70px)', sm: 'calc(100vh - 80px)', md: 'calc(100vh - 120px)' },
+                width: { xs: '100%', md: '500px' },
+                height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
                 boxSizing: 'border-box',
                 padding: { xs: '8px', sm: '24px', md: '32px' },
                 gap: { xs: '8px', sm: '16px', md: '16px' },
@@ -62,8 +63,8 @@ const NavMenu = ({ open, setOpenMenu }) => {
         PaperProps={{
             sx: {
                 width: { xs: '100%', md: '500px' },
-                height: { xs: 'calc(100vh - 70px)', sm: 'calc(100vh - 80px)', md: 'calc(100vh - 120px)' },
-                top: { xs: '70px', sm: '80px', md: '120px' },
+                height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
+                top: { xs: '50px', sm: '50px', md: '60px' },
                 transitionDuration: '500ms'
             }
         }}

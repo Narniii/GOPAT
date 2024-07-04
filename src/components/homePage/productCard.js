@@ -6,16 +6,17 @@ const Card = styled(Box)(({ theme }) => ({
 const CardImage = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundColor: '#999999',
+    backgroundColor: '#b3b3b3',
 }))
 
 const ProductCard = () => {
     return (
-        <Card sx={{ gap: { xs: '8px', sm: '12px', md: '16px' }, width: '100%' }}>
+        <Card sx={{ width: '100%' }}>
             <CardImage sx={{
+                aspectRatio: '1/1',
                 // width: { xs: '160px', sm: '354px', md: '331px' },
-                width: '100%',
-                height: { xs: '160px', sm: '354px', md: '331px' },
+                // width: '100%',
+                // height: { xs: '160px', sm: '354px', md: '331px' },
             }} />
             <Typography variant='h3' sx={{
                 mt: '16px',
@@ -29,7 +30,7 @@ const ProductCard = () => {
                 0.07ct D, Silver 950, Unisex
             </Typography>
             <Typography variant="h6"
-                sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#999999' }}>
+                sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
                 14.350.000 T
             </Typography>
 

@@ -26,31 +26,33 @@ const DesktopImage = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
     backgroundColor: '#999',
-    width: '100%',
+    // width: '100%',
     // height: 'calc(100vh - 188px)',
-    height: '840px',
+    // height: '840px',
+    aspectRatio: '1/1'
+
 }))
 const DesktopImagesScroll = styled(Box)(({ theme }) => ({
-    // display: 'flex', flexDirection: 'column', flexWrap: 'nowrap',
+    flexDirection: 'column',
+    // flexWrap: 'nowrap',
     boxSizing: 'border-box', gap: '8px',
     width: '100%',
-    // height: '100%',
-    // height: 'calc(100vh - 188px)',
-    height: '840px',
-    overflowY: 'scroll',
-    '&::-webkit-scrollbar': {
-        display: 'none',
-    },
-    '&::-webkit-scrollbar-thumb': {
-        display: 'none',
-    },
-    '&::-webkit-scrollbar-button': {
-        display: 'none',
-    },
+    // height: 'calc(100vh - 128px)',
+    // overflowY: 'scroll',
+    // '&::-webkit-scrollbar': {
+    //     display: 'none',
+    // },
+    // '&::-webkit-scrollbar-thumb': {
+    //     display: 'none',
+    // },
+    // '&::-webkit-scrollbar-button': {
+    //     display: 'none',
+    // },
 }))
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', boxSizing: 'border-box',
     justifyContent: 'start', alignItems: 'center', width: 'max-content',
+    width: '100%',
     "@media (max-width: 900px)": {
         width: '100%'
     },
@@ -78,6 +80,7 @@ const MobileImage = styled(Box)(({ theme }) => ({
     width: '100vw',
     // height: 'calc(100vh - 188px)',
     height: '100%',
+    aspectRatio: '1/1'
 }))
 const MobileImagesScroll = styled(Box)(({ theme }) => ({
     boxSizing: 'border-box',
@@ -107,16 +110,29 @@ const MobileImagesScroll = styled(Box)(({ theme }) => ({
 
 const ProductSingle = () => {
     return (<Box sx={{
-        padding: { xs: '0 0 50px', md: '60px 32px' },
+        padding: { xs: '0 0 50px', md: '32px' },
         display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: '100%', alignItems: 'center'
     }}>
         <Box sx={{
             display: 'flex', flexDirection: { xs: 'column', md: 'row' },
             width: '100%', flexWrap: 'nowrap',
-            display: 'flex',
+            height: { xs: 'unset', md: 'calc(100vh - 128px)' },
+            overflowY: 'scroll',
+            overflowX: 'hidden',
+            '&::-webkit-scrollbar': {
+                display: 'none',
+            },
+            '&::-webkit-scrollbar-thumb': {
+                display: 'none'
+            },
+            '&::-webkit-scrollbar-button': {
+                display: 'none'
+            },
+
         }}>
             <DesktopImagesScroll sx={{
-                display: { xs: 'none', md: 'block' }
+                display: { xs: 'none', md: 'block' },
+                // position: 'relative',
             }}>
                 <Box sx={{
                     display: 'flex', flexDirection: 'column', flexWrap: 'nowrap',
@@ -161,8 +177,20 @@ const ProductSingle = () => {
 
             <Details
                 sx={{
-                    // position: 'sticky', right: '0',
-                    padding: { xs: '0px', md: '0px 24px', lg: '0px 32px' }
+                    position: { xs: 'unset', md: 'sticky' }, right: '0', top: '0',
+                    padding: { xs: '0px', md: '0px 24px', lg: '0px 32px' },
+                    width: '100%', height: '100%',
+                    overflowY: 'scroll',
+                    overflowX: 'hidden',
+                    '&::-webkit-scrollbar': {
+                        display: 'none',
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                        display: 'none'
+                    },
+                    '&::-webkit-scrollbar-button': {
+                        display: 'none'
+                    },
                 }}
             >
                 <Details
@@ -185,7 +213,7 @@ const ProductSingle = () => {
                         0.07ct Diamond, 925 Silver
                     </Typography>
                     <Typography variant="p" sx={{
-                        whiteSpace: 'nowrap', my: { xs: '16px', sm: '24px', md: '32px' },
+                        whiteSpace: 'nowrap', my: { xs: '16px', sm: '16px', md: '16px' },
                         fontSize: { xs: '16px', sm: '16px', md: '18px' }, fontWeight: 500,
                         color: '#08113b'
                     }}>
@@ -202,21 +230,21 @@ const ProductSingle = () => {
                 >
                     <Box sx={{
                         boxSizing: 'border-box', px: { md: '24px', lg: '32px' },
-                        display: 'flex', flexDirection: 'column', mb: '16px',
-                        width: '100%', gap: { xs: '8px', sm: '16px', md: '16px' }
+                        display: 'flex', flexDirection: 'column', mb: '8px',
+                        width: '100%', gap: { xs: '8px', sm: '8px', md: '8px' }
                     }}>
                         <Typography variant="p" sx={{
                             whiteSpace: 'nowrap',
                             fontSize: { xs: '14px', sm: '16px', md: '16px' }, fontWeight: 400,
                             color: '#b3b3b3', borderBottom: '1px solid #b3b3b3',
-                            pb: { xs: '16px', sm: '16px', md: '16px' }
+                            pb: { xs: '8px', sm: '8px', md: '8px' }
                         }}>
                             Craftmanship Info
                         </Typography>
-                        <MenuTabOpenable text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-                        <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-                        <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-                        <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+                        <MenuTabOpenable text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
+                        <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
+                        <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
+                        <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
                     </Box>
                     <Box sx={{
                         boxSizing: 'border-box', px: { md: '24px', lg: '32px' },
@@ -260,11 +288,7 @@ const ProductSingle = () => {
                     </Box>
                 </Details>
             </Details>
-
         </Box>
-
-
-
 
 
 

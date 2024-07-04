@@ -9,36 +9,44 @@ import diamondRough from '../../assets/Rough-Diamond.jpg'
 const PicsAndDets = () => {
     return (<Box sx={{
         display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',
-        width: '100%', px: { xs: '16px', sm: '24px', md: '32px' }, boxSizing: 'border-box', my: { xs: '50px', md: '60px' },
+        width: '100%', px: { xs: '16px', sm: '24px', md: '32px' }, boxSizing: 'border-box', mb: { xs: '50px', md: '60px' },
     }}>
         {/* section one */}
         <Box sx={{
-            display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: '32px',
+            display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: '16px',
             width: '100%', justifyContent: { xs: 'unset', sm: 'center' }
         }}>
             <Box sx={{
-                height: { xs: '437px', sm: '421px', md: '814px' },
-                width: { xs: '100%', sm: '317px !important', md: '610px !important' }, mt: '32px',
+                // height: { xs: '437px', sm: '421px', md: '700px', lg: '814px' },
+                // maxWidth: { xs: '100%', sm: '317px', md: '500px', lg: '610px' },
+                width: '100%',
+                display: 'block',
+                aspectRatio: '3/4',
+                mt: { xs: '0', md: '32px' },
                 backgroundImage: `url(${gopat})`,
-                justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
+                justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain'
             }} />
             <Box sx={{
-                display: 'flex', flexDirection: 'column', gap: { xs: '24px', md: '60px' },
-                width: { xs: '100%', sm: '100%', lg: 'calc(100% - 610px)' },
+                display: 'flex', flexDirection: 'column', gap: { xs: '32px', md: '32px' },
+                // width: { xs: '100%', sm: '100%', lg: 'calc(100% - 610px)' },
                 // width: { xs: '100%', sm: 'calc(100% - 317px)', md: '100%', md: 'calc(100% - 610px)' },
             }}>
                 <Box sx={{
                     // width: { xs: '0', sm: '383px', md: '731px' },
-                    width: { xs: '0', sm: '100%', md: '100%' },
-                    height: { xs: '0', sm: '378px', md: '548px' },
+                    // width: { xs: '0', sm: '100%', md: '100%' },
+                    // height: { xs: '0', sm: '378px', md: '548px' },
+                    width: '100%',
+                    aspectRatio: '4/3',
                     display: { xs: 'none', sm: 'block' },
                     backgroundImage: `url(${jamshid})`,
                     justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                 }} />
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
-                    <Typography variant='h2' sx={{ color: '#08113b', fontWeight: '500', fontSize: { xs: '24px', sm: '28px', md: '32px' }, }}>GOPAT Mythology</Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+                    <Typography variant='h2'
+                        sx={{ color: '#08113b', fontWeight: '500', fontSize: { xs: '20px', sm: '22px', md: '24px' }, }}>GOPAT Mythology</Typography>
                     <Typography variant="p" sx={{
-                        width: '320px',
+                        px: '16px', boxSizing: 'border-box',
+                        width: '100%',
                         overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
                         textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' },
                         fontStyle: 'italic', color: '#999999'
@@ -55,24 +63,26 @@ const PicsAndDets = () => {
         {/* section two */}
         <Box sx={{
             display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
-            gap: { xs: '24px', md: '60px' }, mt: { xs: '24px', sm: '32px', md: '60px' }, width: '100%'
+            gap: { xs: '32px', md: '32px' }, mt: { xs: '32px', sm: '50px', md: '60px' }, width: '100%'
         }}>
             <Box sx={{
                 width: { xs: '100%', sm: '320px', md: '610px' },
-                height: { xs: '437px', sm: '420px', md: '814px' },
-                backgroundImage: `url(${nader})`,
+                // height: { xs: '437px', sm: '420px', md: '814px' },
+                backgroundImage: `url(${nader})`, aspectRatio: '3/4',
                 justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
                 <Typography variant='h2' sx={{
                     color: '#08113b',
-                    fontWeight: '500', fontSize: { xs: '24px', sm: '28px', md: '32px' },
+                    fontWeight: '500', fontSize: { xs: '20px', sm: '22px', md: '24px' },
                 }}>
                     Entrepreneurs</Typography>
                 <Typography variant="p" sx={{
-                    width: '320px', overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
+                    width: { xs: '100%', md: '320px' },
+                    overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
                     textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' },
-                    fontStyle: 'italic', color: '#999999'
+                    fontStyle: 'italic', color: '#999999', px: '16px', boxSizing: 'border-box',
+
                 }}>
                     This mythological figure symbolizes the
                     protection and prosperity of livestock, which
@@ -85,16 +95,17 @@ const PicsAndDets = () => {
 
         {/* section three */}
         <Box sx={{
-            display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', mt: { xs: '24px', sm: '32px', md: '60px' }
+            display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', mt: { xs: '32px', sm: '50px', md: '60px' }
             // justifyContent: 'center', alignItems: 'center',
         }}>
             <Box sx={{
                 display: 'flex', flexDirection: { xs: 'column-reverse', sm: 'row' },
-                gap: { xs: '16px', sm: '24px', md: '32px' }
+                gap: { xs: '16px', sm: '16px', md: '16px' }
             }}>
                 <Box sx={{
                     width: { xs: '100%', sm: '251px', md: '610px' },
                     height: { xs: '437px', sm: '335px', md: '649px' },
+                    aspectRatio: '3/4',
                     backgroundImage: `url(${diamondRough})`,
                     justifySelf: 'center', backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
@@ -102,18 +113,21 @@ const PicsAndDets = () => {
                 <Box sx={{
                     height: { xs: '248px', sm: '335px', md: '649px' },
                     width: { xs: '100%', sm: '100%', md: '100%' },
+                    aspectRatio: '4/3',
                     backgroundImage: `url(${diamond})`,
                     justifySelf: 'center', backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                 }} />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
                 <Typography variant='h2' sx={{
                     color: '#08113b', fontWeight: '500',
-                    fontSize: { xs: '24px', sm: '28px', md: '32px' },
+                    fontSize: { xs: '20px', sm: '22px', md: '24px' },
                 }}>Diamonds</Typography>
                 <Typography variant="p" sx={{
-                    width: '320px', overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
+                    width: { xs: '100%', md: '320px' },
+                    overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
+                    px: '16px', boxSizing: 'border-box',
                     textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999'
                 }}>
                     This mythological figure symbolizes the

@@ -9,7 +9,7 @@ const Details = styled(Box)(({ theme }) => ({
 const CollectionSingle = () => {
     return (<>
         <Box sx={{
-            height: { xs: 'calc(100vh - 70px)', sm: 'calc(100vh - 80px)', md: 'calc(100vh - 120px)' },
+            height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
             width: '100%', boxSizing: 'border-box',
             display: 'flex', flexDirection: { xs: 'column', md: 'row' },
             mb: { xs: 'none', md: '60px' }
@@ -18,6 +18,7 @@ const CollectionSingle = () => {
                 height: '100%', width: '100%',
                 backgroundImage: `url(${girl})`,
                 justifySelf: 'center',
+                //  aspectRatio: { xs: '3/4', md: '4/3' },
                 backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
             <Details sx={{
