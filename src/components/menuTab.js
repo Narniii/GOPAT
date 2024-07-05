@@ -26,7 +26,7 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
             <Box
                 onClick={changeButtonClass}
                 sx={{
-                    width: '100%',
+                    width: '100%', transition: '500ms ease',
                     cursor: 'pointer',
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '35px',
                 }}>
@@ -38,7 +38,9 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
                     <span></span>
                 </button>
             </Box>
-            {openTab && <>{children}</>}
+            {openTab && <Box sx={{
+                transition: '500ms ease',
+            }}>{children}</Box>}
         </Box>
     );
 }

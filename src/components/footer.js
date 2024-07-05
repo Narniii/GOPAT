@@ -28,7 +28,7 @@ const ExpMobile = styled(Box)(({ theme }) => ({
     padding: '12px'
 }))
 const Links = styled(Typography)(({ theme }) => ({
-    width: 'max-content',
+    width: 'max-content', transition: '500ms ease',
     color: '#999', '&:hover': {
         color: '#08113b'
     }

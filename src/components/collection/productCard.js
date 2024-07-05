@@ -21,13 +21,15 @@ const ProductCard = ({ link }) => {
             <Box sx={{ display: 'flex', gap: '4px', width: '100%' }}>
                 <CardImage onClick={() => navigate(link)} sx={{
                     // width: { xs: '160px', sm: '354px', md: '331px' },
+                    aspectRatio: '1/1',
                     width: { xs: '100%', md: '50%' },
-                    height: { xs: '160px', sm: '354px', md: '331px' },
+                    // height: { xs: '160px', sm: '354px', md: '331px' },
                 }} />
                 <CardImage onClick={() => navigate(link)} sx={{
+                    aspectRatio: '1/1',
                     display: { xs: 'none', md: 'block' },
                     width: { xs: '100%', md: '50%' },
-                    height: { xs: '160px', sm: '354px', md: '331px' },
+                    // height: { xs: '160px', sm: '354px', md: '331px' },
                 }} />
             </Box>
             <Box sx={{

@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Typography, keyframes, styled } from "@mui/material";
 import stars from '../assets/stars.svg'
 import boutique from '../assets/boutique.svg'
 import hourglass from '../assets/hourglass.svg'
@@ -12,6 +12,8 @@ import ButtonWhatsapp from "../components/buttonWhatsapp";
 import ButtonFillIcon from "../components/buttonFillIcon";
 import { MenuTabOpenable } from "../components/menuTab";
 import { HourglassBottom, HourglassEmpty, Light, Security, SecurityOutlined, ShieldOutlined, StarBorder } from "@mui/icons-material";
+import { useEffect } from "react";
+import '../App.css'
 const StarSection = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column',
     width: '100%', boxSizing: 'border-box',
@@ -67,11 +69,16 @@ const DetailsExtra = styled(Box)(({ theme }) => ({
 }))
 const ExtraImage = styled(Box)(({ theme }) => ({
     borderRadius: '100%', width: '64px', height: '64px', backgroundColor: '#f5f5f5',
-    display: 'flex', justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box', padding: '16px'
+    display: 'flex', justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box', padding: '16px',
+
 }))
 const ExtraImageIcon = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
+    '&:hover': {
+        animation: `${zoomout} 3s ease-in infinite`,
+    }
+
 }))
 const MobileImage = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
@@ -107,18 +114,42 @@ const MobileImagesScroll = styled(Box)(({ theme }) => ({
     },
 }))
 
+const zoomout = keyframes`
+  0% {transform: scale(1);}
+  50% {transform: scale(0.67);}
+  100% {transform: scale(1);}
+`
 
 const ProductSingle = () => {
-    return (<Box sx={{
-        padding: { xs: '0 0 50px', md: '32px' },
-        display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: '100%', alignItems: 'center'
-    }}>
-        <Box sx={{
-            display: 'flex', flexDirection: { xs: 'column', md: 'row' },
-            width: '100%', flexWrap: 'nowrap',
-            height: { xs: 'unset', md: 'calc(100vh - 128px)' },
-            overflowY: 'scroll',
-            overflowX: 'hidden',
+
+
+    // const listenScrollEvent = e => {
+    //     let insidePanel = window.document.getElementById('scrollable-inside')
+    //     let outsidePanel = window.document.getElementById('scrollable-outside')
+    //     if (insidePanel.scrollTop === (insidePanel.scrollHeight - insidePanel.offsetHeight)) {
+    //         outsidePanel.classList.remove("non-scrollable")
+    //         outsidePanel.classList.add("scrollable")
+    //     } else {
+    //         outsidePanel.classList.add("non-scrollable")
+    //         outsidePanel.classList.remove("scrollable")
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     if (window.document.getElementById("scrollable-outside") && window.document.getElementById("scrollable-inside")) {
+    //         window.document.getElementById("scrollable-outside").addEventListener('scroll', listenScrollEvent)
+    //         window.document.getElementById("scrollable-inside").addEventListener('scroll', listenScrollEvent)
+    //     }
+    // }, [window.document.getElementById("scrollable-outside"), window.document.getElementById("scrollable-inside")])
+
+
+
+    return (<Box
+        // id="scrollable-outside"
+        sx={{
+            padding: { xs: '0 0 50px', md: '32px' },
+            // height: { xs: 'unset', md: 'calc(100vh - 128px)' },
+            display: 'flex', flexDirection: 'column', boxSizing: 'border-box', width: '100%', alignItems: 'center',
             '&::-webkit-scrollbar': {
                 display: 'none',
             },
@@ -130,6 +161,26 @@ const ProductSingle = () => {
             },
 
         }}>
+        <Box
+            // id="scrollable-inside" 
+            sx={{
+                // position: 'relative',
+                display: 'flex', flexDirection: { xs: 'column', md: 'row' },
+                width: '100%', flexWrap: 'nowrap',
+                height: { xs: 'unset', md: 'calc(100vh - 128px)' },
+                overflowY: 'scroll',
+                overflowX: 'hidden',
+                '&::-webkit-scrollbar': {
+                    display: 'none',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    display: 'none'
+                },
+                '&::-webkit-scrollbar-button': {
+                    display: 'none'
+                },
+
+            }}>
             <DesktopImagesScroll sx={{
                 display: { xs: 'none', md: 'block' },
                 // position: 'relative',
@@ -247,6 +298,7 @@ const ProductSingle = () => {
                         <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
                     </Box>
                     <Box sx={{
+                        mt: '8px',
                         boxSizing: 'border-box', px: { md: '24px', lg: '32px' },
                         display: 'flex', flexDirection: 'row', mb: '16px',
                         width: '100%', gap: '32px', justifyContent: 'center'

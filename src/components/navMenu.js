@@ -13,7 +13,7 @@ const NavMenu = ({ open, setOpenMenu }) => {
                 boxSizing: 'border-box',
                 padding: { xs: '8px', sm: '24px', md: '32px' },
                 gap: { xs: '8px', sm: '16px', md: '16px' },
-                display: 'flex', flexDirection: 'column', alignItems: 'center'
+                display: 'flex', flexDirection: 'column', alignItems: 'center',
             }}
             role="presentation"
             // onClick={() => setOpenMenu(false)}
@@ -60,15 +60,15 @@ const NavMenu = ({ open, setOpenMenu }) => {
 
 
     return (<Drawer
+        transitionDuration={500}
         PaperProps={{
             sx: {
                 width: { xs: '100%', md: '500px' },
                 height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
                 top: { xs: '50px', sm: '50px', md: '60px' },
-                transitionDuration: '500ms'
             }
         }}
-        anchor='top'
+        anchor='left'
         open={open}
         onClose={() => setOpenMenu(false)}
     >

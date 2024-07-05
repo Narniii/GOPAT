@@ -18,7 +18,7 @@ const CollectionSingle = () => {
                 height: '100%', width: '100%',
                 backgroundImage: `url(${girl})`,
                 justifySelf: 'center',
-                //  aspectRatio: { xs: '3/4', md: '4/3' },
+                aspectRatio: { xs: '3/4', md: '4/3' },
                 backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
             <Details sx={{

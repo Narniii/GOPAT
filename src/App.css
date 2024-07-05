@@ -101,7 +101,7 @@ body {
 .slick-track {
   display: flex !important;
   justify-content: center !important;
-  gap: 16px !important;
+  /* gap: 16px !important; */
 }
 .slick-initialized {
   overflow: hidden;
@@ -145,6 +145,14 @@ body {
   }
 }
 
+.scrollable {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.non-scrollable {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 /* 
 @media only screen and (max-width: 600px) {
   .pmButton {
