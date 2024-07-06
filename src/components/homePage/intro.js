@@ -2,6 +2,9 @@ import { Box, Typography, keyframes, } from "@mui/material";
 import ButtonOutline from "../buttonOutline";
 import styled from "@emotion/styled/macro";
 import bangle from '../../assets/Landing.jpg'
+import necklace from '../../assets/product2.svg'
+import IntroSlider from "../introSlider";
+import { useEffect, useState } from "react";
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
@@ -12,7 +15,60 @@ const zoomout = keyframes`
   100% {transform: scale(1);}
 `
 
+const ImagesScroll = styled(Box)(({ theme }) => ({
+    boxSizing: 'border-box',
+    width: '100%',
+    overflowY: 'hidden',
+    overflowX: 'scroll',
+    '&::-webkit-scrollbar': {
+        // display: 'none',
+        background: 'transparent',
+        height: '8px',
+        width: '8px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+        height: '8px',
+        width: '8px',
+        background: '#08113b',
+        color: '#08113b',
+        border: 'none',
+        borderRadius: '0px'
+    },
+    '&::-webkit-scrollbar-button': {
+        display: 'none'
+    },
+}))
+const fade = keyframes`
+  0% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+
+`
+
 const Intro = () => {
+    const [slide, setSlide] = useState(0)
+    const slides = [
+        { image: bangle, name: 'tishtar bangle', animation: fade },
+        { image: necklace, name: 'tishtar necklace', animation: fade }
+    ]
+    useEffect(() => {
+        const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+            if (slide >= slides.length - 1) {
+                setSlide(0)
+            }
+            else {
+                setSlide(slide + 1)
+            }
+        }, 5000)
+
+        return () => clearInterval(intervalId); //This is important
+    }, [slide, slides])
     return (
         <Box sx={{
             borderBottom: { xs: '1px solid #b3b3b3', md: 'none' },
@@ -22,23 +78,22 @@ const Intro = () => {
         }}>
             <Box sx={{
                 height: '100%', width: '100%',
-                aspectRatio: '3/4',
-                backgroundImage: `url(${bangle})`,
+                aspectRatio: '4/3', transition: '500ms ease',
+                backgroundImage: `url(${slides[slide].image})`,
                 justifySelf: 'center', backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
-                // backgroundAttachment: 'fixed',
-                // animation: `${zoomout} 10s ease-in infinite`,
-
             }} />
             <Details sx={{
                 mx: '60px', my: { xs: '50px', md: '60px' },
-                // gap: { xs: '4px', sm: '4px', md: '4px' }
+                transition: '500ms ease',
+                // animation: `${slides[slide].animation} 1s ease-in 1`,
             }}>
                 <Typography variant="h1" sx={{
-                    whiteSpace: 'nowrap',
+                    whiteSpace: 'nowrap', transition: '500ms ease',
                     fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113b'
                 }}>
-                    Tishtar Unisex Bangle</Typography>
+                    {slides[slide].name}
+                </Typography>
                 <Typography variant="h6" sx={{
                     mb: '16px',
                     whiteSpace: 'nowrap',
@@ -48,6 +103,7 @@ const Intro = () => {
                 <ButtonOutline text={'Discover More'} />
             </Details>
         </Box>
+
     );
 }
 

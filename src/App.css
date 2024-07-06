@@ -78,33 +78,40 @@ body {
   left: 50%;
   right: 50%;
 }
+.slider {
+  width: 100%;
+  display: flex !important;
+  align-items: center;
+}
 .slick-slider {
   display: flex !important;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 .slick-initialized .slick-slide {
   display: flex !important;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 .slick-slide {
-  /* width: max-content !important; */
   width: 100% !important;
 }
 .slick-slide div {
-  /* width: max-content !important; */
   width: 100% !important;
-  /* margin-right: 8px;
-  margin-left: 8px; */
 }
 .slick-track {
   display: flex !important;
-  justify-content: center !important;
-  /* gap: 16px !important; */
+  /* justify-content: center !important; */
+  gap: 16px;
+}
+.slick-track::before {
+  display: none;
 }
 .slick-initialized {
   overflow: hidden;
+}
+.slick-list {
+  margin: 0 8px 0 16px;
 }
 
 #fill {
