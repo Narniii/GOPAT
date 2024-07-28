@@ -24,6 +24,7 @@ import futura from "./fonts/FuturaMedium.ttf"
 import NotFound from './pages/notFound';
 import CollectionSingle from './pages/collectionSingle';
 import ProductSingle from './pages/productSingle';
+import About from './pages/about';
 function App() {
 
   const theme = createTheme({
@@ -50,6 +51,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/collection/:name" element={<CollectionSingle />} />
           <Route exact path="/product/:name/:collection" element={<ProductSingle />} />
+          <Route exact path="/about-us" element={<About />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
