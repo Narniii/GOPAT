@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled/macro";
 import about from '../assets/about.svg'
+import about1 from '../assets/about1.svg'
+import about2 from '../assets/about2.svg'
 const Details = styled(Box)(({ theme }) => ({
     // display: 'flex',
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
@@ -62,11 +64,11 @@ const About = () => {
                             width: { xs: '100vw', md: '100%' }
                         }} />
                         <Image sx={{
-                            backgroundImage: `url(${about})`,
+                            backgroundImage: `url(${about1})`,
                             width: { xs: '100vw', md: '100%' }
                         }} />
                         <Image sx={{
-                            backgroundImage: `url(${about})`,
+                            backgroundImage: `url(${about2})`,
                             width: { xs: '100vw', md: '100%' }
                         }} />
                     </Box>
@@ -160,7 +162,7 @@ const About = () => {
 
                     <Box sx={{
                         width: '100%',
-                        backgroundImage: `url(${about})`,
+                        backgroundImage: `url(${about1})`,
                         aspectRatio: { xs: '4/3', md: '1/1' },
                         backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                     }} />
@@ -177,7 +179,7 @@ const About = () => {
                 }}>
                     <Box sx={{
                         width: '100%',
-                        backgroundImage: `url(${about})`,
+                        backgroundImage: `url(${about2})`,
                         aspectRatio: { xs: '4/3', md: '1/1' },
                         backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                     }} />

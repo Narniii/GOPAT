@@ -3,11 +3,10 @@ import ButtonFill from "./buttonFill";
 import { Instagram } from "@mui/icons-material";
 import '../App.css';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Foot = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column',
-    borderTop: '1px solid #b3b3b3',
     justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box',
     //  paddingTop: '60px'
 }))
@@ -71,10 +70,22 @@ const Footer = () => {
             element.classList.add("pmButtonSelected")
         }
     }
-
+    const navigate = useNavigate()
     return (
-        <Foot sx={{ paddingTop: { xs: '50px', md: '60px' } }}>
-            <ButtonFill text={'Contact Us'} />
+        <Foot sx={{
+            paddingTop: { xs: '50px', md: '60px' },
+            borderTop: window.location.pathname == '/contact-us' ? 'unset' : '1px solid #d9d9d9',
+        }}>
+            {window.location.pathname == '/contact-us' ?
+                <Typography sx={{
+                    textTransform: 'capitalize', whiteSpace: 'nowrap',
+                    fontSize: { xs: '18px', sm: '22px', md: '24px' }, fontWeight: 500, color: '#08113B'
+                }}>
+                    social medias
+                </Typography>
+                :
+                <ButtonFill text={'Contact Us'} action={() => navigate('/contact-us')} />
+            }
             <Instagram sx={{
                 color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
                 '&:hover': {

@@ -24,7 +24,7 @@ const ButtonWhatsapp = ({ text, action, icon, width, mb, maxwidth }) => {
             height: '24px',
         }} />
         <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '16px' }, }}>
-            Order Via Whatsapp
+            {text}
         </Typography>
         <Box />
     </Box>);

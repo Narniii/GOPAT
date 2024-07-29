@@ -61,7 +61,7 @@ const Details = styled(Box)(({ theme }) => ({
 
 }))
 const LineDesktp = styled(Box)(({ theme }) => ({
-    height: '1px', backgroundColor: '#b3b3b3'
+    height: '1px', backgroundColor: '#d9d9d9'
 }))
 const DetailsExtra = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', boxSizing: 'border-box',
@@ -270,7 +270,7 @@ const ProductSingle = () => {
                     }}>
                         16,064,000 T
                     </Typography>
-                    <ButtonWhatsapp maxwidth={'290px'} width={'100%'} mb={'8px'} />
+                    <ButtonWhatsapp maxwidth={'290px'} width={'100%'} mb={'8px'} text={'Order Via Whatsapp'} />
                     <ButtonFillIcon maxwidth={'290px'} width={'100%'} icon={boutique} text={'Find A Boutique'} />
                 </Details>
                 <LineDesktp sx={{ width: '100%', my: '32px' }} />
@@ -287,7 +287,7 @@ const ProductSingle = () => {
                         <Typography variant="p" sx={{
                             whiteSpace: 'nowrap',
                             fontSize: { xs: '14px', sm: '16px', md: '16px' }, fontWeight: 400,
-                            color: '#b3b3b3', borderBottom: '1px solid #b3b3b3',
+                            color: '#b3b3b3', borderBottom: '1px solid #d9d9d9',
                             pb: { xs: '8px', sm: '8px', md: '8px' }
                         }}>
                             Craftmanship Info

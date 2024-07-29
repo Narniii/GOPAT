@@ -35,13 +35,14 @@ const hover = keyframes`
     border: solid 1px #999999;
   }
 `
-const ButtonFill = ({ text, action }) => {
+const ButtonFill = ({ text, action, icon, width, mb, maxwidth }) => {
   return (<Box
     // id="fill"
     sx={{
       backgroundColor: '#08113b', cursor: 'pointer', color: 'white', boxSizing: 'border-box',
       height: { xs: '50px', md: '60px' }, fontWeight: 500,
-      width: 'max-content', px: { xs: '8px', sm: '16px', md: '32px' },
+      width: width ? width : 'max-content', maxWidth: maxwidth ? maxwidth : 'unset',
+      px: { xs: '8px', sm: '16px', md: '32px' },
       display: 'flex', alignItems: 'center', textTransform: 'uppercase', transition: '500ms ease',
       '&:hover': {
         backgroundColor: '#999999',
@@ -49,7 +50,7 @@ const ButtonFill = ({ text, action }) => {
 
     }}
     onClick={action}>
-    <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '16px' }, }}>
+    <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '16px' }, width: '100%', textAlign: 'center' }}>
       {text}
     </Typography>
   </Box>);
