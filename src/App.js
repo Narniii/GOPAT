@@ -26,6 +26,8 @@ import CollectionSingle from './pages/collectionSingle';
 import ProductSingle from './pages/productSingle';
 import About from './pages/about';
 import Contact from './pages/contact';
+import Gopatron from './pages/gopatron';
+
 function App() {
 
   const theme = createTheme({
@@ -54,6 +56,7 @@ function App() {
           <Route exact path="/product/:name/:collection" element={<ProductSingle />} />
           <Route exact path="/about-us" element={<About />} />
           <Route exact path="/contact-us" element={<Contact />} />
+          <Route exact path="/gopatron" element={<Gopatron />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />

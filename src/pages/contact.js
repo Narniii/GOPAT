@@ -92,7 +92,7 @@ const Contact = () => {
                     }}>
                         Partnerhip Stores</Typography>
                     <Typography variant="h1" sx={{
-                        whiteSpace: 'nowrap',
+                        whiteSpace: 'nowrap', fontWeight: 500,
                         fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                     }}>
                         information</Typography>
@@ -121,7 +121,7 @@ const Contact = () => {
                         padding: { xs: '32px', md: '64px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
                         display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: { xs: '16px', md: '32px' }
                     }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>
                             <Typography variant="h4" sx={{
                                 whiteSpace: 'nowrap',
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
@@ -162,7 +162,7 @@ const Contact = () => {
                         padding: { xs: '32px', md: '64px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
                         display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: { xs: '16px', md: '32px' }
                     }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>
                             <Typography variant="h4" sx={{
                                 whiteSpace: 'nowrap',
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'

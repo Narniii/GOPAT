@@ -11,7 +11,8 @@ const Foot = styled(Box)(({ theme }) => ({
     //  paddingTop: '60px'
 }))
 const FootDesktop = styled(Box)(({ theme }) => ({
-    flexDirection: 'column', boxSizing: 'border-box', padding: '32px', backgroundColor: '#f2f2f2', gap: '60px', width: '100%'
+    flexDirection: 'column', boxSizing: 'border-box',
+    padding: '32px', backgroundColor: '#f2f2f2', gap: '60px', width: '100%'
 }))
 const FootMobile = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box', width: '100%'
@@ -19,11 +20,11 @@ const FootMobile = styled(Box)(({ theme }) => ({
 const ExpDesktop = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box',
     paddingRight: '32px', paddingLeft: '32px',
-    borderRight: '1px solid #999999', color: '#666666',
+    borderRight: '1px solid #b3b3b3', color: '#666666',
 }))
 const ExpMobile = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box',
-    borderTop: '1px solid #999999', color: '#666666', width: '100%',
+    borderTop: '1px solid #d9d9d9', color: '#666666', width: '100%',
     padding: '12px'
 }))
 const Links = styled(Typography)(({ theme }) => ({
@@ -73,27 +74,30 @@ const Footer = () => {
     const navigate = useNavigate()
     return (
         <Foot sx={{
-            paddingTop: { xs: '50px', md: '60px' },
-            borderTop: window.location.pathname == '/contact-us' ? 'unset' : '1px solid #d9d9d9',
+            paddingTop: window.location.pathname == '/' || window.location.pathname == '/contact-us' ? { xs: '50px', md: '60px' } : 'unset',
+            borderTop: window.location.pathname == '/' ? '1px solid #d9d9d9' : 'unset',
         }}>
-            {window.location.pathname == '/contact-us' ?
-                <Typography sx={{
-                    textTransform: 'capitalize', whiteSpace: 'nowrap',
-                    fontSize: { xs: '18px', sm: '22px', md: '24px' }, fontWeight: 500, color: '#08113B'
-                }}>
-                    social medias
-                </Typography>
-                :
-                <ButtonFill text={'Contact Us'} action={() => navigate('/contact-us')} />
-            }
-            <Instagram sx={{
-                color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
-                '&:hover': {
-                    color: '#999999'
-                }
-            }} />
-            <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' } }}>Follow us on</Typography>
-            <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' }, mb: { xs: '50px', md: '60px' } }}>@gopat.official</Typography>
+            {window.location.pathname == '/' || window.location.pathname == '/contact-us' ?
+                <>
+                    {window.location.pathname == '/contact-us' ?
+                        <Typography sx={{
+                            textTransform: 'capitalize', whiteSpace: 'nowrap',
+                            fontSize: { xs: '18px', sm: '22px', md: '24px' }, fontWeight: 500, color: '#08113B'
+                        }}>
+                            social medias
+                        </Typography>
+                        :
+                        <ButtonFill text={'Contact Us'} action={() => navigate('/contact-us')} />
+                    }
+                    <Instagram sx={{
+                        color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
+                        '&:hover': {
+                            color: '#999999'
+                        }
+                    }} />
+                    <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' } }}>Follow us on</Typography>
+                    <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' }, mb: { xs: '50px', md: '60px' } }}>@gopat.official</Typography>
+                </> : undefined}
             <FootDesktop sx={{ display: { xs: 'none', md: 'flex' } }}>
                 <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex' }}>

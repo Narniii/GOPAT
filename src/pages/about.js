@@ -85,7 +85,7 @@ const About = () => {
                     }}>
                         About GOPAT</Typography>
                     <Typography variant="h1" sx={{
-                        whiteSpace: 'nowrap',
+                        whiteSpace: 'nowrap', fontWeight: 500,
                         fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                     }}>
                         Founded In Tehran, Iran.</Typography>
@@ -102,20 +102,20 @@ const About = () => {
                     width: { xs: '100%', md: '50%' },
                     padding: { xs: '16px 32px', md: '120px 64px' }, gap: { xs: '16px', md: '32px' }, boxSizing: 'border-box'
                 }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>
                         <Typography variant="h1" sx={{
                             whiteSpace: 'nowrap',
                             fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                         }}>
                             About GOPAT</Typography>
                         <Typography variant="h1" sx={{
-                            whiteSpace: 'nowrap',
+                            whiteSpace: 'nowrap', fontWeight: 500,
                             fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                         }}>
                             Founded In Tehran, Iran.</Typography>
                     </Box>
                     <Typography sx={{
-                        color: '#999', textAlign: 'center', width: '100%',
+                        color: '#999', textAlign: 'center', width: '100%', fontWeight: 500,
                         fontSize: { xs: '14px', md: '16px' }
                     }}>
                         Gopat Fine Jewelry is a newly established Iranian luxury brand committed to elevating the essence of luxury through meticulous branding, an exceptional shopping journey, and comprehensive after-sales services, all aligned with international standards.
@@ -134,22 +134,22 @@ const About = () => {
                 }}>
                     <Box sx={{
                         padding: { xs: '32px', md: '64px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
-                        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                        display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: { xs: '16px', md: '32px' }
                     }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>
                             <Typography variant="h4" sx={{
                                 whiteSpace: 'nowrap',
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                             }}>
                                 Craftmanship</Typography>
                             <Typography variant="h1" sx={{
-                                whiteSpace: 'nowrap',
+                                whiteSpace: 'nowrap', fontWeight: 500,
                                 fontSize: { xs: '14px', md: '16px' }, color: '#b3b3b3'
                             }}>
                                 Details</Typography>
                         </Box>
                         <Typography sx={{
-                            color: '#999', textAlign: 'center', width: '100%',
+                            color: '#999', textAlign: 'center', width: '100%', fontWeight: 500,
                             fontSize: { xs: '14px', md: '16px' }
                         }}>
                             At Gopat, our jewelry features bodies crafted from premium Italian 950 and 925 silver for enduring quality.
@@ -161,7 +161,7 @@ const About = () => {
                     </Box>
 
                     <Box sx={{
-                        width: '100%',
+                        width: '100%', backgroundColor: '#d9d9d9',
                         backgroundImage: `url(${about1})`,
                         aspectRatio: { xs: '4/3', md: '1/1' },
                         backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
@@ -179,17 +179,17 @@ const About = () => {
                 }}>
                     <Box sx={{
                         width: '100%',
-                        backgroundImage: `url(${about2})`,
+                        backgroundImage: `url(${about2})`, backgroundColor: '#d9d9d9',
                         aspectRatio: { xs: '4/3', md: '1/1' },
                         backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                     }} />
                     <Box sx={{
                         padding: { xs: '32px', md: '64px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
-                        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                        display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: { xs: '16px', md: '32px' }
                     }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>
                             <Typography variant="h4" sx={{
-                                whiteSpace: 'nowrap',
+                                whiteSpace: 'nowrap', fontWeight: 500,
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                             }}>
                                 Concept</Typography>
@@ -200,7 +200,7 @@ const About = () => {
                                 The Myth</Typography>
                         </Box>
                         <Typography sx={{
-                            color: '#999', textAlign: 'center', width: '100%',
+                            color: '#999', textAlign: 'center', width: '100%', fontWeight: 500,
                             fontSize: { xs: '14px', md: '16px' }
                         }}>
                             The name "Gopat" finds its origins in the legendary guardian of the Parsah Palace entrance (now Takhte Jamshid). Gopat Jewelry holds dear its Iranian heritage and endeavors to contemporize and internationalize its rich history, paying homage to this cherished land.

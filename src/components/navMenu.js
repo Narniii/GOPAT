@@ -48,8 +48,16 @@ const NavMenu = ({ open, setOpenMenu }) => {
                 navigate('/contact-us')
                 setOpenMenu(false)
             }} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-            <MenuTab text={'Gopatron Service'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
-            <MenuTab text={'Blog'} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+            <MenuTab text={'Gopatron Service'} pb={{ xs: '8px', sm: '16px', md: '16px' }}
+                link={'/gopatron'} onClick={() => {
+                    navigate('/gopatron')
+                    setOpenMenu(false)
+                }} />
+            <MenuTab text={'Blog'} pb={{ xs: '8px', sm: '16px', md: '16px' }}
+                link={'/blogs'} onClick={() => {
+                    navigate('/blogs')
+                    setOpenMenu(false)
+                }} />
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', width: '100%' }}>
                 <Typography sx={{ fontSize: '16px', color: '#08113b', fontWeight: 500 }}>
                     English | Farsi
