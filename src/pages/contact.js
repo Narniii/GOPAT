@@ -3,9 +3,10 @@ import styled from "@emotion/styled/macro";
 import contact from '../assets/contact.svg'
 import samcenter from '../assets/samcenter.svg'
 import avacenter from '../assets/avacenter.svg'
-import ButtonWhatsapp from "../components/buttonWhatsapp";
-import ButtonFill from "../components/buttonFill";
-import ButtonWhatsappContact from "../components/buttonWhatsappContact";
+import ButtonWhatsapp from "../components/buttons/buttonWhatsapp";
+import ButtonFill from "../components/buttons/buttonFill";
+import ButtonWhatsappContact from "../components/buttons/buttonWhatsappContact";
+import Header from "../components/header";
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
@@ -51,56 +52,13 @@ const Image = styled(Box)(({ theme }) => ({
 const Contact = () => {
     return (
         <>
+            <Header hideDetailsOnMobile={false} images={[contact, samcenter, avacenter]} title={'Partnerhip Stores'} subtitle={'information'} />
+
             <Box sx={{
-                // height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
-                height: { xs: '100%', md: 'calc(100vh - 60px)' },
-                width: '100%', boxSizing: 'border-box',
-                display: 'flex', flexDirection: { xs: 'column', md: 'row' },
-                mb: { xs: 'none', md: '64px' }
+                display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%',
+                gap: { xs: '16px', md: '32px' },
+                my: { xs: '16px', md: '32px' },
             }}>
-                <ImageScroll sx={{
-                    height: { xs: '420px', md: '100%' },
-                }}>
-                    <Box sx={{
-                        display: 'flex',
-                        height: '100%', width: '100%',
-                        boxSizing: 'border-box',
-                        width: 'max-content', flexWrap: 'nowrap'
-                    }}>
-                        <Image sx={{
-                            backgroundImage: `url(${contact})`,
-                            width: { xs: '100vw', md: '100%' }
-                        }} />
-                        <Image sx={{
-                            backgroundImage: `url(${samcenter})`,
-                            width: { xs: '100vw', md: '100%' }
-                        }} />
-                        <Image sx={{
-                            backgroundImage: `url(${avacenter})`,
-                            width: { xs: '100vw', md: '100%' }
-                        }} />
-                    </Box>
-                </ImageScroll>
-                <Details sx={{
-                    mx: { xs: '32px', md: '100px' },
-                    my: { xs: '50px', md: '60px' },
-                    gap: { xs: '8px', sm: '12px', md: '16px' }
-                }}>
-                    <Typography variant="h1" sx={{
-                        whiteSpace: 'nowrap',
-                        fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
-                    }}>
-                        Partnerhip Stores</Typography>
-                    <Typography variant="h1" sx={{
-                        whiteSpace: 'nowrap', fontWeight: 500,
-                        fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
-                    }}>
-                        information</Typography>
-                </Details>
-            </Box>
-
-
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
                 {/* image section one */}
                 <Box sx={{
@@ -146,7 +104,6 @@ const Contact = () => {
 
                 {/* image section two */}
                 <Box sx={{
-                    my: { xs: '16px', md: '32px' },
                     width: '100%',
                     display: 'flex',
                     flexDirection: { xs: 'column', md: 'row-reverse' },

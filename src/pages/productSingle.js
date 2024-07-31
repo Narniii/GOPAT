@@ -7,13 +7,13 @@ import product1 from '../assets/product1.svg'
 import product2 from '../assets/product2.svg'
 import polish from '../assets/Polishing.svg'
 import durable from '../assets/Durable.svg'
-import ButtonOutline from "../components/buttonOutline";
-import ButtonWhatsapp from "../components/buttonWhatsapp";
-import ButtonFillIcon from "../components/buttonFillIcon";
 import { MenuTabOpenable } from "../components/menuTab";
 import { HourglassBottom, HourglassEmpty, Light, Security, SecurityOutlined, ShieldOutlined, StarBorder } from "@mui/icons-material";
 import { useEffect } from "react";
 import '../App.css'
+import ButtonWhatsapp from "../components/buttons/buttonWhatsapp";
+import ButtonOutline from "../components/buttons/buttonOutline";
+import ButtonFillIcon from "../components/buttons/buttonFillIcon";
 const StarSection = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column',
     width: '100%', boxSizing: 'border-box',

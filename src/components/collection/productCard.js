@@ -1,5 +1,5 @@
 import { Box, Typography, styled } from "@mui/material";
-import ButtonFillRound from "../buttonFillRound";
+import ButtonFillRound from "../buttons/buttonFillRound";
 import { useNavigate } from "react-router-dom";
 const Card = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column',

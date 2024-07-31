@@ -1,5 +1,5 @@
 import { Box, Button, Typography, keyframes } from "@mui/material";
-import shoppingBag from '../assets/shoppingBag.svg'
+import shoppingBag from '../../assets/shoppingBag.svg'
 
 const ButtonWhatsapp = ({ text, action, icon, width, mb, maxwidth }) => {
     return (<Box

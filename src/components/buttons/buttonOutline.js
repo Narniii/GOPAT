@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import '../App.css'
+import '../../App.css'
 
 const ButtonOutline = ({ text, action }) => {
     return (<Box

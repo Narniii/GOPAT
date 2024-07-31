@@ -1,5 +1,5 @@
 import { Box, Typography, keyframes, } from "@mui/material";
-import ButtonOutline from "../buttonOutline";
+import ButtonOutline from "../buttons/buttonOutline";
 import styled from "@emotion/styled/macro";
 import bangle from '../../assets/Landing.jpg'
 import necklace from '../../assets/product2.svg'

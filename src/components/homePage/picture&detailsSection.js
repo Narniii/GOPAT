@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import ButtonOutline from "../buttonOutline";
+import ButtonOutline from "../buttons/buttonOutline";
 import jamshid from '../../assets/Persepolis.jpg'
 import gopat from '../../assets/Gopat.jpg'
 import nader from '../../assets/Nader-Mohaddes.jpg'

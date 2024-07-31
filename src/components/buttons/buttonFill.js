@@ -1,5 +1,5 @@
 import { Box, Button, Typography, keyframes } from "@mui/material";
-import '../App.css'
+import '../../App.css'
 const hover = keyframes`
   0% {
     border: solid 1px white;

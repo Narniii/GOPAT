@@ -1,5 +1,5 @@
 import { Box, Typography, styled } from "@mui/material";
-import ButtonFill from "./buttonFill";
+import ButtonFill from "./buttons/buttonFill";
 import { Instagram } from "@mui/icons-material";
 import '../App.css';
 import { useState } from "react";

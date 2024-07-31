@@ -3,6 +3,7 @@ import styled from "@emotion/styled/macro";
 import about from '../assets/about.svg'
 import about1 from '../assets/about1.svg'
 import about2 from '../assets/about2.svg'
+import Header from "../components/header";
 const Details = styled(Box)(({ theme }) => ({
     // display: 'flex',
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
@@ -43,55 +44,7 @@ const Image = styled(Box)(({ theme }) => ({
 const About = () => {
     return (
         <>
-            <Box sx={{
-                // height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
-                height: { xs: '100%', md: 'calc(100vh - 60px)' },
-                width: '100%', boxSizing: 'border-box',
-                display: 'flex', flexDirection: { xs: 'column', md: 'row' },
-                // mb: { xs: 'none', md: '60px' }
-            }}>
-                <ImageScroll sx={{
-                    height: { xs: '420px', md: '100%' },
-                }}>
-                    <Box sx={{
-                        display: 'flex',
-                        height: '100%', width: '100%',
-                        boxSizing: 'border-box',
-                        width: 'max-content', flexWrap: 'nowrap'
-                    }}>
-                        <Image sx={{
-                            backgroundImage: `url(${about})`,
-                            width: { xs: '100vw', md: '100%' }
-                        }} />
-                        <Image sx={{
-                            backgroundImage: `url(${about1})`,
-                            width: { xs: '100vw', md: '100%' }
-                        }} />
-                        <Image sx={{
-                            backgroundImage: `url(${about2})`,
-                            width: { xs: '100vw', md: '100%' }
-                        }} />
-                    </Box>
-                </ImageScroll>
-                <Details sx={{
-                    display: { xs: 'none', md: 'flex' },
-                    mx: { xs: '32px', md: '100px' },
-                    my: { xs: '50px', md: '60px' },
-                    gap: { xs: '8px', sm: '12px', md: '16px' }
-                }}>
-                    <Typography variant="h1" sx={{
-                        whiteSpace: 'nowrap',
-                        fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
-                    }}>
-                        About GOPAT</Typography>
-                    <Typography variant="h1" sx={{
-                        whiteSpace: 'nowrap', fontWeight: 500,
-                        fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
-                    }}>
-                        Founded In Tehran, Iran.</Typography>
-                </Details>
-            </Box>
-
+            <Header hideDetailsOnMobile={true} images={[about, about1, about2]} title={'Abouot Gopat'} subtitle={'Founded In Tehran, Iran.'} />
 
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
