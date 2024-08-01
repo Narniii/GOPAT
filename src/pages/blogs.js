@@ -1,11 +1,24 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Fade, Popper, Typography } from "@mui/material";
 import stars from '../assets/stars.svg'
 import ButtonOutline from "../components/buttons/buttonOutline";
 import styled from "@emotion/styled/macro";
 import BlogSmall from "../components/blogs/blogSmall";
+import { FilterAltOutlined, Search } from "@mui/icons-material";
+import { useState } from "react";
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', textAlign: 'center', boxSizing: 'border-box',
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
+}))
+const SearchBox = styled(Box)(({ theme }) => ({
+    display: 'flex', boxSizing: 'border-box', padding: '8px 12px',
+    alignItems: 'center', borderRadius: '32px', border: '1px solid #b3b3b3',
+    width: '100%', gap: '10px'
+}))
+const FilterBox = styled(Box)(({ theme }) => ({
+    // display: 'flex',
+    boxSizing: 'border-box', padding: '8px 12px',
+    alignItems: 'center', borderRadius: '32px',
+    width: 'max-content', gap: '4px'
 }))
 const ImageScroll = styled(Box)(({ theme }) => ({
     boxSizing: 'border-box',
@@ -35,11 +48,20 @@ const Image = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center', backgroundColor: '#d9d9d9',
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
     height: '100%',
-    aspectRatio: '1/1'
+    // aspectRatio: '1/1'
 }))
 
 const Blogs = () => {
     const blogs = [1, 2, 3, 4, 5, 6, 7, 8]
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(anchorEl ? null : window.document.getElementById("filtering-box"));
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'filters-popper' : undefined;
+
+
     return (
         <>
             <Box sx={{
@@ -66,7 +88,8 @@ const Blogs = () => {
                 </Box>
                 {/* </ImageScroll> */}
                 <Details sx={{
-                    mx: { xs: '32px', md: '32px' },
+                    mx: { xs: '0', md: '32px' },
+                    px: { xs: '32px', md: '0' },
                     py: '32px',
                     gap: '16px',
                     width: { xs: '100%', md: '30%' }
@@ -85,7 +108,10 @@ const Blogs = () => {
                             Persian Mythical Stories
                         </Typography>
                     </Box>
-                    <Typography sx={{ color: '#999', fontWeight: 500, width: '100%', textAlign: 'center' }}>
+                    <Typography sx={{
+                        color: '#999', fontWeight: 500, width: '100%',
+                        textAlign: 'center', fontSize: { xs: '12px', md: '14px' }
+                    }}>
                         In Persian mythology, Tishtar, also known as Tishtrya, is revered as the god of rain and fertility, playing a crucial role in the agricultural life of ancient Persia...
                     </Typography>
                     <ButtonOutline text={'read more'} />
@@ -95,19 +121,61 @@ const Blogs = () => {
             <Box sx={{
                 width: '100%', display: 'flex',
                 flexDirection: { xs: 'column', md: 'row-reverse' },
-                mt: { xs: '0', md: '50px' }
+                mt: { xs: '0', md: '50px' }, mb: '32px', position: 'relative'
             }}>
 
-                <Box sx={{
-                    borderTop: { xs: '1px solid #d9d9d9', md: 'none' },
-                    borderBottom: { xs: '1px solid #d9d9d9', md: 'none' },
-                    borderLeft: { xs: 'none', md: '1px solid #d9d9d9' },
-                    height: '100px', boxSizing: 'border-box',
+                <Box id="filtering-box" sx={{
+                    borderTop: { xs: '1px solid #b3b3b3', md: 'none' },
+                    borderBottom: { xs: '1px solid #b3b3b3', md: 'none' },
+                    borderLeft: { xs: 'none', md: '1px solid #b3b3b3' },
+                    boxSizing: 'border-box', height: 'max-content',
                     width: { xs: '100%', md: '30%' },
+                    padding: { xs: '16px', md: '64px 0 0 32px' },
                     mx: { xs: '0', md: '32px' },
                     my: { xs: '32px', md: '0' },
+                    position: 'sticky', right: 0, top: 0, backgroundColor: 'white',
+                    display: 'flex', alignItems: { xs: 'center', md: 'end' }, zIndex: 9,
+                    flexDirection: { xs: 'row', md: 'column' }, gap: { xs: '16px', md: '32px' }
                     // padding: { xs: '16px', md: '32px' }
-                }}></Box>
+                }}>
+                    <SearchBox>
+                        <Search sx={{ color: '#5F6368' }} fontSize="24px" />
+                        <Typography sx={{ color: '#999', fontWeight: 500, }}>Search Blog</Typography>
+                    </SearchBox>
+                    <FilterBox sx={{
+                        display: { xs: 'flex', md: 'none' },
+                        border: { xs: '1px solid #b3b3b3', md: 'none' },
+                        cursor: 'pointer'
+                    }} onClick={handleClick}>
+                        <Typography sx={{ color: '#5F6368', fontWeight: 500, }}>Filters</Typography>
+                        <FilterAltOutlined sx={{ color: '#5F6368' }} fontSize="24px" />
+                    </FilterBox>
+                    <FilterBox sx={{
+                        display: { xs: 'none', md: 'flex' },
+                        border: { xs: '1px solid #b3b3b3', md: 'none' },
+                    }}>
+                        <Typography sx={{ color: '#5F6368', fontWeight: 500, }}>Filters</Typography>
+                        <FilterAltOutlined sx={{ color: '#5F6368' }} fontSize="24px" />
+                    </FilterBox>
+
+                    <Popper
+                        sx={{
+                            right: '16px !important'
+                        }}
+                        placement="bottom-end" id={id} open={open} anchorEl={anchorEl} transition>
+                        {({ TransitionProps }) => (
+                            <Fade {...TransitionProps} timeout={350}>
+                                <Box sx={{
+                                    border: '1px solid #b3b3b3', borderTop: 'none',
+                                    p: 1, bgcolor: 'background.paper'
+                                }}>
+                                    The content of the Popper.
+                                </Box>
+                            </Fade>
+                        )}
+                    </Popper>
+
+                </Box>
 
                 <Box sx={{
                     width: '100%', display: 'flex', flexDirection: 'column', gap: '32px'

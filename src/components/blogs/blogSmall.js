@@ -21,7 +21,7 @@ const BlogSmall = ({ image, title, subtitle, description, date }) => {
             <Details sx={{
                 padding: { xs: '0 32px', md: '16px 32px' }, gap: '16px'
             }}>
-                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                     <Typography variant="h1" sx={{
                         whiteSpace: 'nowrap',
                         fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
@@ -37,14 +37,16 @@ const BlogSmall = ({ image, title, subtitle, description, date }) => {
                 <Typography sx={{
                     color: '#999', fontSize: '14px',
                     // width: { xs: '100%', md: '400px' },
-                    textalign: 'center'
+                    textAlign: 'center'
                 }}>
                     {description}
                 </Typography>
                 <ButtonOutline text={'Read More'} />
             </Details>
             <Image sx={{
-                aspectRatio: { xs: '4/3', md: '1/1' }, width: { xs: '100%', md: '480px' },
+                aspectRatio: { xs: '4/3', md: '1/1' },
+                //  width: { xs: '100%', md: '480px' },
+                width: '100%',
                 backgroundImage: `url(${image})`,
             }} />
         </Box>
