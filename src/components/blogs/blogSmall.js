@@ -21,7 +21,7 @@ const BlogSmall = ({ image, title, subtitle, description, date }) => {
             <Details sx={{
                 padding: { xs: '0 32px', md: '16px 32px' }, gap: '16px'
             }}>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'center' }}>
                     <Typography variant="h1" sx={{
                         whiteSpace: 'nowrap',
                         fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'

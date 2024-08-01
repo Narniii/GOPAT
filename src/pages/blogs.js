@@ -1,10 +1,10 @@
-import { Box, Fade, Popper, Typography } from "@mui/material";
+import { Box, Fade, Input, Popper, Typography } from "@mui/material";
 import stars from '../assets/stars.svg'
 import ButtonOutline from "../components/buttons/buttonOutline";
 import styled from "@emotion/styled/macro";
 import BlogSmall from "../components/blogs/blogSmall";
 import { FilterAltOutlined, Search } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', textAlign: 'center', boxSizing: 'border-box',
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
@@ -14,11 +14,28 @@ const SearchBox = styled(Box)(({ theme }) => ({
     alignItems: 'center', borderRadius: '32px', border: '1px solid #b3b3b3',
     width: '100%', gap: '10px'
 }))
+const FilterInputBox = styled(Box)(({ theme }) => ({
+    display: 'flex', boxSizing: 'border-box',
+    alignItems: 'center', borderBottom: '1px solid #b3b3b3',
+    width: '100%', justifyContent: 'space-between', padding: '0 0 12px 0'
+}))
+const FilterInput = styled('input')(({ theme }) => ({
+    display: 'block', boxSizing: 'border-box',
+    border: '1px solid #b3b3b3', outline: 'none',
+    width: '12px', height: '12px', borderRadius: '0', accentColor: "#5F6368"
+}))
 const FilterBox = styled(Box)(({ theme }) => ({
     // display: 'flex',
     boxSizing: 'border-box', padding: '8px 12px',
     alignItems: 'center', borderRadius: '32px',
     width: 'max-content', gap: '4px'
+}))
+const ApplyButton = styled(Box)(({ theme }) => ({
+    display: 'flex', justifyContent: 'center',
+    boxSizing: 'border-box', padding: '8px',
+    alignItems: 'center', borderRadius: '25px',
+    width: 'max-content', cursor: 'pointer',
+    fontWeight: 500, color: 'white', fontSize: '14px', backgroundColor: '#5F6368'
 }))
 const ImageScroll = styled(Box)(({ theme }) => ({
     boxSizing: 'border-box',
@@ -53,6 +70,8 @@ const Image = styled(Box)(({ theme }) => ({
 
 const Blogs = () => {
     const blogs = [1, 2, 3, 4, 5, 6, 7, 8]
+    const [selectedFilters, setSelectedFilters] = useState([])
+    const filters = ['Jewerly Education', 'Campaigns', 'Entrepreneurs', 'Ancient Stories', 'News & Events']
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (event) => {
@@ -61,7 +80,20 @@ const Blogs = () => {
     const open = Boolean(anchorEl);
     const id = open ? 'filters-popper' : undefined;
 
-
+    const addToSelected = (filter) => {
+        if (selectedFilters.includes(filter)) {
+            let array = selectedFilters
+            const index = array.indexOf(filter);
+            if (index > -1) { // only splice array when item is found
+                array.splice(index, 1); // 2nd parameter means remove one item only
+            }
+            setSelectedFilters(array)
+        } else {
+            let array = selectedFilters
+            array.push(filter)
+            setSelectedFilters(array)
+        }
+    }
     return (
         <>
             <Box sx={{
@@ -89,7 +121,7 @@ const Blogs = () => {
                 {/* </ImageScroll> */}
                 <Details sx={{
                     mx: { xs: '0', md: '32px' },
-                    px: { xs: '32px', md: '0' },
+                    px: { xs: '32px', md: '0', lg: '32px' },
                     py: '32px',
                     gap: '16px',
                     width: { xs: '100%', md: '30%' }
@@ -130,7 +162,7 @@ const Blogs = () => {
                     borderLeft: { xs: 'none', md: '1px solid #b3b3b3' },
                     boxSizing: 'border-box', height: 'max-content',
                     width: { xs: '100%', md: '30%' },
-                    padding: { xs: '16px', md: '64px 0 0 32px' },
+                    padding: { xs: '16px', md: '64px 0 0 32px', lg: '64px 0 0 64px' },
                     mx: { xs: '0', md: '32px' },
                     my: { xs: '32px', md: '0' },
                     position: 'sticky', right: 0, top: 0, backgroundColor: 'white',
@@ -160,20 +192,50 @@ const Blogs = () => {
 
                     <Popper
                         sx={{
-                            right: '16px !important'
+                            right: '16px !important', width: '200px !important',
+                            display: { xs: 'flex', md: 'none' }
                         }}
                         placement="bottom-end" id={id} open={open} anchorEl={anchorEl} transition>
                         {({ TransitionProps }) => (
                             <Fade {...TransitionProps} timeout={350}>
                                 <Box sx={{
                                     border: '1px solid #b3b3b3', borderTop: 'none',
-                                    p: 1, bgcolor: 'background.paper'
+                                    p: '12px', bgcolor: 'background.paper',
+                                    display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'end',
+                                    gap: '12px'
                                 }}>
-                                    The content of the Popper.
+                                    {filters.map((filter) => {
+                                        return (
+                                            <FilterInputBox>
+                                                <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
+                                                <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                            </FilterInputBox>
+                                        )
+                                    })}
+                                    <ApplyButton>
+                                        Apply
+                                    </ApplyButton>
                                 </Box>
                             </Fade>
                         )}
                     </Popper>
+                    <Box sx={{
+                        display: { xs: 'none', md: 'flex' }, alignItems: 'end',
+                        flexDirection: 'column', width: '100%', gap: '12px'
+                    }}>
+                        {filters.map((filter) => {
+                            return (
+                                <FilterInputBox>
+                                    <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
+                                    <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                </FilterInputBox>
+                            )
+                        })}
+                        <ApplyButton>
+                            Apply
+                        </ApplyButton>
+
+                    </Box>
 
                 </Box>
 
@@ -182,7 +244,7 @@ const Blogs = () => {
                 }}>
                     {blogs.map((blog) => {
                         return (<BlogSmall image={stars}
-                            title={'hahaha'} subtitle={'hohoho'} date={'2024'}
+                            title={'title'} subtitle={'hohoho'} date={'2024'}
                             description={'sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi'} />)
                     })}
                 </Box>
