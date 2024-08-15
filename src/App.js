@@ -28,6 +28,7 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import Gopatron from './pages/gopatron';
 import Blogs from './pages/blogs';
+import Blog from './pages/blog';
 
 function App() {
 
@@ -59,6 +60,7 @@ function App() {
           <Route exact path="/contact-us" element={<Contact />} />
           <Route exact path="/gopatron" element={<Gopatron />} />
           <Route exact path="/blogs" element={<Blogs />} />
+          <Route exact path="/blog/:id/:name" element={<Blog />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />

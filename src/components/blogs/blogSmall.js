@@ -1,6 +1,7 @@
 import styled from "@emotion/styled/macro";
 import { Box, Typography } from "@mui/material";
 import ButtonOutline from "../buttons/buttonOutline";
+import { useNavigate } from "react-router-dom";
 const Image = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center', backgroundColor: '#d9d9d9',
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
@@ -10,7 +11,8 @@ const Details = styled(Box)(({ theme }) => ({
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
 
-const BlogSmall = ({ image, title, subtitle, description, date }) => {
+const BlogSmall = ({ image, title, id, subtitle, description, date }) => {
+    const navigate = useNavigate()
     return (
         <Box sx={{
             display: 'flex', flexDirection: { xs: 'column-reverse', md: 'row' },
@@ -41,7 +43,7 @@ const BlogSmall = ({ image, title, subtitle, description, date }) => {
                 }}>
                     {description}
                 </Typography>
-                <ButtonOutline text={'Read More'} />
+                <ButtonOutline text={'Read More'} action={() => navigate(`/blog/${id}/${title}`)} />
             </Details>
             <Image sx={{
                 aspectRatio: { xs: '4/3', md: '1/1' },

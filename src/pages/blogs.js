@@ -244,6 +244,7 @@ const Blogs = () => {
                 }}>
                     {blogs.map((blog) => {
                         return (<BlogSmall image={stars}
+                            id={blog}
                             title={'title'} subtitle={'hohoho'} date={'2024'}
                             description={'sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi'} />)
                     })}
