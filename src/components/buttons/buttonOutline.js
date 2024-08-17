@@ -11,7 +11,7 @@ const ButtonOutline = ({ text, action }) => {
             display: 'flex', alignItems: 'center', textTransform: 'uppercase',
         }}
         onClick={action}>
-        <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '16px' }, color: '#08113b' }}>
+        <Typography sx={{ fontSize: { xs: '14px', sm: '16px', md: '16px' }, color: '#08113b' ,fontWeight: 500}}>
             {text}
         </Typography>
     </Box>);

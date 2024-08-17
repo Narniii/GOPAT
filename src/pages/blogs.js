@@ -1,5 +1,7 @@
 import { Box, Fade, Input, Popper, Typography } from "@mui/material";
 import stars from '../assets/stars.svg'
+import diamond from '../assets/Diamond.jpg'
+import nader from '../assets/Nader-Mohaddes.jpg'
 import ButtonOutline from "../components/buttons/buttonOutline";
 import styled from "@emotion/styled/macro";
 import BlogSmall from "../components/blogs/blogSmall";
@@ -72,7 +74,42 @@ const Image = styled(Box)(({ theme }) => ({
 }))
 
 const Blogs = () => {
-    const blogs = [1, 2, 3, 4, 5, 6, 7, 8]
+    const blogs = [{
+        id: 1,
+        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: stars, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+        date: '2024'
+    },
+    {
+        id: 2,
+        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: diamond, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+        date: '2024'
+    },
+    {
+        id: 3,
+        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: nader, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+        date: '2024'
+    },
+    {
+        id: 4,
+        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: stars, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+        date: '2024'
+    },
+    {
+        id: 5,
+        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: nader, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+        date: '2024'
+    },
+    {
+        id: 6,
+        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: diamond, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+        date: '2024'
+    },
+    {
+        id: 7,
+        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: stars, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+        date: '2024'
+    },
+    ]
     const [selectedFilters, setSelectedFilters] = useState([])
     const filters = ['Jewerly Education', 'Campaigns', 'Entrepreneurs', 'Ancient Stories', 'News & Events']
     const [anchorEl, setAnchorEl] = useState(null);
@@ -246,10 +283,10 @@ const Blogs = () => {
                     width: '100%', display: 'flex', flexDirection: 'column', gap: '32px'
                 }}>
                     {blogs.map((blog) => {
-                        return (<BlogSmall image={stars}
-                            id={blog}
-                            title={'title'} subtitle={'hohoho'} date={'2024'}
-                            description={'sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi sjgduy dssgfd uishdf usdhf uhsd ugsdfug ugasd gsd sd  dgugsugsugi'} />)
+                        return (<BlogSmall image={blog.image}
+                            id={blog.id}
+                            title={blog.title} subtitle={blog.subtitle} date={blog.date}
+                            description={blog.description} />)
                     })}
                 </Box>
             </Box>

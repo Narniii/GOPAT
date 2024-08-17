@@ -33,13 +33,13 @@ const BlogSmall = ({ image, title, id, subtitle, description, date }) => {
                         whiteSpace: 'nowrap', fontWeight: 500,
                         fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                     }}>
-                        editorial {date}
+                        {subtitle}
                     </Typography>
                 </Box>
                 <Typography sx={{
                     color: '#999', fontSize: '14px',
                     // width: { xs: '100%', md: '400px' },
-                    textAlign: 'center'
+                    textAlign: 'center', fontWeight: 500
                 }}>
                     {description}
                 </Typography>
