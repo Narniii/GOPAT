@@ -44,7 +44,7 @@ const Image = styled(Box)(({ theme }) => ({
 const About = () => {
     return (
         <>
-            <Header hideDetailsOnMobile={true} images={[about, about1, about2]} title={'Abouot Gopat'} subtitle={'Founded In Tehran, Iran.'} />
+            <Header hideDetailsOnMobile={true} images={[about, about1, about2]} title={'About Gopat'} subtitle={'Founded In Tehran, Iran.'} />
 
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
