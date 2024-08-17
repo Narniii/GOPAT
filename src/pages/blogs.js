@@ -34,8 +34,11 @@ const ApplyButton = styled(Box)(({ theme }) => ({
     display: 'flex', justifyContent: 'center',
     boxSizing: 'border-box', padding: '8px',
     alignItems: 'center', borderRadius: '25px',
-    width: 'max-content', cursor: 'pointer',
-    fontWeight: 500, color: 'white', fontSize: '14px', backgroundColor: '#5F6368'
+    width: 'max-content', cursor: 'pointer', transition: '500ms ease',
+    fontWeight: 500, color: 'white', fontSize: '14px', backgroundColor: '#5F6368',
+    '&:hover': {
+        backgroundColor: '#08113b',
+    }
 }))
 const ImageScroll = styled(Box)(({ theme }) => ({
     boxSizing: 'border-box',
