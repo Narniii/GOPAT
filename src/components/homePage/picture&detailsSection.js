@@ -13,15 +13,15 @@ const PicsAndDets = () => {
     }}>
         {/* section one */}
         <Box sx={{
-            display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: '16px',
-            width: '100%', justifyContent: { xs: 'unset', sm: 'center' }
+            display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: { xs: '16px', md: '32px' },
+            width: '100%', justifyContent: { xs: 'unset', sm: 'center' }, boxSizing: 'border-box', px: { sm: '0', lg: '128px' }
         }}>
             <Box sx={{
                 // height: { xs: '437px', sm: '421px', md: '700px', lg: '814px' },
                 // maxWidth: { xs: '100%', sm: '317px', md: '500px', lg: '610px' },
                 width: '100%',
                 display: 'block',
-                aspectRatio: '3/4',
+                aspectRatio: '1/1',
                 mt: { xs: '0', md: '32px' },
                 backgroundImage: `url(${gopat})`,
                 justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain'
@@ -95,7 +95,8 @@ const PicsAndDets = () => {
 
         {/* section three */}
         <Box sx={{
-            display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', mt: { xs: '32px', sm: '50px', md: '60px' }
+            display: 'flex', flexDirection: 'column', gap: '32px', width: '100%', mt: { xs: '32px', sm: '50px', md: '60px' },
+            boxSizing: 'border-box', px: { sm: '0', lg: '128px' }
             // justifyContent: 'center', alignItems: 'center',
         }}>
             <Box sx={{

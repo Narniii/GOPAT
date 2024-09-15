@@ -86,7 +86,7 @@ const About = () => {
                     justifyContent: 'space-between', boxSizing: 'border-box', px: { xs: '16px', md: '0' },
                 }}>
                     <Box sx={{
-                        padding: { xs: '32px', md: '64px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
+                        padding:  { xs: '32px', md: '64px', lg: '64px 128px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
                         display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: { xs: '16px', md: '32px' }
                     }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>
@@ -114,7 +114,7 @@ const About = () => {
                     </Box>
 
                     <Box sx={{
-                        width: '100%', backgroundColor: '#d9d9d9',
+                        width: { xs: '100%', md: '70%' }, backgroundColor: '#d9d9d9',
                         backgroundImage: `url(${about1})`,
                         aspectRatio: { xs: '4/3', md: '1/1' },
                         backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
@@ -131,13 +131,13 @@ const About = () => {
                     justifyContent: 'space-between', boxSizing: 'border-box', px: { xs: '16px', md: '0' },
                 }}>
                     <Box sx={{
-                        width: '100%',
+                        width: { xs: '100%', md: '70%' },
                         backgroundImage: `url(${about2})`, backgroundColor: '#d9d9d9',
                         aspectRatio: { xs: '4/3', md: '1/1' },
                         backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                     }} />
                     <Box sx={{
-                        padding: { xs: '32px', md: '64px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
+                        padding: { xs: '32px', md: '64px', lg: '64px 128px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
                         display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: { xs: '16px', md: '32px' }
                     }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>

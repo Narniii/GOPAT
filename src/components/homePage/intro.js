@@ -50,9 +50,18 @@ const fade = keyframes`
   }
 
 `
+const grow = keyframes`
+  0% {
+    width:0px;
+  }
+  100% {
+    width:100%;
+  }
+`
 
 const Intro = () => {
     const [slide, setSlide] = useState(0)
+    const [slideChanges, setSlideChanges] = useState(false)
     const slides = [
         { image: bangle, name: 'tishtar bangle', animation: fade },
         { image: necklace, name: 'tishtar necklace', animation: fade }
@@ -69,6 +78,11 @@ const Intro = () => {
 
         return () => clearInterval(intervalId); //This is important
     }, [slide, slides])
+    // useEffect(() => {
+    //     if (slide) {
+    //         setSlideChanges(!slideChanges)
+    //     }
+    // }, [slide])
     return (
         <Box sx={{
             borderBottom: { xs: '1px solid #b3b3b3', md: 'none' },
@@ -82,11 +96,13 @@ const Intro = () => {
                 backgroundImage: `url(${slides[slide].image})`,
                 justifySelf: 'center', backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
+                animation: slideChanges ? `${grow} 1s ease-in 1` : undefined,
+
             }} />
             <Details sx={{
                 mx: '60px', my: { xs: '50px', md: '60px' },
                 transition: '500ms ease',
-                // animation: `${slides[slide].animation} 1s ease-in 1`,
+                animation: slideChanges ? `${slides[slide].animation} 1s ease-in 1` : undefined,
             }}>
                 <Typography variant="h1" sx={{
                     whiteSpace: 'nowrap', transition: '500ms ease',
