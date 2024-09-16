@@ -2,13 +2,14 @@ import { Box, Typography, } from "@mui/material";
 import styled from "@emotion/styled/macro";
 import girl from '../assets/girl.svg'
 import ProductCard from '../components/collection/productCard'
+import Header from "../components/header";
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
 
 const CollectionSingle = () => {
     return (<>
-        <Box sx={{
+        {/* <Box sx={{
             height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
             width: '100%', boxSizing: 'border-box',
             display: 'flex', flexDirection: { xs: 'column', md: 'row' },
@@ -32,8 +33,11 @@ const CollectionSingle = () => {
                 }}>
                     Tishtar Collection</Typography>
             </Details>
-        </Box>
+        </Box> */}
+        <Header hideDetailsOnMobile={false} images={[girl]} title={'Tishtar Collection'} />
+
         <Box sx={{
+            mt: { xs: 'none', md: '60px' },
             display: { xs: 'grid', md: 'flex' },
             flexDirection: 'column', gap: '32px',
             gridTemplateColumns: 'auto auto', rowGap: '16px', columnGap: '8px',

@@ -1,11 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled/macro";
+import { useEffect, useState } from "react";
 
 const Details = styled(Box)(({ theme }) => ({
     // display: 'flex',
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
 const ImageScroll = styled(Box)(({ theme }) => ({
+    display: 'flex', flexDirection: 'column',
     boxSizing: 'border-box',
     width: '100%',
     // height: '100%',
@@ -33,10 +35,55 @@ const Image = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center', backgroundColor: '#d9d9d9',
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
     height: '100%',
-    aspectRatio: '1/1'
+    // aspectRatio: '1/1'
+}))
+const ProgressLineWrapper = styled(Box)(({ theme }) => ({
+    background: 'transparent',
+    height: '8px',
+    width: '100%',
+
+}))
+const ProgressLine = styled(Box)(({ theme }) => ({
+    height: '8px',
+    width: '8px',
+    background: '#08113b',
+    color: '#08113b',
+    border: 'none',
+    borderRadius: '0px'
+
 }))
 
+
 const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) => {
+    const [slide, setSlide] = useState(0)
+
+    const slides = [
+        { image: images[0] },
+        { image: images[1] },
+        { image: images[2] },
+    ]
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+            if (slide >= slides.length - 1) {
+                setSlide(0)
+            }
+            else {
+                setSlide(slide + 1)
+            }
+        }, 5000)
+
+        return () => clearInterval(intervalId); //This is important
+    }, [slide, slides])
+    useEffect(() => {
+        const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+            window.document.getElementById('scrollable').scrollLeft += 300
+        }, 2000)
+
+        return () => clearInterval(intervalId); //This is important
+
+    }, [])
+
     return (
         <Box sx={{
             // height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
@@ -45,26 +92,39 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
             display: 'flex', flexDirection: { xs: 'column', md: 'row' },
             // mb: { xs: 'none', md: '60px' }
         }}>
-            <ImageScroll sx={{
+            <ImageScroll id="scrollable" sx={{
                 height: { xs: '420px', md: '100%' },
             }}>
                 <Box sx={{
                     display: 'flex',
-                    height: '100%', width: '100%',
+                    height: '100%', width: { xs: 'max-content' },
                     boxSizing: 'border-box',
-                    width: 'max-content', flexWrap: 'nowrap'
+                    flexWrap: 'nowrap'
                 }}>
                     {images.map((image) => {
                         return (
                             <Image sx={{
                                 backgroundImage: `url(${image})`,
-                                width: { xs: '100vw', md: '100%' }
+                                width: { xs: '100vw', md: 'calc(100vw - 400px)' },
+                                aspectRatio: { xs: '1/1', md: '4/3' },
+
                             }} />
                         )
                     })}
+                    {/* <Image sx={{
+                        backgroundImage: `url(${slides[slide].image})`,
+                        width: { xs: '100vw', md: '100%' },
+                        aspectRatio: { xs: '1/1', md: '4/3' },
+
+                    }} /> */}
+
                 </Box>
+                {/* <ProgressLineWrapper>
+                    <ProgressLine />
+                </ProgressLineWrapper> */}
             </ImageScroll>
             <Details sx={{
+                width: { xs: 'unset', md: '400px' },
                 display: { xs: hideDetailsOnMobile ? 'none' : 'flex', md: 'flex' },
                 mx: { xs: '32px', md: '100px' },
                 my: { xs: '50px', md: '60px' },

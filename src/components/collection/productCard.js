@@ -32,7 +32,7 @@ const ProductCard = ({ link }) => {
                     // height: { xs: '160px', sm: '354px', md: '331px' },
                 }} />
             </Box>
-            <Box sx={{
+            <Box onClick={() => navigate(link)} sx={{
                 display: { xs: 'flex', md: 'none' },
                 flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center',
             }}>
@@ -50,14 +50,14 @@ const ProductCard = ({ link }) => {
                     sx={{ my: '8px', whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
                     14.350.000 T
                 </Typography>
-                <ButtonFillRound onClick={() => navigate(link)} text={'Order'} />
+                <ButtonFillRound action={() => navigate(link)} text={'Order'} />
             </Box>
             <Box sx={{
                 display: { xs: 'none', md: 'flex' },
                 flexDirection: 'row', width: '50%',
                 justifyContent: 'space-between', alignItems: 'center',
             }}>
-                <Box sx={{
+                <Box onClick={() => navigate(link)} sx={{
                     flexDirection: 'column', width: '100%',
                     justifyContent: 'center', alignItems: 'center',
                 }}>
@@ -71,7 +71,7 @@ const ProductCard = ({ link }) => {
                         14.350.000 T
                     </Typography>
                 </Box>
-                <ButtonFillRound onClick={() => navigate(link)} text={'Order'} />
+                <ButtonFillRound action={() => navigate(link)} text={'Order'} />
             </Box>
 
         </Card>

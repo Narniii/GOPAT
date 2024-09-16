@@ -108,21 +108,21 @@ const Footer = () => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' },
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     GOPAT team
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Diamond And Material
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/contact-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Find A Store
                                 </Link>
                             </Links>
@@ -134,14 +134,14 @@ const Footer = () => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#repurchasing'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Return & exchange
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Deliveries timeline
                                 </Link>
                             </Links>
@@ -153,14 +153,14 @@ const Footer = () => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#polishing'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Free Polishing
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#gifting'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Gifting
                                 </Link>
                             </Links>
@@ -194,14 +194,14 @@ const Footer = () => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#polishing'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Free Polishing
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#gifting'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Gifting
                                 </Link>
                             </Links>
@@ -223,14 +223,14 @@ const Footer = () => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#repurchasing'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Return & Exchange
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Deliveries Timeline
                                 </Link>
                             </Links>
@@ -255,21 +255,21 @@ const Footer = () => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     GOPAT team
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Diamond And Material
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/contact-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     Find A Store
                                 </Link>
                             </Links>

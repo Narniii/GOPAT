@@ -4,9 +4,10 @@ import '../App.css';
 import logo from '../assets/LOGO-01.svg'
 import { useState } from "react";
 import NavMenu from "./navMenu";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false)
-
+    const navigate = useNavigate()
     return (
         <>
             <Box id='navbar' sx={{
@@ -22,14 +23,17 @@ const Navbar = () => {
                         color: 'white', fontSize: { xs: '24px', sm: '24px', md: '32px' },
                         justifySelf: 'start', cursor: 'pointer'
                     }} />
-                <Box sx={{
-                    width: { xs: '80px', sm: '90px', md: '105px' },
-                    height: '40px',
-                    backgroundImage: `url(${logo})`,
-                    justifySelf: 'center',
-                    backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
-                }} />
-                <Box />
+                <Box
+                    onClick={() => navigate('/')}
+                    sx={{
+                        cursor: 'pointer',
+                        width: { xs: '80px', sm: '90px', md: '105px' },
+                        height: '40px',
+                        backgroundImage: `url(${logo})`,
+                        justifySelf: 'center',
+                        backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
+                    }} />
+                <Box sx={{ width: { xs: '24px', sm: '24px', md: '32px' } }} />
             </Box>
             <NavMenu open={openMenu} setOpenMenu={setOpenMenu} />
 
