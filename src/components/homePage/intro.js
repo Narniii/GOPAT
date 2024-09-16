@@ -58,6 +58,21 @@ const grow = keyframes`
     width:100%;
   }
 `
+const ProgressLineWrapper = styled(Box)(({ theme }) => ({
+    background: 'transparent',
+    height: '8px',
+    width: '100%',
+    display: 'flex'
+}))
+const ProgressLine = styled(Box)(({ theme }) => ({
+    height: '8px',
+    background: '#08113b',
+    color: '#08113b',
+    border: 'none',
+    borderRadius: '0px',
+    transition: '500ms ease'
+
+}))
 
 const Intro = () => {
     const [slide, setSlide] = useState(0)
@@ -66,6 +81,7 @@ const Intro = () => {
         { image: bangle, name: 'tishtar bangle', animation: fade },
         { image: necklace, name: 'tishtar necklace', animation: fade }
     ]
+    const pgwidth = (slide + 1 / slides.length) / (1 / 100)
     useEffect(() => {
         const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
             if (slide >= slides.length - 1) {
@@ -90,15 +106,21 @@ const Intro = () => {
             width: '100%', boxSizing: 'border-box',
             display: 'flex', flexDirection: { xs: 'column', md: 'row' },
         }}>
-            <Box sx={{
-                height: '100%', width: '100%',
-                aspectRatio: '4/3', transition: '500ms ease',
-                backgroundImage: `url(${slides[slide].image})`,
-                justifySelf: 'center', backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
-                animation: slideChanges ? `${grow} 1s ease-in 1` : undefined,
+            <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', }}>
+                <Box sx={{
+                    height: '100%', width: '100%',
+                    aspectRatio: '4/3', transition: '500ms ease',
+                    backgroundImage: `url(${slides[slide].image})`,
+                    justifySelf: 'center', backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
+                    animation: slideChanges ? `${grow} 1s ease-in 1` : undefined,
 
-            }} />
+                }} />
+                <ProgressLineWrapper>
+                    <ProgressLine sx={{ width: `${pgwidth}%` }} />
+                </ProgressLineWrapper>
+            </Box>
+
             <Details sx={{
                 mx: '60px', my: { xs: '50px', md: '60px' },
                 transition: '500ms ease',

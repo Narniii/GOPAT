@@ -58,9 +58,9 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
     const [slide, setSlide] = useState(0)
 
     const slides = [
-        { image: images[0] },
-        { image: images[1] },
-        { image: images[2] },
+        { image: images[0], id: 'one' },
+        { image: images[1], id: 'two' },
+        { image: images[2], id: 'three' },
     ]
 
     useEffect(() => {
@@ -76,13 +76,17 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
         return () => clearInterval(intervalId); //This is important
     }, [slide, slides])
     useEffect(() => {
+
         const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
-            window.document.getElementById('scrollable').scrollLeft += 300
-        }, 2000)
+            let parent = window.document.getElementById('scrollable')
+            let child = window.document.getElementById(slides[slide].id)
+            var childLeft = child.offsetLeft;
+            parent.scrollLeft = childLeft
+        }, 5000)
 
         return () => clearInterval(intervalId); //This is important
 
-    }, [])
+    }, [slide])
 
     return (
         <Box sx={{
@@ -101,10 +105,10 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
                     boxSizing: 'border-box',
                     flexWrap: 'nowrap'
                 }}>
-                    {images.map((image) => {
+                    {slides.map((slide) => {
                         return (
-                            <Image sx={{
-                                backgroundImage: `url(${image})`,
+                            <Image className={slide.id} id={slide.id} sx={{
+                                backgroundImage: `url(${slide.image})`,
                                 width: { xs: '100vw', md: 'calc(100vw - 400px)' },
                                 aspectRatio: { xs: '1/1', md: '4/3' },
 
