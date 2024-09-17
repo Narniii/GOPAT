@@ -24,7 +24,7 @@ const PicsAndDets = () => {
                 aspectRatio: '1/1',
                 mt: { xs: '0', md: '32px' },
                 backgroundImage: `url(${gopat})`,
-                justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'contain'
+                justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
             }} />
             <Box sx={{
                 display: 'flex', flexDirection: 'column', gap: { xs: '32px', md: '32px' },

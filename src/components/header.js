@@ -56,12 +56,15 @@ const ProgressLine = styled(Box)(({ theme }) => ({
 
 const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) => {
     const [slide, setSlide] = useState(0)
-
-    const slides = [
-        { image: images[0], id: 'one' },
-        { image: images[1], id: 'two' },
-        { image: images[2], id: 'three' },
-    ]
+    let slides = []
+    for (let i = 0; i < images.length; i++) {
+        slides.push({ image: images[i], id: `num${i}` })
+    }
+    // const slides = [
+    //     { image: images[0], id: 'one' },
+    //     { image: images[1], id: 'two' },
+    //     { image: images[2], id: 'three' },
+    // ]
 
     useEffect(() => {
         const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
@@ -101,7 +104,7 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
             }}>
                 <Box sx={{
                     display: 'flex',
-                    height: '100%', width: { xs: 'max-content' },
+                    height: '100%', width: 'max-content',
                     boxSizing: 'border-box',
                     flexWrap: 'nowrap'
                 }}>
@@ -109,7 +112,7 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
                         return (
                             <Image className={slide.id} id={slide.id} sx={{
                                 backgroundImage: `url(${slide.image})`,
-                                width: { xs: '100vw', md: 'calc(100vw - 400px)' },
+                                width: { xs: '100vw', md: 'calc(100vw - 420px)' },
                                 aspectRatio: { xs: '1/1', md: '4/3' },
 
                             }} />
@@ -128,11 +131,13 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
                 </ProgressLineWrapper> */}
             </ImageScroll>
             <Details sx={{
-                width: { xs: 'unset', md: '400px' },
+                minWidth: { xs: 'unset', md: '400px !important' },
+                width: { xs: 'unset', md: '400px !important' },
                 display: { xs: hideDetailsOnMobile ? 'none' : 'flex', md: 'flex' },
-                mx: { xs: '32px', md: '100px' },
+                px: { xs: '32px', md: 'unset' },
                 my: { xs: '50px', md: '60px' },
-                gap: { xs: '8px', sm: '12px', md: '16px' }
+                gap: { xs: '8px', sm: '12px', md: '16px' },
+                boxSizing: 'border-box'
             }}>
                 <Typography variant="h1" sx={{
                     whiteSpace: 'nowrap',

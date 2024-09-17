@@ -21,7 +21,7 @@ function SampleNextArrow(props) {
                 cursor: 'pointer'
                 , zIndex: 999,
                 // transform: 'translateY(-100%)',
-                top: '35%',
+                top: { xs: '30%', sm: '35%', lg: '40%' },
                 p: '5px',
                 opacity: '0.7'
             }}
@@ -48,7 +48,7 @@ function SamplePrevArrow(props) {
                 cursor: 'pointer'
                 , zIndex: 999,
                 // transform: 'translateY(-100%)',
-                top: '35%',
+                top: { xs: '30%', sm: '35%', lg: '40%' },
                 p: '5px',
                 opacity: '0.7'
             }}
