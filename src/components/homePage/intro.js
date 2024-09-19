@@ -1,10 +1,11 @@
-import { Box, Typography, keyframes, } from "@mui/material";
+import { Box, Skeleton, Typography, keyframes, } from "@mui/material";
 import ButtonOutline from "../buttons/buttonOutline";
 import styled from "@emotion/styled/macro";
 import bangle from '../../assets/Landing.jpg'
 import necklace from '../../assets/product2.svg'
 import IntroSlider from "../introSlider";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
@@ -77,35 +78,56 @@ const ProgressLine = styled(Box)(({ theme }) => ({
 const Intro = () => {
     const [slide, setSlide] = useState(0)
     const [slideChanges, setSlideChanges] = useState(false)
-    const slides = [
-        { image: bangle, name: 'tishtar bangle', animation: fade },
-        { image: necklace, name: 'tishtar necklace', animation: fade }
-    ]
-    const pgwidth = (slide + 1 / slides.length) / (1 / 100)
+    const [slides, setSlides] = useState(undefined)
     useEffect(() => {
-        const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
-            if (slide >= slides.length - 1) {
-                setSlide(0)
-            }
-            else {
-                setSlide(slide + 1)
-            }
-        }, 5000)
+        if (slides) {
 
-        return () => clearInterval(intervalId); //This is important
+            const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+                if (slide >= slides.length - 1) {
+                    setSlide(0)
+                }
+                else {
+                    setSlide(slide + 1)
+                }
+            }, 5000)
+
+            return () => clearInterval(intervalId); //This is important
+        }
     }, [slide, slides])
-    // useEffect(() => {
-    //     if (slide) {
-    //         setSlideChanges(!slideChanges)
-    //     }
-    // }, [slide])
+    const getSlides = async () => {
+        let request = await fetch(`https://admin.gopatjewelry.com/api/landing-products?populate=*`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer 210f4fdc9cfc30870e2f3ca17b2d4f410d6ae5ce2afaf1445b6118731abaf524c008c11a503bf8b3d7a4fdff7887a67578791c89077bb18c23df8b1a672c01df203eb28a3bbbf2f68867a683f12ba03ac070acdbaa08bc5b970f51334fdb102bc1154e6009e3d3c00d6f80a6dbb58b0dbe1691f560e5f582dde5c65f5ded68c9`,
+            }
+        })
+        let response = await request.json()
+        console.log(response)
+        let tempslides = []
+        for (let i = 0; i < response.data.length; i++) {
+            tempslides.push({
+                image: `https://admin.gopatjewelry.com${response.data[i].attributes.media.data.attributes.url}`,
+                name: response.data[i].attributes.title,
+                subtitle: response.data[i].attributes.subtitle,
+                pID: response.data[i].attributes.pID
+            })
+        }
+        setSlides(tempslides)
+        console.log(tempslides)
+    }
+    useEffect(() => {
+        getSlides()
+    }, [])
+
+    const navigate = useNavigate()
     return (
         <Box sx={{
             borderBottom: { xs: '1px solid #b3b3b3', md: 'none' },
             height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
             width: '100%', boxSizing: 'border-box',
             display: 'flex', flexDirection: { xs: 'column', md: 'row' },
-        }}>
+        }}>{slides ? <>
             <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', }}>
                 <Box sx={{
                     height: '100%',
@@ -120,7 +142,7 @@ const Intro = () => {
 
                 }} />
                 <ProgressLineWrapper>
-                    <ProgressLine sx={{ width: `${pgwidth}%` }} />
+                    <ProgressLine sx={{ width: `${(slide + 1 / slides.length) / (1 / 100)}%` }} />
                 </ProgressLineWrapper>
             </Box>
 
@@ -142,9 +164,11 @@ const Intro = () => {
                     whiteSpace: 'nowrap',
                     fontSize: { xs: '16px', sm: '18px', md: '18px' }, fontStyle: 'italic', color: '#999999'
                 }}>
-                    In dialogue with Persepolis</Typography>
-                <ButtonOutline text={'Discover More'} />
+                    {slides[slide].subtitle}</Typography>
+                <ButtonOutline text={'Discover More'} action={() => navigate(`/product/${slides[slide].name}/${slides[slide].pID}`)} />
             </Details>
+        </> : <Skeleton width={'100vw'} height={'100%'} />}
+
         </Box>
 
     );

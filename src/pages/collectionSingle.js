@@ -72,7 +72,7 @@ const CollectionSingle = () => {
                 gridTemplateColumns: 'auto auto', rowGap: '16px', columnGap: '8px',
                 boxSizing: 'border-box', px: { xs: '16px', sm: '24px', md: '64px', lg: '256px' }, mb: { xs: '50px', md: '60px' }
             }}>
-                <ProductCard link={'/product/bangle/tishtar'} />
+                <ProductCard link={'/product/tishtar-bangle/2'} />
                 <ProductCard />
                 <ProductCard />
                 <ProductCard />

@@ -19,14 +19,14 @@ const Slider = () => {
                 <CustomSlider slidesCount={4}>
                     <ProductCard />
                     <ProductCard />
+                    {/* <ProductCard /> */}
+                    {/* <ProductCard />
                     <ProductCard />
                     <ProductCard />
                     <ProductCard />
                     <ProductCard />
                     <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                    <ProductCard /> */}
                 </CustomSlider>
             </Box>
         </Box>

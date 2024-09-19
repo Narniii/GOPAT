@@ -59,7 +59,7 @@ function App() {
           <Routes forceRefresh={true}>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/collection/:name/:id" element={<CollectionSingle />} />
-            <Route exact path="/product/:name/:collection" element={<ProductSingle />} />
+            <Route exact path="/product/:name/:id" element={<ProductSingle />} />
             <Route exact path="/about-us" element={<About />} />
             <Route exact path="/contact-us" element={<Contact />} />
             <Route exact path="/gopatron" element={<Gopatron />} />

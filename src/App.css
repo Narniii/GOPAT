@@ -86,6 +86,8 @@ body {
 .slick-slider {
   display: flex !important;
   /* justify-content: center; */
+  width: 100% !important;
+
   align-items: center;
 }
 .slick-initialized .slick-slide {
@@ -112,6 +114,7 @@ body {
 }
 .slick-list {
   margin: 0 0 0 16px;
+  width: 100%;
 }
 
 #fill {
