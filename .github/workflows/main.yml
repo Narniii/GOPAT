@@ -19,7 +19,7 @@ jobs:
           port: 22
           script: |
             if [ ! -d "/root/ui" ]; then
-              git clone https://github.com/your-username/your-repo-name.git /root/ui
+              git clone https://Narniii:${{ secrets.ACCESS_TOKEN }}@github.com/Narniii/GOPAT.git
             fi
             cd /root/ui
             git pull origin main
