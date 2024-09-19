@@ -21,7 +21,7 @@ jobs:
             if [ ! -d "/root/ui" ]; then
               git clone https://Narniii:${{ secrets.ACCESS_TOKEN }}@github.com/Narniii/GOPAT.git
             fi
-            cd /root/GOPAT
+            cd GOPAT
             git pull origin main
             npm install
             npm run build
