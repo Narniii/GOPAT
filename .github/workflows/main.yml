@@ -18,9 +18,10 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 22
           script: |
-            if [ ! -d "/root/ui" ]; then
+            if [ ! -d "/root/GOPAT" ]; then
               git clone https://Narniii:${{ secrets.ACCESS_TOKEN }}@github.com/Narniii/GOPAT.git
             fi
+            pwd
             cd GOPAT
             git pull origin main
             npm install
