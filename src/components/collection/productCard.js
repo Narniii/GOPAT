@@ -14,7 +14,12 @@ const CardImage = styled(Box)(({ theme }) => ({
     cursor: 'pointer'
 }))
 
-const ProductCard = ({ link }) => {
+const ProductCard = ({ name, images, price, details, link }) => {
+    console.log(images)
+    let imgs = []
+    for (let i = 0; i < images.length; i++) {
+        imgs.push((`https://admin.gopatjewelry.com${images[i].attributes.url}`))
+    }
     const navigate = useNavigate()
     return (
         <Card sx={{ width: { xs: '100%' } }}>
@@ -23,12 +28,14 @@ const ProductCard = ({ link }) => {
                     // width: { xs: '160px', sm: '354px', md: '331px' },
                     aspectRatio: '1/1',
                     width: { xs: '100%', md: '50%' },
+                    backgroundImage: `url(${imgs[0]})`,
                     // height: { xs: '160px', sm: '354px', md: '331px' },
                 }} />
                 <CardImage onClick={() => navigate(link)} sx={{
                     aspectRatio: '1/1',
                     display: { xs: 'none', md: 'block' },
                     width: { xs: '100%', md: '50%' },
+                    backgroundImage: `url(${imgs[1]})`,
                     // height: { xs: '160px', sm: '354px', md: '331px' },
                 }} />
             </Box>
@@ -39,16 +46,16 @@ const ProductCard = ({ link }) => {
                 <Typography
                     variant='h3'
                     sx={{ mt: '16px', color: '#08113B', fontWeight: '500', fontSize: { xs: '12px', sm: '14px', md: '16px' }, }}>
-                    tishtar bangle</Typography>
+                    {name}</Typography>
                 <Typography
                     variant="h6"
                     sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999' }}>
-                    0.07ct D, Silver 950, Unisex
+                    {details}
                 </Typography>
                 <Typography
                     variant="h6"
                     sx={{ my: '8px', whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
-                    14.350.000 T
+                    {price} T
                 </Typography>
                 <ButtonFillRound action={() => navigate(link)} text={'Order'} />
             </Box>
@@ -64,11 +71,11 @@ const ProductCard = ({ link }) => {
                     <Typography
                         variant='h3'
                         sx={{ mt: '16px', color: '#08113B', fontWeight: '500', fontSize: { xs: '12px', sm: '14px', md: '16px' }, }}>
-                        tishtar bangle</Typography>
+                        {name}</Typography>
                     <Typography
                         variant="h6"
                         sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
-                        14.350.000 T
+                        {price} T
                     </Typography>
                 </Box>
                 <ButtonFillRound action={() => navigate(link)} text={'Order'} />
