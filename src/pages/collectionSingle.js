@@ -69,7 +69,7 @@ const CollectionSingle = () => {
                             return (
                                 <ProductCard name={product.attributes.name} price={product.attributes.price}
                                     details={product.attributes.details}
-                                    images={product.attributes.medias.data} link={'/product/tishtar-bangle/2'} />
+                                    images={product.attributes.medias.data} link={`/product/${product.attributes.name}/${product.id}`} />
                             )
                         })}
                     </> : <Typography

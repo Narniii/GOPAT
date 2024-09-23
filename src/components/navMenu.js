@@ -48,7 +48,7 @@ const NavMenu = ({ open, setOpenMenu }) => {
                             {collections.map((collection) => {
                                 return (
                                     <Link style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }}
-                                        onClick={() => setOpenMenu(false)}
+                                        onClick={() => setOpenMenu(false)} target="_blank"
                                         to={`/collection/${collection.attributes.name}/${collection.id}`}>
                                         <Typography sx={{
                                             fontSize: '14px',
