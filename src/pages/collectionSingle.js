@@ -1,6 +1,5 @@
 import { Box, CircularProgress, Typography, } from "@mui/material";
 import styled from "@emotion/styled/macro";
-import girl from '../assets/girl.svg'
 import ProductCard from '../components/collection/productCard'
 import Header from "../components/header";
 import { useParams } from "react-router-dom";
@@ -54,31 +53,6 @@ const CollectionSingle = () => {
     }, [])
 
     return (<>
-        {/* <Box sx={{
-            height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
-            width: '100%', boxSizing: 'border-box',
-            display: 'flex', flexDirection: { xs: 'column', md: 'row' },
-            mb: { xs: 'none', md: '60px' }
-        }}>
-            <Box sx={{
-                height: '100%', width: '100%',
-                backgroundImage: `url(${girl})`,
-                justifySelf: 'center',
-                aspectRatio: { xs: '3/4', md: '4/3' },
-                backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
-            }} />
-            <Details sx={{
-                mx: { xs: '32px', md: '100px' },
-                my: { xs: '50px', md: '60px' },
-                gap: { xs: '8px', sm: '12px', md: '16px' }
-            }}>
-                <Typography variant="h1" sx={{
-                    whiteSpace: 'nowrap',
-                    fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
-                }}>
-                    Tishtar Collection</Typography>
-            </Details>
-        </Box> */}
         {collection && images ? <>
             <Header hideDetailsOnMobile={false} images={images} title={`${collection.name} Collection`} />
 

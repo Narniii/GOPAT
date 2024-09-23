@@ -1,8 +1,8 @@
 import { Box, styled, Typography } from "@mui/material";
 import Header from "../components/header";
-import contact from '../assets/contact.svg'
-import samcenter from '../assets/samcenter.svg'
-import avacenter from '../assets/avacenter.svg'
+import contact from '../assets/Tishtar-unisex-bangle.jpg'
+import samcenter from '../assets/Sam-Center.jpg'
+import avacenter from '../assets/Ava-Platt.jpg'
 
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', textAlign: 'center', boxSizing: 'border-box',

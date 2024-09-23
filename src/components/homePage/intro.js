@@ -1,8 +1,6 @@
 import { Box, Skeleton, Typography, keyframes, } from "@mui/material";
 import ButtonOutline from "../buttons/buttonOutline";
 import styled from "@emotion/styled/macro";
-import bangle from '../../assets/Landing.jpg'
-import necklace from '../../assets/product2.svg'
 import IntroSlider from "../introSlider";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

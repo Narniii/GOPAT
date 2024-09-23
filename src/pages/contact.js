@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled/macro";
-import contact from '../assets/contact.svg'
-import samcenter from '../assets/samcenter.svg'
-import avacenter from '../assets/avacenter.svg'
+import contact from '../assets/Tishtar-unisex-bangle.jpg'
+import samcenter from '../assets/Sam-Center.jpg'
+import avacenter from '../assets/Ava-Platt.jpg'
 import ButtonWhatsapp from "../components/buttons/buttonWhatsapp";
 import ButtonFill from "../components/buttons/buttonFill";
 import ButtonWhatsappContact from "../components/buttons/buttonWhatsappContact";

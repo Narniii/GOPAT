@@ -1,5 +1,5 @@
 import { Box, Fade, Input, Popper, Typography } from "@mui/material";
-import stars from '../assets/stars.svg'
+import stars from '../assets/Tishtar-Blog.jpg'
 import diamond from '../assets/Diamond.jpg'
 import nader from '../assets/Nader-Mohaddes.jpg'
 import ButtonOutline from "../components/buttons/buttonOutline";

@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled/macro";
-import about from '../assets/about.svg'
-import about1 from '../assets/about1.svg'
-import about2 from '../assets/about2.svg'
+import about from '../assets/Tishtar-unisex-bangle.jpg'
+import about1 from '../assets/craftmanship.jpg'
+import about2 from '../assets/Persepolis3.jpg'
 import Header from "../components/header";
 const Details = styled(Box)(({ theme }) => ({
     // display: 'flex',

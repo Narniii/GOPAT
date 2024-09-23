@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled/macro";
-import about from '../assets/about.svg'
-import polish from '../assets/polish.svg'
-import repurchasing from '../assets/repurchase.svg'
-import gifting from '../assets/gifting.svg'
+import craftmanship from '../assets/craftmanship.jpg'
+import polish from '../assets/polishing.jpg'
+import repurchasing from '../assets/packaging.jpg'
+import gifting from '../assets/gifting.jpg'
 import counseling from '../assets/counseling.svg'
-import deliveries from '../assets/deliveries.svg'
-import contact from '../assets/contact.svg'
+import deliveries from '../assets/Avacenter.jpg'
+import contact from '../assets/Tishtar-unisex-bangle.jpg'
 import gopatron from '../assets/gopatron.svg'
 import ButtonWhatsappContact from "../components/buttons/buttonWhatsappContact";
 import ButtonFill from "../components/buttons/buttonFill";
@@ -93,7 +93,7 @@ const Gopatron = () => {
     }, [window.location.hash])
     return (
         <>
-            <Header hideDetailsOnMobile={true} images={[gopatron, about, contact]} title={'Gopatron'} subtitle={'Customer Service'} />
+            <Header hideDetailsOnMobile={true} images={[gopatron, craftmanship, contact]} title={'Gopatron'} subtitle={'Customer Service'} />
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
                 {/* section about gopatron */}
@@ -126,7 +126,7 @@ const Gopatron = () => {
 
                 {sections.map((section, index) => {
                     return (
-                        <div id={section.id} >
+                        <div id={section.id} style={{ width: '100%' }} >
                             <Box key={section.id} sx={{
                                 mb: { xs: '16px', md: '32px' },
                                 width: '100%',

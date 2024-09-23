@@ -1,10 +1,10 @@
 import { Box, Typography, keyframes, styled } from "@mui/material";
-import stars from '../assets/stars.svg'
+import stars from '../assets/Tishtar-Blog.jpg'
 import boutique from '../assets/boutique.svg'
 import hourglass from '../assets/hourglass.svg'
-import product from '../assets/product.svg'
-import product1 from '../assets/product1.svg'
-import product2 from '../assets/product2.svg'
+import product from '../assets/Tishtar-unisex-bangle.jpg'
+import product1 from '../assets/Tishtar-unisex-bangle.jpg'
+import product2 from '../assets/Tishtar-unisex-bangle.jpg'
 import polish from '../assets/Polishing.svg'
 import durable from '../assets/Durable.svg'
 import { MenuTabOpenable } from "../components/menuTab";
