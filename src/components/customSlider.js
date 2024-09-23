@@ -78,22 +78,24 @@ export default function CustomSlider({ children, slidesCount, slidesCountTablet,
             {
                 breakpoint: 1400,
                 settings: {
-                    slidesToShow: children.length < 4 ? children.length : 4,
-                    slidesToScroll: children.length < 4 ? children.length : 4,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
                 }
             },
             {
                 breakpoint: 1300,
                 settings: {
-                    slidesToShow: children.length < 4 ? children.length : 4,
-                    slidesToScroll: children.length < 4 ? children.length : 4,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
                 }
             },
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: children.length < 2 ? children.length : 2,
-                    slidesToScroll: children.length < 2 ? children.length : 2,
+                    // slidesToShow: children.length < 2 ? children.length : 2,
+                    // slidesToScroll: children.length < 2 ? children.length : 2,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                 }
             },
             {
