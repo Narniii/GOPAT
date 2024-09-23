@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import styled from "@emotion/styled/macro";
-import contact from '../assets/Tishtar-unisex-bangle.jpg'
+import contact from '../assets/1-AVAPLATT.jpg'
+import contact2 from '../assets/2-AVAPLATT.jpg'
 import samcenter from '../assets/Sam-Center.jpg'
 import avacenter from '../assets/Ava-Platt.jpg'
 import ButtonWhatsapp from "../components/buttons/buttonWhatsapp";
@@ -52,7 +53,7 @@ const Image = styled(Box)(({ theme }) => ({
 const Contact = () => {
     return (
         <>
-            <Header hideDetailsOnMobile={false} images={[contact, samcenter, avacenter]} title={'Partnerhip Stores'} subtitle={'information'} />
+            <Header hideDetailsOnMobile={false} images={[contact, contact2]} title={'Partnerhip Stores'} subtitle={'information'} />
 
             <Box sx={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%',
@@ -69,7 +70,7 @@ const Contact = () => {
                 }}>
 
                     <Box sx={{
-                        width:  { xs: '100%', md: '70%' },
+                        width: { xs: '100%', md: '70%' },
                         backgroundImage: `url(${samcenter})`,
                         aspectRatio: { xs: '4/3', md: '1/1' },
                         backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'

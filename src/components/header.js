@@ -41,18 +41,17 @@ const ProgressLineWrapper = styled(Box)(({ theme }) => ({
     background: 'transparent',
     height: '8px',
     width: '100%',
-
+    display: 'flex'
 }))
 const ProgressLine = styled(Box)(({ theme }) => ({
     height: '8px',
-    width: '8px',
     background: '#08113b',
     color: '#08113b',
     border: 'none',
-    borderRadius: '0px'
+    borderRadius: '0px',
+    transition: '500ms ease'
 
 }))
-
 
 const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) => {
     const [slide, setSlide] = useState(0)

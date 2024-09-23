@@ -143,6 +143,7 @@ const ProductSingle = () => {
     const id = params.id
     const [product, setProduct] = useState(undefined)
     const [images, setImages] = useState(undefined)
+    const [err, setErr] = useState(undefined)
     const navigate = useNavigate()
     const getProduct = async () => {
         let request = await fetch(`https://admin.gopatjewelry.com/api/products/${id}?populate=*`, {
@@ -155,12 +156,18 @@ const ProductSingle = () => {
 
         let response = await request.json()
         console.log(response)
-        setProduct(response.data.attributes)
-        let imgs = []
-        for (let i = 0; i < response.data.attributes.medias.data.length; i++) {
-            imgs.push(`https://admin.gopatjewelry.com${response.data.attributes.medias.data[i].attributes.url}`)
+        if (response.data) {
+            setProduct(response.data.attributes)
+            let imgs = []
+            for (let i = 0; i < response.data.attributes.medias.data.length; i++) {
+                imgs.push(`https://admin.gopatjewelry.com${response.data.attributes.medias.data[i].attributes.url}`)
+            }
+            setImages(imgs)
+        } else {
+            if (response.error.status == 404) {
+                setErr('Product Not Found')
+            }
         }
-        setImages(imgs)
     }
     useEffect(() => {
         getProduct()
@@ -212,7 +219,7 @@ const ProductSingle = () => {
                     <Box sx={{
                         display: 'flex', flexDirection: 'column', flexWrap: 'nowrap',
                         boxSizing: 'border-box', gap: '8px',
-                        height: '100%',
+                        // height: '100%',
                         width: '100%',
                     }}>
                         {images.map((image) => {
@@ -363,7 +370,8 @@ const ProductSingle = () => {
                     </Details>
                 </Details>
             </Box>
-            : <CircularProgress />}
+            : err ? <Typography sx={{ color: "#08113b", fontWeight: 500, fontSize: '20px', mt: '64px' }}>{err}</Typography> :
+                <CircularProgress sx={{ color: '#08113b' }} />}
 
 
         <StarSection sx={{

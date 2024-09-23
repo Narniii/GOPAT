@@ -140,7 +140,7 @@ const Intro = () => {
 
                 }} />
                 <ProgressLineWrapper>
-                    <ProgressLine sx={{ width: `${(slide + 1 / slides.length) / (1 / 100)}%` }} />
+                    <ProgressLine sx={{ width: `${((slide + 1) / slides.length) * 100}%` }} />
                 </ProgressLineWrapper>
             </Box>
 

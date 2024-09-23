@@ -44,7 +44,7 @@ const Image = styled(Box)(({ theme }) => ({
 const About = () => {
     return (
         <>
-            <Header hideDetailsOnMobile={true} images={[about, about1, about2]} title={'About Gopat'} subtitle={'Founded In Tehran, Iran.'} />
+            <Header hideDetailsOnMobile={true} images={[about]} title={'About Gopat'} subtitle={'Founded In Tehran, Iran.'} />
 
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
@@ -86,7 +86,7 @@ const About = () => {
                     justifyContent: 'space-between', boxSizing: 'border-box', px: { xs: '16px', md: '0' },
                 }}>
                     <Box sx={{
-                        padding:  { xs: '32px', md: '64px', lg: '64px 128px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
+                        padding: { xs: '32px', md: '64px', lg: '64px 128px' }, boxSizing: 'border-box', width: { xs: '100%', md: '50%' },
                         display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: { xs: '16px', md: '32px' }
                     }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', textAlign: 'center', gap: '4px' }}>

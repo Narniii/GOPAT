@@ -3,11 +3,11 @@ import styled from "@emotion/styled/macro";
 import craftmanship from '../assets/craftmanship.jpg'
 import polish from '../assets/polishing.jpg'
 import repurchasing from '../assets/packaging.jpg'
-import gifting from '../assets/gifting.jpg'
-import counseling from '../assets/counseling.svg'
+import gifting from '../assets/GOPAT-Gifting.jpg'
+import counseling from '../assets/GOPAT-Private-Consulting.jpg'
 import deliveries from '../assets/Avacenter.jpg'
-import contact from '../assets/Tishtar-unisex-bangle.jpg'
-import gopatron from '../assets/gopatron.svg'
+import gopatron from '../assets/1-Campaign.jpg'
+import gopatron2 from '../assets/2-Customizing-Jewelry.jpg'
 import ButtonWhatsappContact from "../components/buttons/buttonWhatsappContact";
 import ButtonFill from "../components/buttons/buttonFill";
 import Header from "../components/header";
@@ -93,7 +93,7 @@ const Gopatron = () => {
     }, [window.location.hash])
     return (
         <>
-            <Header hideDetailsOnMobile={true} images={[gopatron, craftmanship, contact]} title={'Gopatron'} subtitle={'Customer Service'} />
+            <Header hideDetailsOnMobile={true} images={[gopatron, gopatron2]} title={'Gopatron'} subtitle={'Customer Service'} />
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
                 {/* section about gopatron */}
