@@ -1,8 +1,27 @@
 import { Box, Skeleton, Typography } from "@mui/material";
 import CustomSlider from "../customSlider";
 import ProductCard from "./productCard";
+import { useEffect, useState } from "react";
 
 const Slider = () => {
+    const [products, setProducts] = useState(undefined)
+    const getProducts = async () => {
+        let request = await fetch(`https://admin.gopatjewelry.com/api/products?populate=*`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer 210f4fdc9cfc30870e2f3ca17b2d4f410d6ae5ce2afaf1445b6118731abaf524c008c11a503bf8b3d7a4fdff7887a67578791c89077bb18c23df8b1a672c01df203eb28a3bbbf2f68867a683f12ba03ac070acdbaa08bc5b970f51334fdb102bc1154e6009e3d3c00d6f80a6dbb58b0dbe1691f560e5f582dde5c65f5ded68c9`,
+            }
+        })
+        let response = await request.json()
+        console.log(response)
+        setProducts(response.data)
+    }
+    useEffect(() => {
+        getProducts()
+    }, [])
+
+
     return (
         <Box sx={{
             display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',
@@ -16,18 +35,26 @@ const Slider = () => {
                 display: 'flex', justifyContent: 'center', alignItems: 'center',
                 width: '100%', boxSizing: 'border-box', mt: '60px'
             }}>
-                <CustomSlider slidesCount={4}>
-                    <ProductCard />
-                    <ProductCard />
-                    {/* <ProductCard /> */}
-                    {/* <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard /> */}
-                </CustomSlider>
+                {products ?
+                    <CustomSlider slidesCount={4}>
+                        {products.map((product) => {
+                            return (
+                                <ProductCard name={product.attributes.name}
+                                    price={product.attributes.price}
+                                    details={product.attributes.details}
+                                    image={`https://admin.gopatjewelry.com${product.attributes.medias.data[0].attributes.url}`}
+                                />
+                            )
+                        })}
+                    </CustomSlider>
+                    :
+                    <CustomSlider slidesCount={4}>
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                    </CustomSlider>
+                }
             </Box>
         </Box>
     );

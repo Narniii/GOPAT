@@ -105,6 +105,7 @@ body {
   display: flex !important;
   /* justify-content: center !important; */
   gap: 16px;
+  transform: none !important;
 }
 .slick-track::before {
   display: none;

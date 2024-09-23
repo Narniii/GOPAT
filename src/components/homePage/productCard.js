@@ -9,7 +9,7 @@ const CardImage = styled(Box)(({ theme }) => ({
     backgroundColor: '#b3b3b3',
 }))
 
-const ProductCard = () => {
+const ProductCard = ({ name, price, details, image }) => {
     return (
         <Card sx={{ width: '100%' }}>
             <CardImage sx={{
@@ -17,19 +17,21 @@ const ProductCard = () => {
                 // width: { xs: '160px', sm: '354px', md: '331px' },
                 // width: '100%',
                 // height: { xs: '160px', sm: '354px', md: '331px' },
+                backgroundImage: `url(${image})`,
+
             }} />
             <Typography variant='h3' sx={{
                 width: '100%', textAlign: 'center',
                 mt: '16px',
                 color: '#08113B', fontWeight: '500', fontSize: { xs: '12px', sm: '14px', md: '16px' },
-            }}>tishtar bangle</Typography>
+            }}>{name}</Typography>
             <Typography variant="h6" sx={{
                 whiteSpace: 'nowrap',
                 width: '100%', textAlign: 'center',
                 fontSize: { xs: '12px', sm: '14px', md: '16px' },
                 fontStyle: 'italic', color: '#999999'
             }}>
-                0.07ct D, Silver 950, Unisex
+                {details}
             </Typography>
             <Typography variant="h6"
                 sx={{
@@ -37,7 +39,7 @@ const ProductCard = () => {
                     width: '100%', textAlign: 'center',
                     fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B'
                 }}>
-                14.350.000 T
+                {price} T
             </Typography>
 
         </Card>
