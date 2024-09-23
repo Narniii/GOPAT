@@ -41,7 +41,7 @@ const ProgressLineWrapper = styled(Box)(({ theme }) => ({
     background: 'transparent',
     height: '8px',
     width: '100%',
-    display: 'flex'
+    // display: 'flex'
 }))
 const ProgressLine = styled(Box)(({ theme }) => ({
     height: '8px',
@@ -59,12 +59,6 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
     for (let i = 0; i < images.length; i++) {
         slides.push({ image: images[i], id: `num${i}` })
     }
-    // const slides = [
-    //     { image: images[0], id: 'one' },
-    //     { image: images[1], id: 'two' },
-    //     { image: images[2], id: 'three' },
-    // ]
-
     useEffect(() => {
         const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
             if (slide >= slides.length - 1) {
@@ -117,18 +111,11 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
                             }} />
                         )
                     })}
-                    {/* <Image sx={{
-                        backgroundImage: `url(${slides[slide].image})`,
-                        width: { xs: '100vw', md: '100%' },
-                        aspectRatio: { xs: '1/1', md: '4/3' },
-
-                    }} /> */}
-
                 </Box>
-                {/* <ProgressLineWrapper>
-                    <ProgressLine />
-                </ProgressLineWrapper> */}
             </ImageScroll>
+            <ProgressLineWrapper sx={{ display: { xs: 'flex', md: 'none' } }}>
+                <ProgressLine sx={{ width: `${((slide + 1) / slides.length) * 100}%` }} />
+            </ProgressLineWrapper>
             <Details sx={{
                 minWidth: { xs: 'unset', md: '400px !important' },
                 width: { xs: 'unset', md: '400px !important' },
