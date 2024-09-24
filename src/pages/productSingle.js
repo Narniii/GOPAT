@@ -163,6 +163,7 @@ const ProductSingle = () => {
                 imgs.push(`https://admin.gopatjewelry.com${response.data.attributes.medias.data[i].attributes.url}`)
             }
             setImages(imgs)
+
         } else {
             if (response.error.status == 404) {
                 setErr('Product Not Found')
@@ -173,6 +174,18 @@ const ProductSingle = () => {
         getProduct()
     }, [])
 
+    // useEffect(() => {
+    //     if (product && images) {
+    //         const body = document.getElementById("body-inner");
+    //         body.innerHTML = product.body
+    //         const diamond = document.getElementById("diamond-inner");
+    //         diamond.innerHTML = product.diamond
+    //         const sizes = document.getElementById("sizes-inner");
+    //         sizes.innerHTML = product.sizes
+    //         const typo = document.getElementById("typo-inner");
+    //         typo.innerHTML = product.typo
+    //     }
+    // }, [product, images])
 
     return (<Box
         // id="scrollable-outside"
@@ -323,16 +336,24 @@ const ProductSingle = () => {
                             </Typography>
                             <MenuTabOpenable
                                 text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
-                            // children={<Box sx={{ width: '100%', color: '#666', fontWeight: 500 }}>{product.attributes.body}</Box>}
+                                children={<div id="body-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
+                                    {product.body}
+                                </div>}
                             />
                             <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
-                            // children={<Box sx={{ width: '100%',color:'#666',fontWeight:500 }}>{product.attributes.diamond}</Box>} 
+                                children={<div id="diamond-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
+                                    {product.diamond}
+                                </div>}
                             />
                             <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
-                            // children={<Box sx={{ width: '100%',color:'#666',fontWeight:500 }}>{product.attributes.sizes}</Box>} 
+                                children={<div id="sizes-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
+                                    {product.sizes}
+                                </div>}
                             />
                             <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
-                            // children={<Box sx={{ width: '100%',color:'#666',fontWeight:500 }}>{product.attributes.typo}</Box>} 
+                                children={<div id="typo-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
+                                    {product.typo}
+                                </div>}
                             />
                         </Box>
                         <Box sx={{

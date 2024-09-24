@@ -62,7 +62,7 @@ const NavMenu = ({ open, setOpenMenu }) => {
                                 )
                             })}
                         </> :
-                            <CircularProgress />}
+                            <CircularProgress sx={{ color: '#08113b', fontSize: '16px' }} />}
                     </Box>} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
             <MenuTab text={'About'} link={'/about-us'} onClick={() => {
                 navigate('/about-us')

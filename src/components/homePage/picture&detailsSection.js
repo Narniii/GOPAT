@@ -104,16 +104,18 @@ const PicsAndDets = () => {
                 gap: { xs: '16px', sm: '16px', md: '16px' }
             }}>
                 <Box sx={{
-                    width: { xs: '100%', sm: '251px', md: '610px' },
-                    height: { xs: '437px', sm: '335px', md: '649px' },
+                    // width: { xs: '100%', sm: '251px', md: '610px' },
+                    // height: { xs: '437px', sm: '335px', md: '649px' },
+                    width: { xs: '100%', sm: '50%' },
                     aspectRatio: '3/4',
                     backgroundImage: `url(${diamondRough})`,
                     justifySelf: 'center', backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                 }} />
                 <Box sx={{
-                    height: { xs: '248px', sm: '335px', md: '649px' },
-                    width: { xs: '100%', sm: '100%', md: '100%' },
+                    // height: { xs: '248px', sm: '335px', md: '649px' },
+                    // width: { xs: '100%', sm: '100%', md: '100%' },
+                    width: '100%',
                     aspectRatio: '4/3',
                     backgroundImage: `url(${diamond})`,
                     justifySelf: 'center', backgroundPosition: 'center',

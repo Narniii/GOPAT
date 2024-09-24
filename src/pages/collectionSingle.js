@@ -75,10 +75,10 @@ const CollectionSingle = () => {
                     </> : <Typography
                         sx={{ textTransform: 'capitalize', color: '#08113B', textAlign: 'center', fontWeight: 500 }}>
                         There Are No Products in this collection yet</Typography>}
-                </> : <CircularProgress />}
+                </> : <CircularProgress sx={{ color: '#08113b' }} />}
             </Box>
         </>
-            : <CircularProgress />}
+            : <CircularProgress sx={{ color: '#08113b' }} />}
     </>);
 }
 
