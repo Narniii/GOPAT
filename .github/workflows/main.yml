@@ -43,6 +43,7 @@ jobs:
               git clone https://Narniii:${{ secrets.ACCESS_TOKEN }}@github.com/Narniii/GOPAT.git
             fi
             cd GOPAT
+            git stash
             git pull origin main
             pwd
       
