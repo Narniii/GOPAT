@@ -1,4 +1,5 @@
 import { Box, Typography, styled } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const Card = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
     width: 'max-content'
@@ -9,9 +10,10 @@ const CardImage = styled(Box)(({ theme }) => ({
     backgroundColor: '#b3b3b3',
 }))
 
-const ProductCard = ({ name, price, details, image }) => {
+const ProductCard = ({ name, price, details, image, id }) => {
+    const navigate = useNavigate()
     return (
-        <Card sx={{ width: '100%' }}>
+        <Card sx={{ width: '100%' }} onClick={() => navigate(`/product/${name}/${id}`)}>
             <CardImage sx={{
                 aspectRatio: '1/1',
                 // width: { xs: '160px', sm: '354px', md: '331px' },

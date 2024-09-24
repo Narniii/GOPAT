@@ -39,7 +39,8 @@ const Slider = () => {
                     <CustomSlider slidesCount={4}>
                         {products.map((product) => {
                             return (
-                                <ProductCard name={product.attributes.name}
+                                <ProductCard
+                                    id={product.id} name={product.attributes.name}
                                     price={product.attributes.price}
                                     details={product.attributes.details}
                                     image={`https://admin.gopatjewelry.com${product.attributes.medias.data[0].attributes.url}`}

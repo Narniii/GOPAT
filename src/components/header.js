@@ -15,20 +15,20 @@ const ImageScroll = styled(Box)(({ theme }) => ({
     scrollBehavior: 'smooth',
     overflowX: 'scroll',
     '&::-webkit-scrollbar': {
-        background: 'transparent',
-        height: '8px',
-        width: '8px',
+        background: 'transparent !important',
+        height: '8px !important',
+        width: '8px !important',
     },
     '&::-webkit-scrollbar-thumb': {
-        height: '8px',
-        width: '8px',
-        background: '#08113b',
-        color: '#08113b',
-        border: 'none',
+        height: '8px !important',
+        width: '8px !important',
+        background: '#08113b !important',
+        color: '#08113b !important',
+        border: 'none !important',
         borderRadius: '0px'
     },
     '&::-webkit-scrollbar-button': {
-        display: 'none'
+        display: 'none !important'
     },
 }))
 const Image = styled(Box)(({ theme }) => ({

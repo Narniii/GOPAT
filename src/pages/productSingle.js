@@ -321,10 +321,19 @@ const ProductSingle = () => {
                             }}>
                                 Craftmanship Info
                             </Typography>
-                            <MenuTabOpenable text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
-                            <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
-                            <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
-                            <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }} />
+                            <MenuTabOpenable
+                                text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                            // children={<Box sx={{ width: '100%', color: '#666', fontWeight: 500 }}>{product.attributes.body}</Box>}
+                            />
+                            <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                            // children={<Box sx={{ width: '100%',color:'#666',fontWeight:500 }}>{product.attributes.diamond}</Box>} 
+                            />
+                            <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                            // children={<Box sx={{ width: '100%',color:'#666',fontWeight:500 }}>{product.attributes.sizes}</Box>} 
+                            />
+                            <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                            // children={<Box sx={{ width: '100%',color:'#666',fontWeight:500 }}>{product.attributes.typo}</Box>} 
+                            />
                         </Box>
                         <Box sx={{
                             mt: '8px',
