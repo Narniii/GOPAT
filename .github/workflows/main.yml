@@ -36,7 +36,7 @@ jobs:
           port: 22
           script: |
             cd /root/GOPAT
-            npm install
+            /usr/local/bin/npm install
 
   build:
     runs-on: ubuntu-latest
@@ -52,4 +52,4 @@ jobs:
           port: 22
           script: |
             cd /root/GOPAT
-            npm run build
+            /usr/local/bin/npm run build
