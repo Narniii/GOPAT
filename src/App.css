@@ -47,7 +47,7 @@ body {
 }
 .pmButton span {
   position: absolute;
-  transition: 300ms;
+  transition: 650ms;
   background: #666666;
   border-radius: 2px;
 }

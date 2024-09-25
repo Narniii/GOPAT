@@ -1,4 +1,4 @@
-import { Box, Fade, Input, Popper, Typography } from "@mui/material";
+import { Box, CircularProgress, Fade, Input, Popper, Skeleton, TextField, Typography } from "@mui/material";
 import stars from '../assets/Tishtar-Blog.jpg'
 import diamond from '../assets/Diamond.jpg'
 import nader from '../assets/Nader-Mohaddes.jpg'
@@ -7,6 +7,7 @@ import styled from "@emotion/styled/macro";
 import BlogSmall from "../components/blogs/blogSmall";
 import { FilterAltOutlined, Search } from "@mui/icons-material";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Details = styled(Box)(({ theme }) => ({
     display: 'flex', textAlign: 'center', boxSizing: 'border-box',
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
@@ -74,46 +75,44 @@ const Image = styled(Box)(({ theme }) => ({
 }))
 
 const Blogs = () => {
-    const blogs = [{
-        id: 1,
-        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: stars, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-        date: '2024'
-    },
-    {
-        id: 2,
-        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: diamond, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-        date: '2024'
-    },
-    {
-        id: 3,
-        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: nader, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-        date: '2024'
-    },
-    {
-        id: 4,
-        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: stars, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-        date: '2024'
-    },
-    {
-        id: 5,
-        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: nader, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-        date: '2024'
-    },
-    {
-        id: 6,
-        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: diamond, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-        date: '2024'
-    },
-    {
-        id: 7,
-        title: 'Campaign Kowkab', subtitle: 'Campaign Kowkab', image: stars, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-        date: '2024'
-    },
-    ]
+    const navigate = useNavigate()
+    const [blogs, setBlogs] = useState(undefined)
+    const [totalblogs, setTotalBlogs] = useState(undefined)
+    const [topBlog, setTopBlog] = useState(undefined)
+    const getBlogs = async () => {
+        let request = await fetch(`https://admin.gopatjewelry.com/api/blogs?populate=*`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer 210f4fdc9cfc30870e2f3ca17b2d4f410d6ae5ce2afaf1445b6118731abaf524c008c11a503bf8b3d7a4fdff7887a67578791c89077bb18c23df8b1a672c01df203eb28a3bbbf2f68867a683f12ba03ac070acdbaa08bc5b970f51334fdb102bc1154e6009e3d3c00d6f80a6dbb58b0dbe1691f560e5f582dde5c65f5ded68c9`,
+            }
+        })
+        let response = await request.json()
+        console.log(response)
+        setBlogs(response.data)
+        setTotalBlogs(response.data)
+        setTopBlog(response.data[0])
+    }
+    useEffect(() => {
+        getBlogs()
+    }, [])
+
+
     const [selectedFilters, setSelectedFilters] = useState([])
-    const filters = ['Jewerly Education', 'Campaigns', 'Entrepreneurs', 'Ancient Stories', 'News & Events']
+    const [searchedPhrase, setSearchedPhrase] = useState('')
+    const filters = ["Jewerly Education", "Campaigns", "Entrepreneurs", "Ancient Stories", "News & Events"]
     const [anchorEl, setAnchorEl] = useState(null);
 
+    const handleApplyFiltering = () => {
+        console.log(selectedFilters)
+        if (selectedFilters.length > 0) {
+            const newBlogs = totalblogs.filter((blog) => selectedFilters.includes(blog.attributes.Filter))
+            console.log(newBlogs)
+            setBlogs(newBlogs)
+        } else {
+            setBlogs(totalblogs)
+        }
+    }
     const handleClick = (event) => {
         setAnchorEl(anchorEl ? null : window.document.getElementById("filtering-box"));
     };
@@ -134,62 +133,74 @@ const Blogs = () => {
             setSelectedFilters(array)
         }
     }
+    useEffect(() => {
+        if (searchedPhrase && searchedPhrase !== '') {
+            console.log(searchedPhrase)
+            const newBlogs = totalblogs.filter((blog) => blog.attributes.title.toLowerCase().includes(searchedPhrase))
+            console.log(newBlogs)
+            setBlogs(newBlogs)
+        } else {
+            setBlogs(totalblogs)
+        }
+    }, [searchedPhrase])
     return (
         <>
-            <Box sx={{
-                // height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
-                height: { xs: '100%', md: 'calc(100vh - 60px)' },
-                width: '100%', boxSizing: 'border-box',
-                display: 'flex', flexDirection: { xs: 'column', md: 'row' },
-                // mb: { xs: 'none', md: '60px' }
-            }}>
-                {/* <ImageScroll sx={{
+            {topBlog ?
+                <>
+                    <Box sx={{
+                        // height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
+                        height: { xs: '100%', md: 'calc(100vh - 60px)' },
+                        width: '100%', boxSizing: 'border-box',
+                        display: 'flex', flexDirection: { xs: 'column', md: 'row' },
+                        // mb: { xs: 'none', md: '60px' }
+                    }}>
+                        {/* <ImageScroll sx={{
                     height: { xs: '420px', md: '100%' },
                 }}> */}
-                <Box sx={{
-                    display: 'flex',
-                    height: { xs: '420px', md: '100%' },
-                    width: '100%',
-                    boxSizing: 'border-box',
-                    width: '100%', flexWrap: 'nowrap'
-                }}>
-                    <Image sx={{
-                        backgroundImage: `url(${stars})`,
-                        width: { xs: '100vw', md: '100%' }
-                    }} />
-                </Box>
-                {/* </ImageScroll> */}
-                <Details sx={{
-                    mx: { xs: '0', md: '32px' },
-                    px: { xs: '32px', md: '0', lg: '32px' },
-                    py: '32px',
-                    gap: '16px',
-                    width: { xs: '100%', md: '30%' }
-                }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                        <Typography variant="h1" sx={{
-                            whiteSpace: 'nowrap',
-                            fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
+                        <Box sx={{
+                            display: 'flex',
+                            height: { xs: '420px', md: '100%' },
+                            width: '100%',
+                            boxSizing: 'border-box',
+                            width: '100%', flexWrap: 'nowrap'
                         }}>
-                            Tishtar Story
-                        </Typography>
-                        <Typography variant="h1" sx={{
-                            whiteSpace: 'nowrap', fontWeight: 500,
-                            fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
+                            <Image sx={{
+                                backgroundImage: `url('https://admin.gopatjewelry.com${topBlog.attributes.coverimage.data.attributes.url}')`,
+                                width: { xs: '100vw', md: '100%' }
+                            }} />
+                        </Box>
+                        {/* </ImageScroll> */}
+                        <Details sx={{
+                            mx: { xs: '0', md: '32px' },
+                            px: { xs: '32px', md: '0', lg: '32px' },
+                            py: '32px',
+                            gap: '16px',
+                            width: { xs: '100%', md: '30%' }
                         }}>
-                            Persian Mythical Stories
-                        </Typography>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <Typography variant="h1" sx={{
+                                    whiteSpace: 'nowrap',
+                                    fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
+                                }}>
+                                    {topBlog.attributes.title}
+                                </Typography>
+                                <Typography variant="h1" sx={{
+                                    whiteSpace: 'nowrap', fontWeight: 500,
+                                    fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
+                                }}>
+                                    {topBlog.attributes.subtitle}
+                                </Typography>
+                            </Box>
+                            <Typography sx={{
+                                color: '#999', fontWeight: 500, width: '100%',
+                                textAlign: 'center', fontSize: { xs: '12px', md: '14px' }
+                            }}>
+                                {topBlog.attributes.description}
+                            </Typography>
+                            <ButtonOutline text={'read more'} action={() => navigate(`/blog/${topBlog.id}/${topBlog.attributes.title}`)} />
+                        </Details>
                     </Box>
-                    <Typography sx={{
-                        color: '#999', fontWeight: 500, width: '100%',
-                        textAlign: 'center', fontSize: { xs: '12px', md: '14px' }
-                    }}>
-                        In Persian mythology, Tishtar, also known as Tishtrya, is revered as the god of rain and fertility, playing a crucial role in the agricultural life of ancient Persia...
-                    </Typography>
-                    <ButtonOutline text={'read more'} />
-                </Details>
-            </Box>
-
+                </> : <Skeleton height={'400px'} />}
             <Box sx={{
                 width: '100%', display: 'flex',
                 flexDirection: { xs: 'column', md: 'row-reverse' },
@@ -212,7 +223,11 @@ const Blogs = () => {
                 }}>
                     <SearchBox>
                         <Search sx={{ color: '#5F6368' }} fontSize="24px" />
-                        <Typography sx={{ color: '#999', fontWeight: 500, }}>Search Blog</Typography>
+                        <TextField placeholder="Search Blog"
+                            sx={{ width: '100%' }}
+                            onChange={(e) => setSearchedPhrase(e.target.value)}
+                            id="standard-basic" variant="standard" InputProps={{ disableUnderline: true }}
+                        />
                     </SearchBox>
                     <FilterBox sx={{
                         display: { xs: 'flex', md: 'none' },
@@ -252,7 +267,7 @@ const Blogs = () => {
                                             </FilterInputBox>
                                         )
                                     })}
-                                    <ApplyButton>
+                                    <ApplyButton onClick={handleApplyFiltering}>
                                         Apply
                                     </ApplyButton>
                                 </Box>
@@ -271,7 +286,7 @@ const Blogs = () => {
                                 </FilterInputBox>
                             )
                         })}
-                        <ApplyButton>
+                        <ApplyButton onClick={handleApplyFiltering}>
                             Apply
                         </ApplyButton>
 
@@ -279,16 +294,24 @@ const Blogs = () => {
 
                 </Box>
 
-                <Box sx={{
-                    width: '100%', display: 'flex', flexDirection: 'column', gap: '32px'
-                }}>
-                    {blogs.map((blog) => {
-                        return (<BlogSmall image={blog.image}
-                            id={blog.id}
-                            title={blog.title} subtitle={blog.subtitle} date={blog.date}
-                            description={blog.description} />)
-                    })}
-                </Box>
+                {blogs ?
+                    <>{blogs.length > 0 ?
+
+                        <Box sx={{
+                            width: '100%', display: 'flex', flexDirection: 'column', gap: '32px'
+                        }}>
+                            {blogs.map((blog) => {
+                                return (<BlogSmall image={`https://admin.gopatjewelry.com${blog.attributes.coverimage.data.attributes.url}`}
+                                    id={blog.id}
+                                    title={blog.attributes.title} subtitle={blog.attributes.subtitle} date={blog.attributes.createdAt}
+                                    description={blog.attributes.description} />)
+                            })}
+                        </Box>
+                        :
+                        <Typography sx={{ color: '#08113b', fontWeight: 500, textAlign: 'center', width: '100%' }}>No Blog Found</Typography>
+                    }
+                    </>
+                    : <CircularProgress sx={{ color: '#08113b' }} />}
             </Box>
 
         </>);

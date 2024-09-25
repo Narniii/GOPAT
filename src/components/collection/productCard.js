@@ -11,7 +11,8 @@ const CardImage = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundColor: '#999999',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    backgroundSize: 'cover'
 }))
 
 const ProductCard = ({ name, images, price, details, link }) => {

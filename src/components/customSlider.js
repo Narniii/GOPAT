@@ -71,8 +71,8 @@ export default function CustomSlider({ children, slidesCount, slidesCountTablet,
         variableWidth: false,
         arrows: true,
         lazyLoad: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
         speed: 500,
         responsive: [
             {
