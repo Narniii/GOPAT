@@ -219,7 +219,7 @@ const ProductSingle = () => {
             window.document.getElementById('scrollable').addEventListener("scroll", onScroll);
 
             // 
-            return () => window.document.getElementById('scrollable').removeEventListener("scroll", onScroll);
+            // return () => window.document.getElementById('scrollable').removeEventListener("scroll", onScroll);
         }
     }, [product, images]);
 

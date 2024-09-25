@@ -105,13 +105,13 @@ body {
   display: flex !important;
   /* justify-content: center !important; */
   gap: 16px;
-  transform: none !important;
+  /* transform: none !important; */
 }
 .slick-track::before {
   display: none;
 }
 .slick-initialized {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .slick-list {
   margin: 0 0 0 16px;

@@ -98,7 +98,7 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
         window.document.getElementById('scrollable').addEventListener("scroll", onScroll);
 
         // 
-        return () => window.document.getElementById('scrollable').removeEventListener("scroll", onScroll);
+        // return () => window.document.getElementById('scrollable').removeEventListener("scroll", onScroll);
     }, []);
 
 

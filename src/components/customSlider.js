@@ -61,7 +61,7 @@ function SamplePrevArrow(props) {
 export default function CustomSlider({ children, slidesCount, slidesCountTablet, items, theme }) {
     const settings = {
         infinite: false,
-        // dots: false,
+        dots: false,
         slidesToShow: slidesCount ? slidesCount : 4,
         slidesToScroll: slidesCount ? slidesCount : 4,
         // slidesToShow: children.length < 5 ? children.length + 1 : slidesCount ? slidesCount : 4,
@@ -70,9 +70,9 @@ export default function CustomSlider({ children, slidesCount, slidesCountTablet,
         prevArrow: <SamplePrevArrow />,
         variableWidth: false,
         arrows: true,
-        // lazyLoad: true,
-        // autoplay: true,
-        // autoplaySpeed: 2000,
+        lazyLoad: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
         speed: 500,
         responsive: [
             {
