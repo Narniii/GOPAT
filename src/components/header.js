@@ -15,20 +15,23 @@ const ImageScroll = styled(Box)(({ theme }) => ({
     scrollBehavior: 'smooth',
     overflowX: 'scroll',
     '&::-webkit-scrollbar': {
-        background: 'transparent !important',
-        height: '8px !important',
-        width: '8px !important',
+        '@media (max-width: 900px)': {
+            display: 'none',
+        },
+        background: 'transparent',
+        height: '8px',
+        width: '8px',
     },
     '&::-webkit-scrollbar-thumb': {
-        height: '8px !important',
-        width: '8px !important',
-        background: '#08113b !important',
-        color: '#08113b !important',
-        border: 'none !important',
+        height: '8px',
+        width: '8px',
+        background: '#08113b',
+        color: '#08113b',
+        border: 'none',
         borderRadius: '0px'
     },
     '&::-webkit-scrollbar-button': {
-        display: 'none !important'
+        display: 'none'
     },
 }))
 const Image = styled(Box)(({ theme }) => ({
@@ -63,26 +66,41 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
         const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
             if (slide >= slides.length - 1) {
                 setSlide(0)
+                let parent = window.document.getElementById('scrollable')
+                let child = window.document.getElementById(slides[0].id)
+                var childLeft = child.offsetLeft;
+                parent.scrollLeft = childLeft
             }
             else {
                 setSlide(slide + 1)
+                let parent = window.document.getElementById('scrollable')
+                let child = window.document.getElementById(slides[slide + 1].id)
+                var childLeft = child.offsetLeft;
+                parent.scrollLeft = childLeft
             }
         }, 5000)
-
         return () => clearInterval(intervalId); //This is important
     }, [slide, slides])
+
+    const [scrolledLeft, setScrolledLeft] = useState(0)
+    const onScroll = () => {
+        const scrollable = window.document.getElementById('scrollable')
+        const winScroll = scrollable.scrollLeft;
+        const width = scrollable.scrollWidth - scrollable.clientWidth
+        const scrolled = (winScroll / width) * 100;
+        setScrolledLeft(scrolled);
+        const newSlide = slides.find((slide) => window.document.getElementById(slide.id).offsetLeft >= winScroll)
+        const index = slides.indexOf(newSlide)
+        if (index == -1) { setSlide(slides.length + 1) } else { setSlide(index) }
+    };
     useEffect(() => {
+        // Fires when the document view has been scrolled
+        window.document.getElementById('scrollable').addEventListener("scroll", onScroll);
 
-        const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
-            let parent = window.document.getElementById('scrollable')
-            let child = window.document.getElementById(slides[slide].id)
-            var childLeft = child.offsetLeft;
-            parent.scrollLeft = childLeft
-        }, 5000)
+        // 
+        return () => window.document.getElementById('scrollable').removeEventListener("scroll", onScroll);
+    }, []);
 
-        return () => clearInterval(intervalId); //This is important
-
-    }, [slide])
 
     return (
         <Box sx={{
@@ -114,7 +132,10 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
                 </Box>
             </ImageScroll>
             <ProgressLineWrapper sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <ProgressLine sx={{ width: `${((slide + 1) / slides.length) * 100}%` }} />
+                <ProgressLine sx={{
+                    // width: `${scrolledLeft}%`
+                    width: `${((slide + 1) / slides.length) * 100}%`
+                }} />
             </ProgressLineWrapper>
             <Details sx={{
                 minWidth: { xs: 'unset', md: '400px !important' },

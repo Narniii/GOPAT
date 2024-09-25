@@ -94,7 +94,7 @@ const MobileImagesScroll = styled(Box)(({ theme }) => ({
     overflowY: 'hidden',
     overflowX: 'scroll',
     '&::-webkit-scrollbar': {
-        // display: 'none',
+        display: 'none',
         background: 'transparent',
         height: '8px',
         width: '8px',
@@ -111,7 +111,21 @@ const MobileImagesScroll = styled(Box)(({ theme }) => ({
         display: 'none'
     },
 }))
+const ProgressLineWrapper = styled(Box)(({ theme }) => ({
+    background: 'transparent',
+    height: '8px',
+    width: '100%',
+    // display: 'flex'
+}))
+const ProgressLine = styled(Box)(({ theme }) => ({
+    height: '8px',
+    background: '#08113b',
+    color: '#08113b',
+    border: 'none',
+    borderRadius: '0px',
+    transition: '500ms ease'
 
+}))
 const zoomout = keyframes`
   0% {transform: scale(1);}
   50% {transform: scale(0.67);}
@@ -119,7 +133,6 @@ const zoomout = keyframes`
 `
 
 const ProductSingle = () => {
-
 
     // const listenScrollEvent = e => {
     //     let insidePanel = window.document.getElementById('scrollable-inside')
@@ -186,6 +199,30 @@ const ProductSingle = () => {
     //         typo.innerHTML = product.typo
     //     }
     // }, [product, images])
+    const [slide, setSlide] = useState(0)
+    const [scrolledLeft, setScrolledLeft] = useState(0)
+    const onScroll = () => {
+        const scrollable = window.document.getElementById('scrollable')
+        const winScroll = scrollable.scrollLeft;
+        const width = scrollable.scrollWidth - scrollable.clientWidth
+        const scrolled = (winScroll / width) * 100;
+        setScrolledLeft(scrolled)
+        const newSlide = images.find((slide) => window.document.getElementById(images.indexOf(slide)).offsetLeft >= winScroll)
+        const index = images.indexOf(newSlide)
+        if (index == -1) { setSlide(images.length + 1) } else { setSlide(index) }
+
+    };
+    useEffect(() => {
+        // Fires when the document view has been scrolled
+        if (product && images && window.document.getElementById('scrollable')) {
+
+            window.document.getElementById('scrollable').addEventListener("scroll", onScroll);
+
+            // 
+            return () => window.document.getElementById('scrollable').removeEventListener("scroll", onScroll);
+        }
+    }, [product, images]);
+
 
     return (<Box
         // id="scrollable-outside"
@@ -235,9 +272,9 @@ const ProductSingle = () => {
                         // height: '100%',
                         width: '100%',
                     }}>
-                        {images.map((image) => {
+                        {images.map((image, index) => {
                             return (
-                                <DesktopImage sx={{
+                                <DesktopImage key={index} sx={{
                                     backgroundImage: `url(${image})`,
                                     height: 'calc(100vh - 128px)'
                                 }} />
@@ -247,8 +284,9 @@ const ProductSingle = () => {
                 </DesktopImagesScroll>
 
                 <MobileImagesScroll
+                    id="scrollable"
                     sx={{
-                        display: { xs: 'block', md: 'none' },
+                        display: { xs: 'block', md: 'none' }, flexDirection: 'column',
                         // height: { xs: 'calc(100vh - 70px)', sm: 'calc(100vh - 80px)' },
                         height: '420px'
                     }}>
@@ -258,15 +296,21 @@ const ProductSingle = () => {
                         boxSizing: 'border-box',
                         width: 'max-content', flexWrap: 'nowrap'
                     }}>
-                        {images.map((image) => {
+                        {images.map((image, index) => {
                             return (
-                                <MobileImage sx={{
+                                <MobileImage id={index} key={index} sx={{
                                     backgroundImage: `url(${image})`,
                                 }} />
                             )
                         })}
                     </Box>
                 </MobileImagesScroll>
+                <ProgressLineWrapper sx={{ display: { xs: 'flex', md: 'none' } }}>
+                    <ProgressLine sx={{
+                        // width: `${scrolledLeft}%`
+                        width: `${((slide + 1) / images.length) * 100}%`
+                    }} />
+                </ProgressLineWrapper>
 
                 <Details
                     sx={{

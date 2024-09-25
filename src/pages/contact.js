@@ -53,7 +53,7 @@ const Image = styled(Box)(({ theme }) => ({
 const Contact = () => {
     return (
         <>
-            <Header hideDetailsOnMobile={false} images={[contact, contact2]} title={'Partnerhip Stores'} subtitle={'information'} />
+            <Header hideDetailsOnMobile={false} images={[contact, contact2,]} title={'Partnerhip Stores'} subtitle={'information'} />
 
             <Box sx={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%',
