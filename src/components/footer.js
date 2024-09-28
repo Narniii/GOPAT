@@ -93,7 +93,7 @@ const Footer = ({ language, changeLanguage }) => {
                         :
                         <ButtonFill text={language == 'en' ? 'Contact Us' : 'تماس با ما'} action={() => navigate('/contact-us')} />
                     }
-                    <Link target="_blank" to={'/instagram.com/gopat.official'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Link target="_blank" to={'https://www.instagram.com/gopat.official'} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <Instagram sx={{
                             color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
                             '&:hover': {
