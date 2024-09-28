@@ -3,7 +3,7 @@ import CustomSlider from "../customSlider";
 import ProductCard from "./productCard";
 import { useEffect, useState } from "react";
 
-const Slider = () => {
+const Slider = ({ language }) => {
     const [products, setProducts] = useState(undefined)
     const getProducts = async () => {
         let request = await fetch(`https://admin.gopatjewelry.com/api/products?populate=*`, {
@@ -29,7 +29,7 @@ const Slider = () => {
         }}>
             <Typography variant="h1"
                 sx={{ whiteSpace: 'nowrap', fontSize: { xs: '24px', sm: '28px', md: '32px' }, color: '#08113b', fontWeight: '500' }}>
-                Iconic Products
+                {language == 'en' ? 'Iconic Products' : 'محصولات'}
             </Typography>
             <Box sx={{
                 display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -40,6 +40,9 @@ const Slider = () => {
                         {products.map((product) => {
                             return (
                                 <ProductCard
+                                    language={language}
+                                    nameFa={product.attributes.nameFa}
+                                    detailsFa={product.attributes.detailsFa}
                                     id={product.id} name={product.attributes.name}
                                     price={product.attributes.price}
                                     details={product.attributes.details}

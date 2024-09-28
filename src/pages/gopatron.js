@@ -56,7 +56,7 @@ const Image = styled(Box)(({ theme }) => ({
 }))
 
 
-const Gopatron = () => {
+const Gopatron = ({ language }) => {
     const sections = [
         {
             title: 'Free Polishing', subtitle: 'Service', description: 'At Gopat, we believe in the longevity of our products, offering free lifetime polishing services to keep your jewelry in its best condition for years to come.',
@@ -86,7 +86,6 @@ const Gopatron = () => {
     ]
     useEffect(() => {
         const id = window.location.hash ? window.location.hash.replace('#', '') : undefined
-        console.log(id)
         if (id) {
             window.document.getElementById(id).scrollIntoView({ behavior: "smooth" })
         }
@@ -181,16 +180,19 @@ const Gopatron = () => {
                             whiteSpace: 'nowrap',
                             fontSize: { xs: '18px', sm: '22px', md: '24px' }, fontWeight: 500, color: '#08113B'
                         }}>
-                            Further Assistant?
+                            {language == 'en' ?
+                                'Further Assistant' :
+                                'راهنمایی بیشتر'
+                            }
                         </Typography>
                         <Typography variant="p" sx={{
                             whiteSpace: 'nowrap', fontWeight: 500,
                             fontSize: { xs: '14px', md: '16px' }, color: '#b3b3b3'
                         }}>
-                            Whatsapp & Call
+                            {language == 'en' ? 'Whatsapp & Call' : 'واتساپ و تماس'}
                         </Typography>
                     </Box>
-                    <ButtonWhatsappContact width={'100%'} maxwidth={'290px'} mb={'8px'} text={'Whatsapp Link'} />
+                    <ButtonWhatsappContact width={'100%'} maxwidth={'290px'} mb={'8px'} text={language == 'en' ? 'Whatsapp Link' : 'لینک واتساپ'} />
                     <ButtonFill width={'100%'} maxwidth={'290px'} text={'+98 910 674 19 71'} />
                 </ContactUs>
 

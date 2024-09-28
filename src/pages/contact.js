@@ -50,10 +50,10 @@ const Image = styled(Box)(({ theme }) => ({
 }))
 
 
-const Contact = () => {
+const Contact = ({ language }) => {
     return (
         <>
-            <Header hideDetailsOnMobile={false} images={[contact, contact2,]} title={'Partnerhip Stores'} subtitle={'information'} />
+            <Header hideDetailsOnMobile={false} images={[contact, contact2,]} title={language == 'en' ? 'Partnerhip Stores' : 'فروشگاه های همراه'} subtitle={language == 'en' ? 'information' : 'اطلاعات'} />
 
             <Box sx={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%',
@@ -85,19 +85,19 @@ const Contact = () => {
                                 whiteSpace: 'nowrap',
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                             }}>
-                                NAMI SANATI Perfumery</Typography>
+                                {language == 'en' ? 'NAMI SANATI Perfumery' : 'عطرسازی نامی صنعتی'}
+                            </Typography>
                             <Typography variant="h1" sx={{
                                 whiteSpace: 'nowrap', fontWeight: 500,
                                 fontSize: { xs: '14px', md: '16px' }, color: '#b3b3b3'
                             }}>
-                                Sam Center Branch</Typography>
+                                {language == 'en' ? 'Sam Center Branch' : 'شعبه سام سنتر'}</Typography>
                         </Box>
                         <Typography sx={{
                             color: '#08113B', textAlign: 'center', width: '100%',
                             fontSize: { xs: '14px', md: '16px' }, fontWeight: 500
                         }}>
-                            No.14, Floor GF, Sam Center
-                            Fereshteh Ave., Tehran, Iran.
+                            {language == 'en' ? ' No.14, Floor GF, Sam Center,Fereshteh Ave., Tehran, Iran.' : 'ایران,تهران,خیابان فرشته,سام سنتر,طبقه همکف,پلاک 14'}
                         </Typography>
                     </Box>
 
@@ -125,19 +125,19 @@ const Contact = () => {
                                 whiteSpace: 'nowrap',
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                             }}>
-                                NAMI SANATI Perfumery</Typography>
+                                {language == 'en' ? 'NAMI SANATI Perfumery' : 'عطرسازی نامی صنعتی'}
+                            </Typography>
                             <Typography variant="h1" sx={{
                                 whiteSpace: 'nowrap', fontWeight: 500,
                                 fontSize: { xs: '14px', md: '16px' }, color: '#b3b3b3'
                             }}>
-                                Ava Platt Branch</Typography>
+                                {language == 'en' ? 'Ava Platt Branch' : 'شعبه آوا پلت'}</Typography>
                         </Box>
                         <Typography sx={{
                             color: '#08113B', textAlign: 'center', width: '100%',
                             fontSize: { xs: '14px', md: '16px' }, fontWeight: 500
                         }}>
-                            No.D16, Floor +1, Ava Platt
-                            Movahed Danesh, Aqdasiyeh, Tehran, Iran.
+                            {language == 'en' ? ' No.D16, Floor +1, Ava Platt,Movahed Danesh, Aqdasiyeh, Tehran, Iran.' : 'ایران,تهران,اقدسیه,موحد دانش,آوا پلت,طبقه +1,پلاک دی 16'}
                         </Typography>
                     </Box>
                 </Box>
@@ -150,15 +150,15 @@ const Contact = () => {
                             whiteSpace: 'nowrap',
                             fontSize: { xs: '18px', sm: '22px', md: '24px' }, fontWeight: 500, color: '#08113B'
                         }}>
-                            Contact Number</Typography>
+                            {language == 'en' ? 'Contact Number' : 'تماس با ما'}</Typography>
                         <Typography variant="p" sx={{
                             whiteSpace: 'nowrap', fontWeight: 500,
                             fontSize: { xs: '14px', md: '16px' }, color: '#b3b3b3'
                         }}>
-                            Whatsapp & Call
+                            {language == 'en' ? 'Whatsapp & Call' : 'واتساپ و تماس'}
                         </Typography>
                     </Box>
-                    <ButtonWhatsappContact width={'100%'} maxwidth={'290px'} mb={'8px'} text={'Whatsapp Link'} />
+                    <ButtonWhatsappContact width={'100%'} maxwidth={'290px'} mb={'8px'} text={language == 'en' ? 'Whatsapp Link' : 'لینک واتساپ'} />
                     <ButtonFill width={'100%'} maxwidth={'290px'} text={'+98 910 674 19 71'} />
                 </ContactUs>
             </Box>

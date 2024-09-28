@@ -8,7 +8,7 @@ const Details = styled(Box)(({ theme }) => ({
     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
 
-const CollectionSingle = () => {
+const CollectionSingle = ({ language }) => {
     const params = useParams()
     const id = params.id
     const [collection, setCollection] = useState(undefined)
@@ -54,7 +54,7 @@ const CollectionSingle = () => {
 
     return (<>
         {collection && images ? <>
-            <Header hideDetailsOnMobile={false} images={images} title={`${collection.name} Collection`} />
+            <Header hideDetailsOnMobile={false} images={images} title={language == 'en' ? `${collection.name} Collection` : `مجموعه ${collection.nameFa}`} />
 
             <Box sx={{
                 mt: { xs: 'none', md: '60px' },
@@ -68,13 +68,14 @@ const CollectionSingle = () => {
                         {products.map((product) => {
                             return (
                                 <ProductCard name={product.attributes.name} price={product.attributes.price}
-                                    details={product.attributes.details}
+                                    details={product.attributes.details} nameFa={product.attributes.nameFa}
+                                    detailsFa={product.attributes.detailsFa} language={language}
                                     images={product.attributes.medias.data} link={`/product/${product.attributes.name}/${product.id}`} />
                             )
                         })}
                     </> : <Typography
                         sx={{ textTransform: 'capitalize', color: '#08113B', textAlign: 'center', fontWeight: 500 }}>
-                        There Are No Products in this collection yet</Typography>}
+                        {language == 'en' ? 'There Are No Products in this collection yet' : 'محصولی در این مجموعه یافت نشد'}</Typography>}
                 </> : <CircularProgress sx={{ color: '#08113b' }} />}
             </Box>
         </>

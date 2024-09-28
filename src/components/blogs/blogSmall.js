@@ -11,7 +11,7 @@ const Details = styled(Box)(({ theme }) => ({
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
 
-const BlogSmall = ({ image, title, id, subtitle, description, date }) => {
+const BlogSmall = ({ image, title, id, subtitle, description, date, titleFa, subtitleFa, descriptionFa, language }) => {
     const navigate = useNavigate()
     return (
         <Box sx={{
@@ -28,12 +28,13 @@ const BlogSmall = ({ image, title, id, subtitle, description, date }) => {
                         whiteSpace: 'nowrap',
                         fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                     }}>
-                        {title}</Typography>
+                        {language == 'en' ? title : titleFa}
+                    </Typography>
                     <Typography variant="h1" sx={{
                         whiteSpace: 'nowrap', fontWeight: 500,
                         fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                     }}>
-                        {subtitle}
+                        {language == 'en' ? subtitle : subtitleFa}
                     </Typography>
                 </Box>
                 <Typography sx={{
@@ -41,9 +42,9 @@ const BlogSmall = ({ image, title, id, subtitle, description, date }) => {
                     // width: { xs: '100%', md: '400px' },
                     textAlign: 'center', fontWeight: 500
                 }}>
-                    {description}
+                    {language == 'en' ? description : descriptionFa}
                 </Typography>
-                <ButtonOutline text={'Read More'} action={() => navigate(`/blog/${id}/${title}`)} />
+                <ButtonOutline text={language == 'en' ? 'Read More' : 'بیشتر بخوانید'} action={() => navigate(`/blog/${id}/${title}`)} />
             </Details>
             <Image sx={{
                 aspectRatio: { xs: '4/3', md: '1/1' },

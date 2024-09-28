@@ -73,7 +73,7 @@ const ProgressLine = styled(Box)(({ theme }) => ({
 
 }))
 
-const Intro = () => {
+const Intro = ({ language }) => {
     const [slide, setSlide] = useState(0)
     const [slideChanges, setSlideChanges] = useState(false)
     const [slides, setSlides] = useState(undefined)
@@ -108,6 +108,8 @@ const Intro = () => {
                 image: `https://admin.gopatjewelry.com${response.data[i].attributes.media.data.attributes.url}`,
                 name: response.data[i].attributes.title,
                 subtitle: response.data[i].attributes.subtitle,
+                nameFa: response.data[i].attributes.titleFa,
+                subtitleFa: response.data[i].attributes.subtitleFa,
                 pID: response.data[i].attributes.pID
             })
         }
@@ -155,15 +157,16 @@ const Intro = () => {
                     whiteSpace: 'nowrap', transition: '500ms ease',
                     fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113b'
                 }}>
-                    {slides[slide].name}
+                    {language == 'en' ? slides[slide].name : slides[slide].nameFa}
                 </Typography>
                 <Typography variant="h6" sx={{
                     mb: '16px',
                     whiteSpace: 'nowrap',
                     fontSize: { xs: '16px', sm: '18px', md: '18px' }, fontStyle: 'italic', color: '#999999'
                 }}>
-                    {slides[slide].subtitle}</Typography>
-                <ButtonOutline text={'Discover More'} action={() => navigate(`/product/${slides[slide].name}/${slides[slide].pID}`)} />
+                    {language == 'en' ? slides[slide].subtitle : slides[slide].subtitleFa}
+                </Typography>
+                <ButtonOutline text={language == 'en' ? 'Discover More' : 'بیشتر ببینید'} action={() => navigate(`/product/${slides[slide].name}/${slides[slide].pID}`)} />
             </Details>
         </> : <Skeleton width={'100vw'} height={'100%'} />}
 

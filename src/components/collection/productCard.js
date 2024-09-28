@@ -15,7 +15,7 @@ const CardImage = styled(Box)(({ theme }) => ({
     backgroundSize: 'cover'
 }))
 
-const ProductCard = ({ name, images, price, details, link }) => {
+const ProductCard = ({ name, images, price, details, link, nameFa, detailsFa, language }) => {
     console.log(images)
     let imgs = []
     for (let i = 0; i < images.length; i++) {
@@ -47,18 +47,18 @@ const ProductCard = ({ name, images, price, details, link }) => {
                 <Typography
                     variant='h3'
                     sx={{ mt: '16px', color: '#08113B', fontWeight: '500', fontSize: { xs: '12px', sm: '14px', md: '16px' }, }}>
-                    {name}</Typography>
+                    {language == 'en' ? name : nameFa}</Typography>
                 <Typography
                     variant="h6"
                     sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999' }}>
-                    {details}
+                    {language == 'en' ? details : detailsFa}
                 </Typography>
                 <Typography
                     variant="h6"
                     sx={{ my: '8px', whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
                     {price} T
                 </Typography>
-                <ButtonFillRound action={() => navigate(link)} text={'Order'} />
+                <ButtonFillRound action={() => navigate(link)} text={language == 'en' ? 'Order' : 'سفارش'} />
             </Box>
             <Box sx={{
                 display: { xs: 'none', md: 'flex' },
@@ -72,14 +72,14 @@ const ProductCard = ({ name, images, price, details, link }) => {
                     <Typography
                         variant='h3'
                         sx={{ mt: '16px', color: '#08113B', fontWeight: '500', fontSize: { xs: '12px', sm: '14px', md: '16px' }, }}>
-                        {name}</Typography>
+                        {language == 'en' ? name : nameFa}</Typography>
                     <Typography
                         variant="h6"
                         sx={{ whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
-                        {price} T
+                        {price ? price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : undefined} T
                     </Typography>
                 </Box>
-                <ButtonFillRound action={() => navigate(link)} text={'Order'} />
+                <ButtonFillRound action={() => navigate(link)} text={language == 'en' ? 'Order' : 'سفارش'} />
             </Box>
 
         </Card>

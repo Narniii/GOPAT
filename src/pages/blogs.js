@@ -74,7 +74,7 @@ const Image = styled(Box)(({ theme }) => ({
     // aspectRatio: '1/1'
 }))
 
-const Blogs = () => {
+const Blogs = ({ language }) => {
     const navigate = useNavigate()
     const [blogs, setBlogs] = useState(undefined)
     const [totalblogs, setTotalBlogs] = useState(undefined)
@@ -101,12 +101,13 @@ const Blogs = () => {
     const [selectedFilters, setSelectedFilters] = useState([])
     const [searchedPhrase, setSearchedPhrase] = useState('')
     const filters = ["Jewerly Education", "Campaigns", "Entrepreneurs", "Ancient Stories", "News & Events"]
+    const filtersFa = ["درباره جواهرات", "کمپین ها", "کارآفرینان", "داستان های باستانی", "تازه ها و رویداد ها"]
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleApplyFiltering = () => {
         console.log(selectedFilters)
         if (selectedFilters.length > 0) {
-            const newBlogs = totalblogs.filter((blog) => selectedFilters.includes(blog.attributes.Filter))
+            const newBlogs = totalblogs.filter((blog) => selectedFilters.includes(blog.attributes.Filter) || selectedFilters.includes(blog.attributes.FilterFa))
             console.log(newBlogs)
             setBlogs(newBlogs)
         } else {
@@ -136,7 +137,7 @@ const Blogs = () => {
     useEffect(() => {
         if (searchedPhrase && searchedPhrase !== '') {
             console.log(searchedPhrase)
-            const newBlogs = totalblogs.filter((blog) => blog.attributes.title.toLowerCase().includes(searchedPhrase))
+            const newBlogs = totalblogs.filter((blog) => blog.attributes.title.toLowerCase().includes(searchedPhrase) || blog.attributes.titleFa.toLowerCase().includes(searchedPhrase))
             console.log(newBlogs)
             setBlogs(newBlogs)
         } else {
@@ -182,22 +183,22 @@ const Blogs = () => {
                                     whiteSpace: 'nowrap',
                                     fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                                 }}>
-                                    {topBlog.attributes.title}
+                                    {language == 'en' ? topBlog.attributes.title : topBlog.attributes.titleFa}
                                 </Typography>
                                 <Typography variant="h1" sx={{
                                     whiteSpace: 'nowrap', fontWeight: 500,
                                     fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                                 }}>
-                                    {topBlog.attributes.subtitle}
+                                    {language == 'en' ? topBlog.attributes.subtitle : topBlog.attributes.subtitleFa}
                                 </Typography>
                             </Box>
                             <Typography sx={{
                                 color: '#999', fontWeight: 500, width: '100%',
                                 textAlign: 'center', fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                {topBlog.attributes.description}
+                                {language == 'en' ? topBlog.attributes.description : topBlog.attributes.descriptionFa}
                             </Typography>
-                            <ButtonOutline text={'read more'} action={() => navigate(`/blog/${topBlog.id}/${topBlog.attributes.title}`)} />
+                            <ButtonOutline text={language == 'en' ? 'read more' : 'بیشتر بخوانید'} action={() => navigate(`/blog/${topBlog.id}/${topBlog.attributes.title}`)} />
                         </Details>
                     </Box>
                 </> : <Skeleton height={'400px'} />}
@@ -223,7 +224,7 @@ const Blogs = () => {
                 }}>
                     <SearchBox>
                         <Search sx={{ color: '#5F6368' }} fontSize="24px" />
-                        <TextField placeholder="Search Blog"
+                        <TextField placeholder={language == 'en' ? "Search Blog" : 'جستجوی بلاگ'}
                             sx={{ width: '100%' }}
                             onChange={(e) => setSearchedPhrase(e.target.value)}
                             id="standard-basic" variant="standard" InputProps={{ disableUnderline: true }}
@@ -234,14 +235,14 @@ const Blogs = () => {
                         border: { xs: '1px solid #b3b3b3', md: 'none' },
                         cursor: 'pointer'
                     }} onClick={handleClick}>
-                        <Typography sx={{ color: '#5F6368', fontWeight: 500, }}>Filters</Typography>
+                        <Typography sx={{ color: '#5F6368', fontWeight: 500, }}>{language == 'en' ? 'Filters' : 'فیلتر'}</Typography>
                         <FilterAltOutlined sx={{ color: '#5F6368' }} fontSize="24px" />
                     </FilterBox>
                     <FilterBox sx={{
                         display: { xs: 'none', md: 'flex' },
                         border: { xs: '1px solid #b3b3b3', md: 'none' },
                     }}>
-                        <Typography sx={{ color: '#5F6368', fontWeight: 500, }}>Filters</Typography>
+                        <Typography sx={{ color: '#5F6368', fontWeight: 500, }}>{language == 'en' ? 'Filters' : 'فیلتر'}</Typography>
                         <FilterAltOutlined sx={{ color: '#5F6368' }} fontSize="24px" />
                     </FilterBox>
 
@@ -259,16 +260,29 @@ const Blogs = () => {
                                     display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'end',
                                     gap: '12px'
                                 }}>
-                                    {filters.map((filter) => {
-                                        return (
-                                            <FilterInputBox>
-                                                <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                                <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
-                                            </FilterInputBox>
-                                        )
-                                    })}
+                                    {language == 'en' ? <>
+                                        {filters.map((filter) => {
+                                            return (
+                                                <FilterInputBox>
+                                                    <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
+                                                    <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                                </FilterInputBox>
+                                            )
+                                        })}
+                                    </> : <>
+                                        {filtersFa.map((filter) => {
+                                            return (
+                                                <FilterInputBox>
+                                                    <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
+                                                    <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                                </FilterInputBox>
+                                            )
+                                        })}
+                                    </>}
                                     <ApplyButton onClick={handleApplyFiltering}>
-                                        Apply
+                                        {language == 'en' ?
+                                            'Apply' :
+                                            'اعمال'}
                                     </ApplyButton>
                                 </Box>
                             </Fade>
@@ -278,16 +292,29 @@ const Blogs = () => {
                         display: { xs: 'none', md: 'flex' }, alignItems: 'end',
                         flexDirection: 'column', width: '100%', gap: '12px'
                     }}>
-                        {filters.map((filter) => {
-                            return (
-                                <FilterInputBox>
-                                    <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                    <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
-                                </FilterInputBox>
-                            )
-                        })}
+                        {language == 'en' ? <>
+                            {filters.map((filter) => {
+                                return (
+                                    <FilterInputBox>
+                                        <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
+                                        <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                    </FilterInputBox>
+                                )
+                            })}
+                        </> : <>
+                            {filtersFa.map((filter) => {
+                                return (
+                                    <FilterInputBox>
+                                        <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
+                                        <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                    </FilterInputBox>
+                                )
+                            })}
+                        </>}
                         <ApplyButton onClick={handleApplyFiltering}>
-                            Apply
+                            {language == 'en' ?
+                                'Apply' :
+                                'اعمال'}
                         </ApplyButton>
 
                     </Box>
@@ -304,7 +331,11 @@ const Blogs = () => {
                                 return (<BlogSmall image={`https://admin.gopatjewelry.com${blog.attributes.coverimage.data.attributes.url}`}
                                     id={blog.id}
                                     title={blog.attributes.title} subtitle={blog.attributes.subtitle} date={blog.attributes.createdAt}
-                                    description={blog.attributes.description} />)
+                                    description={blog.attributes.description}
+                                    titleFa={blog.attributes.titleFa}
+                                    subtitleFa={blog.attributes.subtitleFa}
+                                    descriptionFa={blog.attributes.descriptionFa}
+                                    language={language} />)
                             })}
                         </Box>
                         :

@@ -12,7 +12,7 @@ const Foot = styled(Box)(({ theme }) => ({
 }))
 const FootDesktop = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box',
-    padding: '32px', backgroundColor: '#f2f2f2', gap: '60px', width: '100%'
+    padding: '32px', backgroundColor: '#f2f2f2', gap: '30px', width: '100%'
 }))
 const FootMobile = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box', width: '100%'
@@ -33,8 +33,12 @@ const Links = styled(Typography)(({ theme }) => ({
         color: '#08113b'
     }
 }))
+const Line = styled(Box)(({ theme }) => ({
+    backgroundColor: '#b3b3b3', color: '#666666', height: '20px',
+    width: '1px'
+}))
 
-const Footer = () => {
+const Footer = ({ language, changeLanguage }) => {
     const [csDetOpened, setCSDetOpened] = useState(false)
     const [policiesDetOpened, setpoliciesDetOpened] = useState(false)
     const [aboutDetOpened, setAboutDetOpened] = useState(false)
@@ -84,10 +88,10 @@ const Footer = () => {
                             textTransform: 'capitalize', whiteSpace: 'nowrap',
                             fontSize: { xs: '18px', sm: '22px', md: '24px' }, fontWeight: 500, color: '#08113B'
                         }}>
-                            social medias
+                            {language == 'en' ? 'social medias' : 'شبکه های اجتماعی'}
                         </Typography>
                         :
-                        <ButtonFill text={'Contact Us'} action={() => navigate('/contact-us')} />
+                        <ButtonFill text={language == 'en' ? 'Contact Us' : 'تماس با ما'} action={() => navigate('/contact-us')} />
                     }
                     <Instagram sx={{
                         color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
@@ -95,7 +99,7 @@ const Footer = () => {
                             color: '#999999'
                         }
                     }} />
-                    <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' } }}>Follow us on</Typography>
+                    <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' } }}>{language == 'en' ? 'Follow us on' : 'ما را دنبال کنید'}</Typography>
                     <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' }, mb: { xs: '50px', md: '60px' } }}>@gopat.official</Typography>
                 </> : undefined}
             <FootDesktop sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -103,75 +107,90 @@ const Footer = () => {
                     <Box sx={{ display: 'flex' }}>
                         <ExpDesktop>
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                                About
+                                {language == 'en' ? 'About' : 'درباره ما'}
                             </Typography>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' },
                             }}>
                                 <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    GOPAT team
+                                    {language == 'en' ? 'GOPAT team' : 'تیم گوپت'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Diamond And Material
+                                    {language == 'en' ? 'Diamond And Material' : 'الماس و متریال'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/contact-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Find A Store
+                                    {language == 'en' ? 'Find A Store' : 'فروش حضوری'}
                                 </Link>
                             </Links>
                         </ExpDesktop>
                         <ExpDesktop>
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                                Policies
+                                {language == 'en' ? 'Policies' : 'قوانین و ضوابط'}
                             </Typography>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#repurchasing'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Return & exchange
+                                    {language == 'en' ? 'Return & exchange' : 'بازخرید و تعویض'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Deliveries timeline
+                                    {language == 'en' ? 'Deliveries timeline' : 'زمانبندی ارسال'}
                                 </Link>
                             </Links>
                         </ExpDesktop>
                         <ExpDesktop>
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                                Customer Service
+                                {language == 'en' ? 'Customer Service' : 'خدمات مشتریان'}
                             </Typography>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#polishing'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Free Polishing
+                                    {language == 'en' ? 'Free Polishing' : 'پولیش رایگان'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#gifting'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Gifting
+                                    {language == 'en' ? 'Gifting' : 'هدیه'}
                                 </Link>
                             </Links>
                         </ExpDesktop>
                     </Box>
-                    <Typography variant="p" sx={{
-                        fontWeight: '500',
+                    <Typography onClick={changeLanguage} variant="p" sx={{
+                        fontWeight: '500', cursor: 'pointer',
                         color: '#666666', fontSize: { xs: '12px', sm: '14px' }
                     }}>
-                        Nation: International (EN) | Iran (FA)
+                        {language == 'en' ? 'Nation: International (EN) | Iran (FA)' : 'زبان : فارسی | انگلیسی'}
                     </Typography>
+                </Box>
+                <Box sx={{ width: '100%', display: 'flex', px: '32px', gap: '24px', boxSizing: 'border-box' }}>
+                    <Link target="_blank" style={{ textDecoration: 'none' }}
+                        to={'https://www.linkedin.com/in/hana-bayat-853023126/'}>
+                        <Typography sx={{ textTransform: 'capitalize', color: '#999999', textAlign: 'center', fontSize: '14px' }}>
+                            {language == 'en' ? `design hana bayat` : 'طراحی: هانا بیات'}
+                        </Typography>
+                    </Link>
+                    <Line />
+                    <Link target="_blank" style={{ textDecoration: 'none' }}
+                        to={'https://www.linkedin.com/in/naarin-ehteshamzade-1b0b48204/'}>
+                        <Typography sx={{ textTransform: 'capitalize', color: '#999999', textAlign: 'center', fontSize: '14px' }}>
+                            {language == 'en' ? 'developement narin ehteshamzadeh' : 'توسعه: نارین احتشام زاده'}
+                        </Typography>
+                    </Link>
                 </Box>
                 <Typography sx={{ color: '#999999', textAlign: 'center', fontSize: '14px' }}>
                     Copyright GOPAT fine jewelry. All rights reserved.
@@ -181,7 +200,7 @@ const Footer = () => {
                 <ExpMobile>
                     <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                            Customer Service
+                            {language == 'en' ? 'Customer Service' : 'خدمات مشتریان'}
                         </Typography>
                         <button id="PMbuttoncs" className="pmButton" onClick={changeCSOpened}>
                             <span></span>
@@ -195,14 +214,14 @@ const Footer = () => {
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#polishing'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Free Polishing
+                                    {language == 'en' ? 'Free Polishing' : 'پولیش رایگان'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#gifting'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Gifting
+                                    {language == 'en' ? 'Gifting' : 'هدیه'}
                                 </Link>
                             </Links>
                         </Box> : undefined
@@ -211,7 +230,7 @@ const Footer = () => {
                 <ExpMobile>
                     <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                            Policies
+                            {language == 'en' ? 'Policies' : 'قوانین و ضوابط'}
                         </Typography>
                         <button id="PMbuttonpc" className="pmButton" onClick={changePoliciesOpened}>
                             <span></span>
@@ -224,14 +243,14 @@ const Footer = () => {
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#repurchasing'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Return & Exchange
+                                    {language == 'en' ? 'Return & exchange' : 'بازخرید و تعویض'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Deliveries Timeline
+                                    {language == 'en' ? 'Deliveries timeline' : 'زمانبندی ارسال'}
                                 </Link>
                             </Links>
                         </Box> : undefined
@@ -243,7 +262,7 @@ const Footer = () => {
                         onClick={changeAboutOpened}
                         sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                            About
+                            {language == 'en' ? 'About' : 'درباره ما'}
                         </Typography>
                         <button id="PMbuttonAbout" className="pmButton" >
                             <span></span>
@@ -256,21 +275,21 @@ const Footer = () => {
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    GOPAT team
+                                    {language == 'en' ? 'GOPAT team' : 'تیم گوپت'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Diamond And Material
+                                    {language == 'en' ? 'Diamond And Material' : 'الماس و متریال'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/contact-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    Find A Store
+                                    {language == 'en' ? 'Find A Store' : 'فروش حضوری'}
                                 </Link>
                             </Links>
                         </Box> : undefined

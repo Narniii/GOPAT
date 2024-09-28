@@ -5,7 +5,7 @@ import logo from '../assets/LOGO-01.svg'
 import { useState } from "react";
 import NavMenu from "./navMenu";
 import { useNavigate } from "react-router-dom";
-const Navbar = () => {
+const Navbar = ({ language, changeLanguage }) => {
     const [openMenu, setOpenMenu] = useState(false)
     const navigate = useNavigate()
     return (
@@ -35,7 +35,7 @@ const Navbar = () => {
                     }} />
                 <Box sx={{ width: { xs: '24px', sm: '24px', md: '32px' } }} />
             </Box>
-            <NavMenu open={openMenu} setOpenMenu={setOpenMenu} />
+            <NavMenu open={openMenu} setOpenMenu={setOpenMenu} language={language} changeLanguage={changeLanguage} />
 
         </>
     );

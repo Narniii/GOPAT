@@ -20,7 +20,7 @@ const StarSection = styled(Box)(({ theme }) => ({
 const StarImage = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
-    backgroundImage: `url(${stars})`,
+    // backgroundImage: `url(${stars})`,
 }))
 const DesktopImage = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
@@ -132,7 +132,7 @@ const zoomout = keyframes`
   100% {transform: scale(1);}
 `
 
-const ProductSingle = () => {
+const ProductSingle = ({ language }) => {
 
     // const listenScrollEvent = e => {
     //     let insidePanel = window.document.getElementById('scrollable-inside')
@@ -156,6 +156,7 @@ const ProductSingle = () => {
     const id = params.id
     const [product, setProduct] = useState(undefined)
     const [images, setImages] = useState(undefined)
+    const [blog, setBlog] = useState(undefined)
     const [err, setErr] = useState(undefined)
     const navigate = useNavigate()
     const getProduct = async () => {
@@ -183,8 +184,26 @@ const ProductSingle = () => {
             }
         }
     }
+    const getBlog = async () => {
+        let request = await fetch(`https://admin.gopatjewelry.com/api/blogs/1?populate=*`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer 210f4fdc9cfc30870e2f3ca17b2d4f410d6ae5ce2afaf1445b6118731abaf524c008c11a503bf8b3d7a4fdff7887a67578791c89077bb18c23df8b1a672c01df203eb28a3bbbf2f68867a683f12ba03ac070acdbaa08bc5b970f51334fdb102bc1154e6009e3d3c00d6f80a6dbb58b0dbe1691f560e5f582dde5c65f5ded68c9`,
+            }
+        })
+
+        let response = await request.json()
+        console.log(response)
+        if (response.data) {
+            setBlog(response.data)
+        } else {
+        }
+    }
+
     useEffect(() => {
         getProduct()
+        getBlog()
     }, [])
 
     // useEffect(() => {
@@ -336,28 +355,28 @@ const ProductSingle = () => {
                         }}
                     >
                         <Typography variant="h1" sx={{
-                            whiteSpace: 'nowrap', mt: '50px',
+                            mt: '50px',
                             fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500,
                             color: '#08113b'
                         }}>
-                            {product.name}
+                            {language == 'en' ? product.name : product.nameFa}
                         </Typography>
                         <Typography variant="p" sx={{
                             whiteSpace: 'nowrap',
                             fontSize: { xs: '14px', sm: '16px', md: '16px' }, fontWeight: 400,
                             color: '#b3b3b3'
                         }}>
-                            {product.details}
+                            {language == 'en' ? product.details : product.detailsFa}
                         </Typography>
                         <Typography variant="p" sx={{
                             whiteSpace: 'nowrap', my: { xs: '16px', sm: '16px', md: '16px' },
                             fontSize: { xs: '16px', sm: '16px', md: '18px' }, fontWeight: 500,
                             color: '#08113b'
                         }}>
-                            {product.price} T
+                            {product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} T
                         </Typography>
-                        <ButtonWhatsapp maxwidth={'290px'} width={'100%'} mb={'8px'} text={'Order Via Whatsapp'} />
-                        <ButtonFillIcon maxwidth={'290px'} width={'100%'} icon={boutique} text={'Find A Boutique'} action={() => navigate('/contact-us')} />
+                        <ButtonWhatsapp maxwidth={'290px'} width={'100%'} mb={'8px'} text={language == 'en' ? 'Order Via Whatsapp' : 'سفارش در واتساپ'} />
+                        <ButtonFillIcon maxwidth={'290px'} width={'100%'} icon={boutique} text={language == 'en' ? 'Find A Boutique' : 'نزدیک ترین فروشگاه'} action={() => navigate('/contact-us')} />
                     </Details>
                     <LineDesktp sx={{ width: '100%', my: '32px' }} />
                     <Details
@@ -376,27 +395,27 @@ const ProductSingle = () => {
                                 color: '#b3b3b3', borderBottom: '1px solid #d9d9d9',
                                 pb: { xs: '8px', sm: '8px', md: '8px' }
                             }}>
-                                Craftmanship Info
+                                {language == 'en' ? 'Craftmanship Info' : 'استادکاری'}
                             </Typography>
                             <MenuTabOpenable
-                                text={'Body'} id={'body-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                                text={language == 'en' ? 'Body' : 'بدنه'} id={'body-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
                                 children={<div id="body-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
-                                    {product.body}
+                                    {language == 'en' ? product.body : product.bodyFa}
                                 </div>}
                             />
-                            <MenuTabOpenable text={'Diamond'} id={'diamond-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                            <MenuTabOpenable text={language == 'en' ? 'Stone' : 'سنگ'} id={'diamond-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
                                 children={<div id="diamond-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
-                                    {product.diamond}
+                                    {language == 'en' ? product.diamond : product.diamondFa}
                                 </div>}
                             />
-                            <MenuTabOpenable text={'Size Chart'} id={'size-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                            <MenuTabOpenable text={language == 'en' ? 'Size Chart' : 'راهنمای اندازه'} id={'size-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
                                 children={<div id="sizes-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
-                                    {product.sizes}
+                                    {language == 'en' ? product.sizes : product.sizesFa}
                                 </div>}
                             />
-                            <MenuTabOpenable text={'Typography'} id={'typo-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
+                            <MenuTabOpenable text={language == 'en' ? 'Typography' : 'تایپوگرافی'} id={'typo-info'} pb={{ xs: '8px', sm: '8px', md: '8px' }}
                                 children={<div id="typo-inner" style={{ width: '100%', color: '#666', fontWeight: 500 }} >
-                                    {product.typo}
+                                    {language == 'en' ? product.typo : product.typoFa}
                                 </div>}
                             />
                         </Box>
@@ -414,8 +433,8 @@ const ProductSingle = () => {
                                     fontSize: '14px',
                                     color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
                                 }}>
-                                    Timeless
-                                    Design
+                                    {language == 'en' ?
+                                        'Timeless Design' : 'طراحی بی زمان'}
                                 </Typography>
                             </DetailsExtra>
                             <DetailsExtra>
@@ -426,7 +445,7 @@ const ProductSingle = () => {
                                     fontSize: '14px',
                                     color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
                                 }}>
-                                    Free Polishing
+                                    {language == 'en' ? 'Free Polishing' : 'پولیش رایگان'}
                                 </Typography>
                             </DetailsExtra>
                             <DetailsExtra>
@@ -437,7 +456,7 @@ const ProductSingle = () => {
                                     fontSize: '14px',
                                     color: '#08113b', overflowWrap: 'break-word', textAlign: 'center'
                                 }}>
-                                    Durable Material
+                                    {language == 'en' ? 'Durable Material' : 'کیفیت پایدار'}
                                 </Typography>
                             </DetailsExtra>
                         </Box>
@@ -448,34 +467,37 @@ const ProductSingle = () => {
                 <CircularProgress sx={{ color: '#08113b' }} />}
 
 
-        <StarSection sx={{
-            gap: { xs: '24px', md: '32px' },
-            padding: { xs: '64px 16px 0', sm: '128px 24px 0', md: '128px 32px 0' }
-        }}>
-            <StarImage sx={{
-                width: { xs: '100%', sm: '500px', md: '850px' },
-                height: { xs: '245px', sm: '430px', md: '680px' }
-            }} />
-            <Box sx={{
-                display: 'flex', flexDirection: 'column', boxSizing: 'border-box',
-                alignItems: 'center'
+        {blog ?
+            <StarSection sx={{
+                gap: { xs: '24px', md: '32px' },
+                padding: { xs: '64px 16px 0', sm: '128px 24px 0', md: '128px 32px 0' },
+
             }}>
-                <Typography
-                    sx={{ color: '#08113b', fontWeight: '500', fontSize: { xs: '16px', sm: '18px', }, }}>
-                    Tishtar Story
-                </Typography>
-                <Typography sx={{
-                    mb: '16px',
-                    width: { xs: '100%', sm: '400px' },
-                    textAlign: 'center', overflowWrap: 'break-word',
-                    fontSize: { xs: '14px', sm: '16px', md: '18px' }, color: '#999999'
+                <StarImage sx={{
+                    width: { xs: '100%', sm: '500px', md: '850px' },
+                    height: { xs: '245px', sm: '430px', md: '680px' },
+                    backgroundImage: `url('https://admin.gopatjewelry.com${blog.attributes.coverimage.data.attributes.url}')`
+                }} />
+                <Box sx={{
+                    display: 'flex', flexDirection: 'column', boxSizing: 'border-box',
+                    alignItems: 'center'
                 }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    sodhsohvspoujspovsvv
-                </Typography>
-                <ButtonOutline text={'read more'} />
-            </Box>
-        </StarSection>
+                    <Typography
+                        sx={{ color: '#08113b', fontWeight: '500', fontSize: { xs: '16px', sm: '18px', }, }}>
+                        {language == 'en' ? blog.attributes.title : blog.attributes.titleFa}
+                    </Typography>
+                    <Typography sx={{
+                        mb: '16px',
+                        width: { xs: '100%', sm: '400px' },
+                        textAlign: 'center', overflowWrap: 'break-word',
+                        fontSize: { xs: '14px', sm: '16px', md: '18px' }, color: '#999999'
+                    }}>
+                        {language == 'en' ? blog.attributes.description : blog.attributes.descriptionFa}
+                    </Typography>
+                    <ButtonOutline text={language == 'en' ? 'read more' : 'بیشتر بخوانید'} action={() => navigate(`/blog/${blog.id}/${blog.attributes.title}`)} />
+                </Box>
+            </StarSection>
+            : <CircularProgress sx={{ color: '#08113b' }} />}
 
     </Box >);
 }

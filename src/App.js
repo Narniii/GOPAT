@@ -30,9 +30,27 @@ import Contact from './pages/contact';
 import Gopatron from './pages/gopatron';
 import Blogs from './pages/blogs';
 import Blog from './pages/blog';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [language, setLanguage] = useState('en')
+  const changeLanguage = () => {
+    if (language == 'en') {
+      setLanguage('fa')
+      localStorage.setItem('language', 'fa')
+    } else {
+      setLanguage('en')
+      localStorage.setItem('language', 'en')
+    }
+  }
+  useEffect(() => {
+    if (localStorage.getItem('language') == 'en') {
+      setLanguage('en')
+    } else {
+      setLanguage('fa')
+    }
+
+  }, [])
 
   const theme = createTheme({
     typography: {
@@ -55,19 +73,19 @@ function App() {
       <BrowserRouter forceRefresh={true} >
         <ScrollToTop>
 
-          <Navbar />
+          <Navbar language={language} changeLanguage={changeLanguage} />
           <Routes forceRefresh={true}>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/collection/:name/:id" element={<CollectionSingle />} />
-            <Route exact path="/product/:name/:id" element={<ProductSingle />} />
-            <Route exact path="/about-us" element={<About />} />
-            <Route exact path="/contact-us" element={<Contact />} />
-            <Route exact path="/gopatron" element={<Gopatron />} />
-            <Route exact path="/blogs" element={<Blogs />} />
-            <Route exact path="/blog/:id/:name" element={<Blog />} />
-            <Route path='*' element={<NotFound />} />
+            <Route exact path="/" element={<Home language={language} />} />
+            <Route exact path="/collection/:name/:id" element={<CollectionSingle language={language} />} />
+            <Route exact path="/product/:name/:id" element={<ProductSingle language={language} />} />
+            <Route exact path="/about-us" element={<About language={language} />} />
+            <Route exact path="/contact-us" element={<Contact language={language} />} />
+            <Route exact path="/gopatron" element={<Gopatron language={language} />} />
+            <Route exact path="/blogs" element={<Blogs language={language} />} />
+            <Route exact path="/blog/:id/:name" element={<Blog language={language} />} />
+            <Route path='*' element={<NotFound language={language} />} />
           </Routes>
-          <Footer />
+          <Footer language={language} changeLanguage={changeLanguage}/>
         </ScrollToTop>
 
       </BrowserRouter>

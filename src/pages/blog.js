@@ -11,7 +11,7 @@ const Details = styled(Box)(({ theme }) => ({
     flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
 }))
 
-const Blog = () => {
+const Blog = ({ language }) => {
     const params = useParams()
     const id = params.id
 
@@ -38,12 +38,32 @@ const Blog = () => {
     useEffect(() => {
         getBlog()
     }, [])
+    useEffect(() => {
+        if (blog) {
+            if (language == 'en') {
+                const text1 = document.getElementById("text1");
+                text1.innerHTML = blog.text1
+                const text2 = document.getElementById("text2");
+                text2.innerHTML = blog.text2
+                const text3 = document.getElementById("text3");
+                text3.innerHTML = blog.text3
+            } else {
+                const text1Fa = document.getElementById("text1Fa");
+                text1Fa.innerHTML = blog.text1Fa
+                const text2Fa = document.getElementById("text2Fa");
+                text2Fa.innerHTML = blog.text2Fa
+                const text3Fa = document.getElementById("text3Fa");
+                text3Fa.innerHTML = blog.text3Fa
+            }
+        }
+    }, [blog, language])
     return (
         <> {
             blog && images ?
                 <>
                     <Header hideDetailsOnMobile={false} images={images}
-                        title={blog.title} subtitle={blog.subtitle} />
+                        title={language == 'en' ? blog.title : blog.titleFa}
+                        subtitle={language == 'en' ? blog.subtitle : blog.subtitleFa} />
 
                     <Box sx={{
                         display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%',
@@ -52,36 +72,69 @@ const Blog = () => {
                         boxSizing: 'border-box',
                         px: { xs: '32px', md: '128px', lg: '180px' }
                     }}>
-                        <Typography
-                            sx={{
-                                fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
-                            }}>
-                            {blog.text1}
-                        </Typography>
+                        {language == 'en' ?
+                            <Typography
+                                id='text1'
+                                sx={{
+                                    fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
+                                }}>
+                            </Typography>
+                            :
+                            <Typography
+                                id='text1Fa'
+                                sx={{
+                                    fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
+                                }}>
+                            </Typography>
+                        }
                         <Box sx={{
                             width: { xs: '100%', sm: '450px', md: '550px' },
                             backgroundImage: `url(${images[1]})`,
-                            aspectRatio: { xs: '1/1', md: '3/4' },
+                            aspectRatio: { xs: '3/4', md: '3/4' },
                             backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                         }} />
-                        <Typography
-                            sx={{
-                                fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
-                            }}>
-                            {blog.text2}
-                        </Typography>
+                        {language == 'en' ?
+                            <Typography
+                                id='text2'
+                                sx={{
+                                    fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
+                                }}>
+                            </Typography>
+                            :
+                            <Typography
+                                id='text2Fa'
+                                sx={{
+                                    fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
+                                }}>
+                            </Typography>
+                        }
                         <Box sx={{
                             width: { xs: '100%', sm: '450px', md: '550px' },
                             backgroundImage: `url(${images[2]})`,
-                            aspectRatio: { xs: '1/1', md: '3/4' },
+                            aspectRatio: { xs: '3/4', md: '3/4' },
                             backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                         }} />
-                        <Typography
-                            sx={{
-                                fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
-                            }}>
-                            {blog.text3}
-                        </Typography>
+                        {language == 'en' ?
+                            <Typography
+                                id='text3'
+                                sx={{
+                                    fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
+                                }}>
+                            </Typography>
+                            :
+                            <Typography
+                                id='text3Fa'
+                                sx={{
+                                    fontSize: { xs: '14px', md: '16px' }, fontWeight: 500, color: '#08113B', textAlign: 'center'
+                                }}>
+                            </Typography>
+                        }
+                        <Box sx={{
+                            width: { xs: '100%', sm: '450px', md: '550px' },
+                            backgroundImage: `url(${images[3]})`,
+                            aspectRatio: { xs: '3/4', md: '3/4' },
+                            backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
+                        }} />
 
                     </Box>
                 </> : <CircularProgress sx={{ color: '#08113b' }} />

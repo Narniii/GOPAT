@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { MenuTab, MenuTabOpenable } from "./menuTab";
 import { Link, useNavigate } from "react-router-dom";
 
-const NavMenu = ({ open, setOpenMenu }) => {
+const NavMenu = ({ open, setOpenMenu, language, changeLanguage }) => {
     const navigate = useNavigate()
     const [collections, setCollections] = useState(undefined)
     const getCollections = async () => {
@@ -82,9 +82,82 @@ const NavMenu = ({ open, setOpenMenu }) => {
                     navigate('/blogs')
                     setOpenMenu(false)
                 }} />
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', width: '100%' }}>
+            <Box onClick={() => {
+                changeLanguage()
+                setOpenMenu(false)
+            }} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', width: '100%', cursor: 'pointer' }}>
                 <Typography sx={{ fontSize: '16px', color: '#08113b', fontWeight: 500 }}>
                     English | Farsi
+                </Typography>
+            </Box>
+        </Box>
+    );
+    const listFa = () => (
+        <Box
+            sx={{
+                width: { xs: '100%', md: '500px' },
+                height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
+                boxSizing: 'border-box',
+                padding: { xs: '8px', sm: '24px', md: '32px' },
+                gap: { xs: '8px', sm: '16px', md: '16px' },
+                display: 'flex', flexDirection: 'column', alignItems: 'center',
+            }}
+            role="presentation"
+            // onClick={() => setOpenMenu(false)}
+            onKeyDown={() => setOpenMenu(false)}
+        >
+            <MenuTab text={'خانه'} link={'/'} onClick={() => {
+                navigate('/')
+                setOpenMenu(false)
+            }} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+            <MenuTabOpenable text={'محصولات'}
+                id={'menu-products'}
+                children={
+                    <Box sx={{ width: 'max-content', display: 'flex', flexDirection: 'column' }}>
+                        {collections ? <>
+                            {collections.map((collection) => {
+                                return (
+                                    <Link style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }}
+                                        onClick={() => setOpenMenu(false)} target="_blank"
+                                        to={`/collection/${collection.attributes.name}/${collection.id}`}>
+                                        <Typography sx={{
+                                            fontSize: '14px',
+                                            color: '#666', '&:hover': {
+                                                color: '#08113b'
+                                            }
+                                        }}>
+                                            مجموعه {collection.attributes.nameFa}
+                                        </Typography>
+                                    </Link>
+                                )
+                            })}
+                        </> :
+                            <CircularProgress sx={{ color: '#08113b', fontSize: '16px' }} />}
+                    </Box>} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+            <MenuTab text={'درباره ما'} link={'/about-us'} onClick={() => {
+                navigate('/about-us')
+                setOpenMenu(false)
+            }} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+            <MenuTab text={'تماس با ما'} link={'/contact-us'} onClick={() => {
+                navigate('/contact-us')
+                setOpenMenu(false)
+            }} pb={{ xs: '8px', sm: '16px', md: '16px' }} />
+            <MenuTab text={'سرویس گوپترون'} pb={{ xs: '8px', sm: '16px', md: '16px' }}
+                link={'/gopatron'} onClick={() => {
+                    navigate('/gopatron')
+                    setOpenMenu(false)
+                }} />
+            <MenuTab text={'بلاگ'} pb={{ xs: '8px', sm: '16px', md: '16px' }}
+                link={'/blogs'} onClick={() => {
+                    navigate('/blogs')
+                    setOpenMenu(false)
+                }} />
+            <Box onClick={() => {
+                changeLanguage()
+                setOpenMenu(false)
+            }} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'end', width: '100%', cursor: 'pointer' }}>
+                <Typography sx={{ fontSize: '16px', color: '#08113b', fontWeight: 500 }}>
+                    انگلیسی | فارسی
                 </Typography>
             </Box>
         </Box>
@@ -104,7 +177,7 @@ const NavMenu = ({ open, setOpenMenu }) => {
         open={open}
         onClose={() => setOpenMenu(false)}
     >
-        {list()}
+        {language == 'en' ? list() : listFa()}
     </Drawer>
     );
 }
