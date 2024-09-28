@@ -44,10 +44,10 @@ function App() {
     }
   }
   useEffect(() => {
-    if (localStorage.getItem('language') == 'en') {
-      setLanguage('en')
-    } else {
+    if (localStorage.getItem('language') == 'fa') {
       setLanguage('fa')
+    } else {
+      setLanguage('en')
     }
 
   }, [])
