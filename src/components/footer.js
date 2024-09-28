@@ -34,8 +34,8 @@ const Links = styled(Typography)(({ theme }) => ({
     }
 }))
 const Line = styled(Box)(({ theme }) => ({
-    backgroundColor: '#b3b3b3', color: '#666666', height: '20px',
-    width: '1px'
+    backgroundColor: '#b3b3b3', color: '#666666', height: '1px',
+    width: '20px'
 }))
 
 const Footer = ({ language, changeLanguage }) => {
@@ -179,7 +179,7 @@ const Footer = ({ language, changeLanguage }) => {
                         {language == 'en' ? 'Nation: International (EN) | Iran (FA)' : 'زبان : فارسی | انگلیسی'}
                     </Typography>
                 </Box>
-                <Box sx={{ width: '100%', display: 'flex', px: '32px', gap: '24px', boxSizing: 'border-box' }}>
+                <Box sx={{ width: '100%', display: 'flex', px: '32px', gap: '24px', boxSizing: 'border-box', alignItems: 'center' }}>
                     <Link target="_blank" style={{ textDecoration: 'none' }}
                         to={'https://www.linkedin.com/in/hana-bayat-853023126/'}>
                         <Typography sx={{ textTransform: 'capitalize', color: '#999999', textAlign: 'center', fontSize: '14px' }}>
