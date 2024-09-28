@@ -10,6 +10,7 @@ import "./fonts/FuturaPTLightOblique.otf"
 import "./fonts/FuturaPTMedium.otf"
 import "./fonts/FuturaPTMediumOblique.otf"
 import "./fonts/FuturaMedium.ttf"
+import "./fonts/IranianSans.ttf"
 import {
   BrowserRouter,
   Routes,
@@ -54,7 +55,7 @@ function App() {
 
   const theme = createTheme({
     typography: {
-      fontFamily: 'Jost',
+      fontFamily: language == 'en' ? 'Jost' : 'Markazi Text',
     },
     // components: {
     //   MuiCssBaseline: {
@@ -85,7 +86,7 @@ function App() {
             <Route exact path="/blog/:id/:name" element={<Blog language={language} />} />
             <Route path='*' element={<NotFound language={language} />} />
           </Routes>
-          <Footer language={language} changeLanguage={changeLanguage}/>
+          <Footer language={language} changeLanguage={changeLanguage} />
         </ScrollToTop>
 
       </BrowserRouter>

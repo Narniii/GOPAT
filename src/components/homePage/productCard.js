@@ -14,7 +14,7 @@ const CardImage = styled(Box)(({ theme }) => ({
 const ProductCard = ({ name, price, details, image, id, language, nameFa, detailsFa }) => {
     const navigate = useNavigate()
     return (
-        <Card sx={{ width: '100%' }} onClick={() => navigate(`/product/${name}/${id}`)}>
+        <Card sx={{ width: '100%', cursor: 'pointer' }} onClick={() => navigate(`/product/${name}/${id}`)}>
             <CardImage sx={{
                 aspectRatio: '1/1',
                 // width: { xs: '160px', sm: '354px', md: '331px' },
