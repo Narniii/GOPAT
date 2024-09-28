@@ -93,12 +93,14 @@ const Footer = ({ language, changeLanguage }) => {
                         :
                         <ButtonFill text={language == 'en' ? 'Contact Us' : 'تماس با ما'} action={() => navigate('/contact-us')} />
                     }
-                    <Instagram sx={{
-                        color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
-                        '&:hover': {
-                            color: '#999999'
-                        }
-                    }} />
+                    <Link target="_blank" to={'/instagram.com/gopat.official'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Instagram sx={{
+                            color: '#08113b', my: '16px', fontSize: '32px', cursor: 'pointer', transition: '500ms ease',
+                            '&:hover': {
+                                color: '#999999'
+                            }
+                        }} />
+                    </Link>
                     <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' } }}>{language == 'en' ? 'Follow us on' : 'ما را دنبال کنید'}</Typography>
                     <Typography sx={{ color: '#666666', fontSize: { xs: '14px', sm: '16px' }, mb: { xs: '50px', md: '60px' } }}>@gopat.official</Typography>
                 </> : undefined}
