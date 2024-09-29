@@ -141,17 +141,19 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
                 minWidth: { xs: 'unset', md: '400px !important' },
                 width: { xs: 'unset', md: '400px !important' },
                 display: { xs: hideDetailsOnMobile ? 'none' : 'flex', md: 'flex' },
-                px: { xs: '32px', md: 'unset' },
+                px: { xs: '32px', md: '32px' },
                 my: { xs: '50px', md: '60px' },
                 gap: { xs: '8px', sm: '12px', md: '16px' },
                 boxSizing: 'border-box'
             }}>
                 <Typography variant="h1" sx={{
                     // whiteSpace: 'nowrap',
+                    textAlign:'center',
                     fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                 }}>
                     {title}</Typography>
                 <Typography variant="h1" sx={{
+                    textAlign:'center',
                     whiteSpace: 'nowrap', fontWeight: 500,
                     fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                 }}>
