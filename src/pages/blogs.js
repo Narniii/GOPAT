@@ -265,7 +265,8 @@ const Blogs = ({ language }) => {
                                             return (
                                                 <FilterInputBox>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                                    <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                                    <FilterInput
+                                                        type="checkbox" checked={selectedFilters.includes(filter)} onClick={() => addToSelected(filter)} />
                                                 </FilterInputBox>
                                             )
                                         })}
@@ -274,7 +275,7 @@ const Blogs = ({ language }) => {
                                             return (
                                                 <FilterInputBox>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                                    <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                                    <FilterInput checked={selectedFilters.includes(filter)} type="checkbox" onClick={() => addToSelected(filter)} />
                                                 </FilterInputBox>
                                             )
                                         })}
@@ -297,7 +298,7 @@ const Blogs = ({ language }) => {
                                 return (
                                     <FilterInputBox>
                                         <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                        <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                        <FilterInput checked={selectedFilters.includes(filter)} type="checkbox" onClick={() => addToSelected(filter)} />
                                     </FilterInputBox>
                                 )
                             })}
@@ -306,7 +307,7 @@ const Blogs = ({ language }) => {
                                 return (
                                     <FilterInputBox>
                                         <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                        <FilterInput type="checkbox" onClick={() => addToSelected(filter)} />
+                                        <FilterInput checked={selectedFilters.includes(filter)} type="checkbox" onClick={() => addToSelected(filter)} />
                                     </FilterInputBox>
                                 )
                             })}
@@ -328,7 +329,7 @@ const Blogs = ({ language }) => {
                             width: '100%', display: 'flex', flexDirection: 'column', gap: '32px'
                         }}>
                             {blogs.map((blog) => {
-                                return (<BlogSmall image={`https://admin.gopatjewelry.com${blog.attributes.coverimage.data.attributes.url}`}
+                                return (<BlogSmall image={blog.attributes.coverimage.data ? `https://admin.gopatjewelry.com${blog.attributes.coverimage.data.attributes.url}` : undefined}
                                     id={blog.id}
                                     title={blog.attributes.title} subtitle={blog.attributes.subtitle} date={blog.attributes.createdAt}
                                     description={blog.attributes.description}

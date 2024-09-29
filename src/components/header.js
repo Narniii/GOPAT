@@ -147,7 +147,7 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
                 boxSizing: 'border-box'
             }}>
                 <Typography variant="h1" sx={{
-                    whiteSpace: 'nowrap',
+                    // whiteSpace: 'nowrap',
                     fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                 }}>
                     {title}</Typography>

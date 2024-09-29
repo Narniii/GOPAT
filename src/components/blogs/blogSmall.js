@@ -25,7 +25,7 @@ const BlogSmall = ({ image, title, id, subtitle, description, date, titleFa, sub
             }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'center' }}>
                     <Typography variant="h1" sx={{
-                        whiteSpace: 'nowrap',
+                        // whiteSpace: 'nowrap',
                         fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                     }}>
                         {language == 'en' ? title : titleFa}

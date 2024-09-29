@@ -200,11 +200,11 @@ const Footer = ({ language, changeLanguage }) => {
             </FootDesktop>
             <FootMobile sx={{ display: { xs: 'flex', md: 'none' } }}>
                 <ExpMobile>
-                    <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Box onClick={changeCSOpened} sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                             {language == 'en' ? 'Customer Service' : 'خدمات مشتریان'}
                         </Typography>
-                        <button id="PMbuttoncs" className="pmButton" onClick={changeCSOpened}>
+                        <button id="PMbuttoncs" className="pmButton" >
                             <span></span>
                             <span></span>
                         </button>
@@ -230,11 +230,11 @@ const Footer = ({ language, changeLanguage }) => {
                     }
                 </ExpMobile>
                 <ExpMobile>
-                    <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Box onClick={changePoliciesOpened} sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                             {language == 'en' ? 'Policies' : 'قوانین و ضوابط'}
                         </Typography>
-                        <button id="PMbuttonpc" className="pmButton" onClick={changePoliciesOpened}>
+                        <button id="PMbuttonpc" className="pmButton" >
                             <span></span>
                             <span></span>
                         </button>
