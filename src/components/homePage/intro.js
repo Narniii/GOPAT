@@ -72,20 +72,61 @@ const ProgressLine = styled(Box)(({ theme }) => ({
     transition: '500ms ease'
 
 }))
+const ImageScroll = styled(Box)(({ theme }) => ({
+    display: 'flex', flexDirection: 'column',
+    boxSizing: 'border-box',
+    // width: '100%',
+    // height: '100%',
+    overflowY: 'hidden',
+    scrollBehavior: 'smooth',
+    overflowX: 'scroll',
+    '&::-webkit-scrollbar': {
+        display: 'none',
+        background: 'transparent',
+        height: '8px',
+        width: '8px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+        height: '8px',
+        width: '8px',
+        background: '#08113b',
+        color: '#08113b',
+        border: 'none',
+        borderRadius: '0px'
+    },
+    '&::-webkit-scrollbar-button': {
+        display: 'none'
+    },
+}))
+const Image = styled(Box)(({ theme }) => ({
+    backgroundPosition: 'center', backgroundColor: '#d9d9d9',
+    backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
+    height: '100%',
+    // aspectRatio: '1/1'
+}))
 
 const Intro = ({ language }) => {
     const [slide, setSlide] = useState(0)
     const [slideChanges, setSlideChanges] = useState(false)
     const [slides, setSlides] = useState(undefined)
+    const [images, setImages] = useState(undefined)
     useEffect(() => {
         if (slides) {
 
             const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
                 if (slide >= slides.length - 1) {
                     setSlide(0)
+                    let parent = window.document.getElementById('scrollable')
+                    let child = window.document.getElementById(images[0].id)
+                    var childLeft = child.offsetLeft;
+                    parent.scrollLeft = childLeft
                 }
                 else {
                     setSlide(slide + 1)
+                    let parent = window.document.getElementById('scrollable')
+                    let child = window.document.getElementById(images[slide + 1].id)
+                    var childLeft = child.offsetLeft;
+                    parent.scrollLeft = childLeft
                 }
             }, 5000)
 
@@ -103,6 +144,7 @@ const Intro = ({ language }) => {
         let response = await request.json()
         console.log(response)
         let tempslides = []
+        let tempImages = []
         for (let i = 0; i < response.data.length; i++) {
             tempslides.push({
                 image: `https://admin.gopatjewelry.com${response.data[i].attributes.media.data.attributes.url}`,
@@ -112,13 +154,39 @@ const Intro = ({ language }) => {
                 subtitleFa: response.data[i].attributes.subtitleFa,
                 pID: response.data[i].attributes.pID
             })
+            tempImages.push({
+                image: `https://admin.gopatjewelry.com${response.data[i].attributes.media.data.attributes.url}`,
+                id: `num${i}`
+            })
         }
         setSlides(tempslides)
+        setImages(tempImages)
         console.log(tempslides)
     }
     useEffect(() => {
         getSlides()
     }, [])
+    const [scrolledLeft, setScrolledLeft] = useState(0)
+    const onScroll = () => {
+        const scrollable = window.document.getElementById('scrollable')
+        const winScroll = scrollable.scrollLeft;
+        const width = scrollable.scrollWidth - scrollable.clientWidth
+        const scrolled = (winScroll / width) * 100;
+        setScrolledLeft(scrolled);
+        const newSlide = images.find((slide) => 100 + window.document.getElementById(slide.id).offsetLeft >= winScroll)
+        const index = images.indexOf(newSlide)
+        console.log(index)
+        if (index == -1 || index >= slides.length) { setSlide(slides.length - 1) } else { setSlide(index) }
+    };
+    useEffect(() => {
+        if (window.document.getElementById('scrollable'))
+            // Fires when the document view has been scrolled
+            window.document.getElementById('scrollable').addEventListener("scroll", onScroll);
+
+        // 
+        // return () => window.document.getElementById('scrollable').removeEventListener("scroll", onScroll);
+    }, [window.document.getElementById('scrollable')]);
+
 
     const navigate = useNavigate()
     return (
@@ -127,20 +195,35 @@ const Intro = ({ language }) => {
             height: { xs: 'calc(100vh - 50px)', sm: 'calc(100vh - 50px)', md: 'calc(100vh - 60px)' },
             width: '100%', boxSizing: 'border-box',
             display: 'flex', flexDirection: { xs: 'column', md: 'row' },
-        }}>{slides ? <>
-            <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', }}>
-                <Box sx={{
-                    height: '100%',
+        }}>{slides && images ? <>
+            <Box sx={{
+                display: 'flex', flexDirection: 'column',
+                width: { xs: '100%', md: 'calc(100% - 400px)' }, height: '100%',
+            }}>
+                <ImageScroll id="scrollable" sx={{
+                    height: { xs: '100%', md: '100%' },
                     width: '100%',
-                    // width: { xs: '100vw', md: 'calc(100vw - 400px)' },
-                    // aspectRatio: '4/3',
-                    transition: '500ms ease',
-                    backgroundImage: `url(${slides[slide].image})`,
-                    justifySelf: 'center', backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat', backgroundSize: 'cover',
-                    animation: slideChanges ? `${grow} 1s ease-in 1` : undefined,
 
-                }} />
+                }}>
+                    <Box sx={{
+                        display: 'flex',
+                        height: '100%', width: 'max-content',
+                        boxSizing: 'border-box',
+                        flexWrap: 'nowrap'
+                    }}>
+                        {images.map((image) => {
+                            return (
+                                <Image className={image.id} id={image.id} sx={{
+                                    backgroundImage: `url(${image.image})`,
+                                    width: { xs: '100vw', md: 'calc(100vw - 400px)' },
+                                    aspectRatio: '4/3',
+
+                                }} />
+                            )
+                        })}
+                    </Box>
+                </ImageScroll>
+
                 <ProgressLineWrapper>
                     <ProgressLine sx={{ width: `${((slide + 1) / slides.length) * 100}%` }} />
                 </ProgressLineWrapper>
@@ -168,9 +251,10 @@ const Intro = ({ language }) => {
                 </Typography>
                 <ButtonOutline text={language == 'en' ? 'Discover More' : 'بیشتر ببینید'} action={() => navigate(`/product/${slides[slide].name}/${slides[slide].pID}`)} />
             </Details>
-        </> : <Skeleton width={'100vw'} height={'100%'} />}
+        </> : <Skeleton width={'100vw'} height={'100%'} />
+            }
 
-        </Box>
+        </Box >
 
     );
 }

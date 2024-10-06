@@ -89,7 +89,7 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
         const width = scrollable.scrollWidth - scrollable.clientWidth
         const scrolled = (winScroll / width) * 100;
         setScrolledLeft(scrolled);
-        const newSlide = slides.find((slide) => window.document.getElementById(slide.id).offsetLeft >= winScroll)
+        const newSlide = slides.find((slide) => 100 + window.document.getElementById(slide.id).offsetLeft >= winScroll)
         const index = slides.indexOf(newSlide)
         if (index == -1) { setSlide(slides.length + 1) } else { setSlide(index) }
     };
@@ -148,12 +148,12 @@ const Header = ({ images, title, subtitle, description, hideDetailsOnMobile }) =
             }}>
                 <Typography variant="h1" sx={{
                     // whiteSpace: 'nowrap',
-                    textAlign:'center',
+                    textAlign: 'center',
                     fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                 }}>
                     {title}</Typography>
                 <Typography variant="h1" sx={{
-                    textAlign:'center',
+                    textAlign: 'center',
                     whiteSpace: 'nowrap', fontWeight: 500,
                     fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                 }}>
