@@ -32,6 +32,7 @@ import Gopatron from './pages/gopatron';
 import Blogs from './pages/blogs';
 import Blog from './pages/blog';
 import { useEffect, useState } from 'react';
+import PrivacyPolicy from './pages/privacyPolicy';
 
 function App() {
   const [language, setLanguage] = useState('en')
@@ -81,6 +82,7 @@ function App() {
             <Route exact path="/product/:name/:id" element={<ProductSingle language={language} />} />
             <Route exact path="/about-us" element={<About language={language} />} />
             <Route exact path="/contact-us" element={<Contact language={language} />} />
+            <Route exact path="/privacy-policy" element={<PrivacyPolicy language={language} />} />
             <Route exact path="/gopatron" element={<Gopatron language={language} />} />
             <Route exact path="/blogs" element={<Blogs language={language} />} />
             <Route exact path="/blog/:id/:name" element={<Blog language={language} />} />

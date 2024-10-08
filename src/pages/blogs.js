@@ -136,9 +136,7 @@ const Blogs = ({ language }) => {
     }
     useEffect(() => {
         if (searchedPhrase && searchedPhrase !== '') {
-            console.log(searchedPhrase)
-            const newBlogs = totalblogs.filter((blog) => blog.attributes.title.toLowerCase().includes(searchedPhrase) || blog.attributes.titleFa.toLowerCase().includes(searchedPhrase))
-            console.log(newBlogs)
+            const newBlogs = totalblogs.filter((blog) => blog.attributes.title.toLowerCase().includes(searchedPhrase.toLowerCase()) || blog.attributes.titleFa.toLowerCase().includes(searchedPhrase.toLowerCase()))
             setBlogs(newBlogs)
         } else {
             setBlogs(totalblogs)
@@ -155,9 +153,6 @@ const Blogs = ({ language }) => {
                         display: 'flex', flexDirection: { xs: 'column', md: 'row' },
                         // mb: { xs: 'none', md: '60px' }
                     }}>
-                        {/* <ImageScroll sx={{
-                    height: { xs: '420px', md: '100%' },
-                }}> */}
                         <Box sx={{
                             display: 'flex',
                             height: { xs: '420px', md: '100%' },
@@ -170,7 +165,6 @@ const Blogs = ({ language }) => {
                                 width: { xs: '100vw', md: '100%' }
                             }} />
                         </Box>
-                        {/* </ImageScroll> */}
                         <Details sx={{
                             mx: { xs: '0', md: '32px' },
                             px: { xs: '32px', md: '0', lg: '32px' },
@@ -263,19 +257,24 @@ const Blogs = ({ language }) => {
                                     {language == 'en' ? <>
                                         {filters.map((filter) => {
                                             return (
-                                                <FilterInputBox>
+                                                <FilterInputBox key={filter}>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
                                                     <FilterInput
-                                                        type="checkbox" checked={selectedFilters.includes(filter)} onClick={() => addToSelected(filter)} />
+                                                        type="checkbox" value={filter} onClick={() => addToSelected(filter)}
+                                                        // checked={selectedFilters.includes(filter)}
+                                                    />
                                                 </FilterInputBox>
                                             )
                                         })}
                                     </> : <>
                                         {filtersFa.map((filter) => {
                                             return (
-                                                <FilterInputBox>
+                                                <FilterInputBox key={filter}>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                                    <FilterInput checked={selectedFilters.includes(filter)} type="checkbox" onClick={() => addToSelected(filter)} />
+                                                    <FilterInput
+                                                        type="checkbox" value={filter} onClick={() => addToSelected(filter)}
+                                                        // checked={selectedFilters.includes(filter)}
+                                                    />
                                                 </FilterInputBox>
                                             )
                                         })}
@@ -296,18 +295,24 @@ const Blogs = ({ language }) => {
                         {language == 'en' ? <>
                             {filters.map((filter) => {
                                 return (
-                                    <FilterInputBox>
+                                    <FilterInputBox key={filter}>
                                         <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                        <FilterInput checked={selectedFilters.includes(filter)} type="checkbox" onClick={() => addToSelected(filter)} />
+                                        <FilterInput
+                                            type="checkbox" value={filter}
+                                            // checked={selectedFilters.includes(filter)}
+                                            onClick={() => addToSelected(filter)} />
                                     </FilterInputBox>
                                 )
                             })}
                         </> : <>
                             {filtersFa.map((filter) => {
                                 return (
-                                    <FilterInputBox>
+                                    <FilterInputBox key={filter}>
                                         <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
-                                        <FilterInput checked={selectedFilters.includes(filter)} type="checkbox" onClick={() => addToSelected(filter)} />
+                                        <FilterInput
+                                            type="checkbox" value={filter}
+                                            // checked={selectedFilters.includes(filter)}
+                                            onClick={() => addToSelected(filter)} />
                                     </FilterInputBox>
                                 )
                             })}
@@ -340,7 +345,7 @@ const Blogs = ({ language }) => {
                             })}
                         </Box>
                         :
-                        <Typography sx={{ color: '#08113b', fontWeight: 500, textAlign: 'center', width: '100%' }}>No Blog Found</Typography>
+                        <Typography sx={{ color: '#08113b', fontWeight: 500, textAlign: 'center', width: '100%' }}>{language == 'en' ? `No Blog Found` : `بلاگی یافت نشد`}</Typography>
                     }
                     </>
                     : <CircularProgress sx={{ color: '#08113b' }} />}

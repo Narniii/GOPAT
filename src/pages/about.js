@@ -41,10 +41,12 @@ const Image = styled(Box)(({ theme }) => ({
 }))
 
 
-const About = () => {
+const About = ({ language }) => {
     return (
         <>
-            <Header hideDetailsOnMobile={true} images={[about]} title={'About Gopat'} subtitle={'Founded In Tehran, Iran.'} />
+            <Header hideDetailsOnMobile={true} images={[about]} title={language == 'en' ?
+                `About GOPAT` : `درباره گوپت`}
+                subtitle={language == 'en' ? `Founded In Tehran, Iran.` : `تاسیس شده در تهران،ایران`} />
 
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
@@ -60,20 +62,28 @@ const About = () => {
                             whiteSpace: 'nowrap',
                             fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                         }}>
-                            About GOPAT</Typography>
+                            {language == 'en' ?
+                                `About GOPAT` : `درباره گوپت`}
+                        </Typography>
                         <Typography variant="h1" sx={{
                             whiteSpace: 'nowrap', fontWeight: 500,
                             fontSize: { xs: '16px', sm: '18px', md: '18px' }, color: '#b3b3b3'
                         }}>
-                            Founded In Tehran, Iran.</Typography>
+                            {language == 'en' ?
+
+                                ` Founded In Tehran, Iran.` : `تاسیس شده در تهران،ایران`}
+                        </Typography>
                     </Box>
                     <Typography sx={{
                         color: '#999', textAlign: 'center', width: '100%', fontWeight: 500,
                         fontSize: { xs: '14px', md: '16px' }
                     }}>
+                        {language == 'en' ?
+                            `
                         Gopat Fine Jewelry is a newly established Iranian luxury brand committed to elevating the essence of luxury through meticulous branding, an exceptional shopping journey, and comprehensive after-sales services, all aligned with international standards.
 
-                        Gopat epitomizes a singular product design ethos, meticulously crafted with a focus on intricate details, embodying a timeless design identity. Our products epitomize style and epitomize a high-quality lifestyle that endures through the decades.
+                        Gopat epitomizes a singular product design ethos, meticulously crafted with a focus on intricate details, embodying a timeless design identity. Our products epitomize style and epitomize a high-quality lifestyle that endures through the decades.`:
+                            `جواهرات گوپت یک برند لوکس تازه تاسیس ایرانی است که با هدف ارتقاء مفهموم لوکس از طریق برندسازی، تجربه خرید عالی و خدمات پس از فروش، همگام با استانداردهای بین المللی فعالیت می‌کند. طراحی محصولات گوپت با داستان‌های اساطیری ایران باستان پشتیبانی می‌شود و در عین حال، طراحی بی زمان و سادگی آن می‌تواند از نسل‌ها به جا ماند. گوپت نمایانگر اصالت و کیفیت است.`}
                     </Typography>
                 </Box>
 
@@ -94,23 +104,24 @@ const About = () => {
                                 whiteSpace: 'nowrap',
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                             }}>
-                                Craftmanship</Typography>
+                                {language == 'en' ? 'Craftmanship' : 'استادکاری'}</Typography>
                             <Typography variant="h1" sx={{
                                 whiteSpace: 'nowrap', fontWeight: 500,
                                 fontSize: { xs: '14px', md: '16px' }, color: '#b3b3b3'
                             }}>
-                                Details</Typography>
+                                {language == 'en' ? 'Details' : 'جزعیات'}</Typography>
                         </Box>
                         <Typography sx={{
                             color: '#999', textAlign: 'center', width: '100%', fontWeight: 500,
                             fontSize: { xs: '14px', md: '16px' }
                         }}>
-                            At Gopat, our jewelry features bodies crafted from premium Italian 950 and 925 silver for enduring quality.
+                            {language == 'en' ?
+                                `At Gopat, our jewelry features bodies crafted from premium Italian 950 and 925 silver for enduring quality.
 
                             In the Tishtar collection, each piece boasts a brilliant-cut natural diamond weighing 0.07 carats, chosen for its superior 4C's attributes.
 
-                            Handcrafted without molds or casting, our products ensure both the silver's elasticity and durability, embodying artisanal excellence.
-                        </Typography>
+                            Handcrafted without molds or casting, our products ensure both the silver's elasticity and durability, embodying artisanal excellence.`
+                                : `بدنه جواهرات گوپت از نقره سوئیسی و عیار ایتالیایی تشکیل شده تا کیفیت پولیش نهایی، ماندگاری محصول، قوانین محیط کار و مسائل زیست محیطی را رعایت کند. تمامی محصولات گوپت دستساز بوده و از قالب و ریخته‌گری استفاده نشده است. همین امر باعث افزایش چشمگیر دوام محصول می‌شود و در نهایت هنر دست را به نمایش می‌گذارد.`}             </Typography>
                     </Box>
 
                     <Box sx={{
@@ -145,19 +156,22 @@ const About = () => {
                                 whiteSpace: 'nowrap', fontWeight: 500,
                                 fontSize: { xs: '24px', sm: '28px', md: '32px' }, fontWeight: 500, color: '#08113B'
                             }}>
-                                Concept</Typography>
+                                {language == 'en' ? 'Concept' : 'مفهوم کلی'}</Typography>
                             <Typography variant="h1" sx={{
                                 whiteSpace: 'nowrap',
                                 fontSize: { xs: '14px', md: '16px' }, color: '#b3b3b3'
                             }}>
-                                The Myth</Typography>
+                                {language == 'en' ? 'The Myth' : 'افسانه'}</Typography>
                         </Box>
                         <Typography sx={{
                             color: '#999', textAlign: 'center', width: '100%', fontWeight: 500,
                             fontSize: { xs: '14px', md: '16px' }
                         }}>
-                            The name "Gopat" finds its origins in the legendary guardian of the Parsah Palace entrance (now Takhte Jamshid). Gopat Jewelry holds dear its Iranian heritage and endeavors to contemporize and internationalize its rich history, paying homage to this cherished land.
-                        </Typography>
+                            {language == 'en' ?
+                                `The name "Gopat" finds its origins in the legendary guardian of the Parsah Palace entrance (now Takhte Jamshid). Gopat Jewelry holds dear its Iranian heritage and endeavors to contemporize and internationalize its rich history, paying homage to this cherished land.`
+                                :
+                                `نام گوپت برگرفته از جانوری اساطیری است که نگهبانی کاخ پارسه (تخت جمشید کنونی) را بر عهده دارد. هر مجموعه گوپت وظیفه ایجاد احساسی بهتر در مخاطب دارد و از داستان های اساطیری برای این امر کمک می‌گیرد. اولین روایت، ستاره تیشتر است که نماد امید در دل تاریکی است. در مجموعه تیشتر، تک الماس طبیعی ۰.۰۷ قیراطی نقش ستاره را بازی می‌کند و برش‌های دوار آن، نقش سیارک را. تیم گوپت معتقد است تجربه کلید به جلو رانده شدن است و به همین جهت، میراث هر ملتی را باید پاس داشت و به گوش جهانیان رساند. `
+                            }    </Typography>
                     </Box>
                 </Box>
 
