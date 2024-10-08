@@ -21,7 +21,7 @@ const BlogSmall = ({ image, title, id, subtitle, description, date, titleFa, sub
             gap: { xs: '16px', md: '0' }
         }}>
             <Details sx={{
-                padding: { xs: '0 32px', md: '16px 32px' }, gap: '16px'
+                padding: { xs: '0 32px', md: '16px 32px' }, gap: '16px', width: { xs: '100%', md: '50%' }
             }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'center' }}>
                     <Typography variant="h1" sx={{
@@ -49,7 +49,7 @@ const BlogSmall = ({ image, title, id, subtitle, description, date, titleFa, sub
             <Image sx={{
                 aspectRatio: { xs: '4/3', md: '1/1' },
                 //  width: { xs: '100%', md: '480px' },
-                width: '100%',
+                width: { xs: '100%', md: '50%' },
                 backgroundImage: `url(${image})`,
             }} />
         </Box>

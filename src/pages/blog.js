@@ -17,6 +17,7 @@ const Blog = ({ language }) => {
 
     const [blog, setBlog] = useState(undefined)
     const [images, setImages] = useState(undefined)
+    const [coverImages, setCoverImages] = useState(undefined)
     const getBlog = async () => {
         let request = await fetch(`https://admin.gopatjewelry.com/api/blogs/${id}?populate=*`, {
             method: 'GET',
@@ -30,10 +31,15 @@ const Blog = ({ language }) => {
         console.log(response)
         setBlog(response.data.attributes)
         let imgs = []
+        let coverImgs = []
         for (let i = 0; i < response.data.attributes.medias.data.length; i++) {
             imgs.push(`https://admin.gopatjewelry.com${response.data.attributes.medias.data[i].attributes.url}`)
         }
+        for (let j = 0; j < response.data.attributes.coverimage.data.length; j++) {
+            coverImgs.push(`https://admin.gopatjewelry.com${response.data.attributes.coverimage.data[j].attributes.url}`)
+        }
         setImages(imgs)
+        setCoverImages(coverImgs)
     }
     useEffect(() => {
         getBlog()
@@ -59,9 +65,9 @@ const Blog = ({ language }) => {
     }, [blog, language])
     return (
         <> {
-            blog && images ?
+            blog && images && coverImages ?
                 <>
-                    <Header hideDetailsOnMobile={false} images={images}
+                    <Header hideDetailsOnMobile={false} images={coverImages}
                         title={language == 'en' ? blog.title : blog.titleFa}
                         subtitle={language == 'en' ? blog.subtitle : blog.subtitleFa} />
 
@@ -89,7 +95,7 @@ const Blog = ({ language }) => {
                         }
                         <Box sx={{
                             width: { xs: '100%', sm: '450px', md: '550px' },
-                            backgroundImage: `url(${images[1]})`,
+                            backgroundImage: `url(${images[0]})`,
                             aspectRatio: { xs: '3/4', md: '3/4' },
                             backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                         }} />
@@ -110,7 +116,7 @@ const Blog = ({ language }) => {
                         }
                         <Box sx={{
                             width: { xs: '100%', sm: '450px', md: '550px' },
-                            backgroundImage: `url(${images[2]})`,
+                            backgroundImage: `url(${images[1]})`,
                             aspectRatio: { xs: '3/4', md: '3/4' },
                             backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                         }} />
@@ -131,7 +137,7 @@ const Blog = ({ language }) => {
                         }
                         <Box sx={{
                             width: { xs: '100%', sm: '450px', md: '550px' },
-                            backgroundImage: `url(${images[3]})`,
+                            backgroundImage: `url(${images[2]})`,
                             aspectRatio: { xs: '3/4', md: '3/4' },
                             backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                         }} />

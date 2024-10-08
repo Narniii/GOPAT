@@ -166,7 +166,7 @@ const Blogs = ({ language }) => {
                             width: '100%', flexWrap: 'nowrap'
                         }}>
                             <Image sx={{
-                                backgroundImage: `url('https://admin.gopatjewelry.com${topBlog.attributes.coverimage.data.attributes.url}')`,
+                                backgroundImage: `url('https://admin.gopatjewelry.com${topBlog.attributes.coverimage.data[0].attributes.url}')`,
                                 width: { xs: '100vw', md: '100%' }
                             }} />
                         </Box>
@@ -329,7 +329,7 @@ const Blogs = ({ language }) => {
                             width: '100%', display: 'flex', flexDirection: 'column', gap: '32px'
                         }}>
                             {blogs.map((blog) => {
-                                return (<BlogSmall image={blog.attributes.coverimage.data ? `https://admin.gopatjewelry.com${blog.attributes.coverimage.data.attributes.url}` : undefined}
+                                return (<BlogSmall image={blog.attributes.coverimage.data ? `https://admin.gopatjewelry.com${blog.attributes.coverimage.data[0].attributes.url}` : undefined}
                                     id={blog.id}
                                     title={blog.attributes.title} subtitle={blog.attributes.subtitle} date={blog.attributes.createdAt}
                                     description={blog.attributes.description}
