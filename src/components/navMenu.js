@@ -47,7 +47,7 @@ const NavMenu = ({ open, setOpenMenu, language, changeLanguage }) => {
                         {collections ? <>
                             {collections.map((collection) => {
                                 return (
-                                    <Link style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }}
+                                    <Link key={collection.id} style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }}
                                         onClick={() => setOpenMenu(false)} target="_blank"
                                         to={`/collection/${collection.attributes.name}/${collection.id}`}>
                                         <Typography sx={{
@@ -117,7 +117,7 @@ const NavMenu = ({ open, setOpenMenu, language, changeLanguage }) => {
                         {collections ? <>
                             {collections.map((collection) => {
                                 return (
-                                    <Link style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }}
+                                    <Link key={collection.id} style={{ textDecoration: 'none', color: 'inherit', margin: '8px 0' }}
                                         onClick={() => setOpenMenu(false)} target="_blank"
                                         to={`/collection/${collection.attributes.name}/${collection.id}`}>
                                         <Typography sx={{

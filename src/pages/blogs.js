@@ -88,7 +88,6 @@ const Blogs = ({ language }) => {
             }
         })
         let response = await request.json()
-        console.log(response)
         setBlogs(response.data)
         setTotalBlogs(response.data)
         setTopBlog(response.data[0])
@@ -105,10 +104,8 @@ const Blogs = ({ language }) => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleApplyFiltering = () => {
-        console.log(selectedFilters)
         if (selectedFilters.length > 0) {
             const newBlogs = totalblogs.filter((blog) => selectedFilters.includes(blog.attributes.Filter) || selectedFilters.includes(blog.attributes.FilterFa))
-            console.log(newBlogs)
             setBlogs(newBlogs)
         } else {
             setBlogs(totalblogs)
@@ -260,8 +257,10 @@ const Blogs = ({ language }) => {
                                                 <FilterInputBox key={filter}>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
                                                     <FilterInput
-                                                        type="checkbox" value={filter} onClick={() => addToSelected(filter)}
-                                                        // checked={selectedFilters.includes(filter)}
+                                                        onChange={() => addToSelected(filter)}
+                                                        type="checkbox" value={filter}
+                                                        onClick={() => addToSelected(filter)}
+                                                        checked={selectedFilters.includes(filter)}
                                                     />
                                                 </FilterInputBox>
                                             )
@@ -272,8 +271,10 @@ const Blogs = ({ language }) => {
                                                 <FilterInputBox key={filter}>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
                                                     <FilterInput
-                                                        type="checkbox" value={filter} onClick={() => addToSelected(filter)}
-                                                        // checked={selectedFilters.includes(filter)}
+                                                        onChange={() => addToSelected(filter)}
+                                                        type="checkbox" value={filter}
+                                                        onClick={() => addToSelected(filter)}
+                                                        checked={selectedFilters.includes(filter)}
                                                     />
                                                 </FilterInputBox>
                                             )
@@ -334,7 +335,7 @@ const Blogs = ({ language }) => {
                             width: '100%', display: 'flex', flexDirection: 'column', gap: '32px'
                         }}>
                             {blogs.map((blog) => {
-                                return (<BlogSmall image={blog.attributes.coverimage.data ? `https://admin.gopatjewelry.com${blog.attributes.coverimage.data[0].attributes.url}` : undefined}
+                                return (<BlogSmall key={blog.id} image={blog.attributes.coverimage.data ? `https://admin.gopatjewelry.com${blog.attributes.coverimage.data[0].attributes.url}` : undefined}
                                     id={blog.id}
                                     title={blog.attributes.title} subtitle={blog.attributes.subtitle} date={blog.attributes.createdAt}
                                     description={blog.attributes.description}
