@@ -105,6 +105,7 @@ const Blogs = ({ language }) => {
 
     const handleApplyFiltering = () => {
         if (selectedFilters.length > 0) {
+            console.log(selectedFilters)
             const newBlogs = totalblogs.filter((blog) => selectedFilters.includes(blog.attributes.Filter) || selectedFilters.includes(blog.attributes.FilterFa))
             setBlogs(newBlogs)
         } else {
@@ -259,7 +260,7 @@ const Blogs = ({ language }) => {
                                                     <FilterInput
                                                         onChange={() => addToSelected(filter)}
                                                         type="checkbox" value={filter}
-                                                        onClick={() => addToSelected(filter)}
+                                                        // onClick={() => addToSelected(filter)}
                                                         checked={selectedFilters.includes(filter)}
                                                     />
                                                 </FilterInputBox>
@@ -273,7 +274,7 @@ const Blogs = ({ language }) => {
                                                     <FilterInput
                                                         onChange={() => addToSelected(filter)}
                                                         type="checkbox" value={filter}
-                                                        onClick={() => addToSelected(filter)}
+                                                        // onClick={() => addToSelected(filter)}
                                                         checked={selectedFilters.includes(filter)}
                                                     />
                                                 </FilterInputBox>

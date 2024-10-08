@@ -15,7 +15,6 @@ const NavMenu = ({ open, setOpenMenu, language, changeLanguage }) => {
             }
         })
         let response = await request.json()
-        console.log(response)
         setCollections(response.data)
     }
     useEffect(() => {
