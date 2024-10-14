@@ -226,7 +226,7 @@ const ProductSingle = ({ language }) => {
         const width = scrollable.scrollWidth - scrollable.clientWidth
         const scrolled = (winScroll / width) * 100;
         setScrolledLeft(scrolled)
-        const newSlide = images.find((slide) => window.document.getElementById(images.indexOf(slide)).offsetLeft >= winScroll)
+        const newSlide = images.find((slide) => 100 + window.document.getElementById(images.indexOf(slide)).offsetLeft >= winScroll)
         const index = images.indexOf(newSlide)
         if (index == -1) { setSlide(images.length + 1) } else { setSlide(index) }
 
@@ -476,7 +476,7 @@ const ProductSingle = ({ language }) => {
                 <StarImage sx={{
                     width: { xs: '100%', sm: '500px', md: '850px' },
                     height: { xs: '245px', sm: '430px', md: '680px' },
-                    backgroundImage: `url('https://admin.gopatjewelry.com${blog.attributes.coverimage.data.attributes.url}')`
+                    backgroundImage: `url('https://admin.gopatjewelry.com${blog.attributes.coverimage.data[0].attributes.url}')`
                 }} />
                 <Box sx={{
                     display: 'flex', flexDirection: 'column', boxSizing: 'border-box',
