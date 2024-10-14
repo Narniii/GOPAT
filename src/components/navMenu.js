@@ -42,7 +42,7 @@ const NavMenu = ({ open, setOpenMenu, language, changeLanguage }) => {
             <MenuTabOpenable text={'Products'}
                 id={'menu-products'}
                 children={
-                    <Box sx={{ width: 'max-content', display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ transition: '500ms ease', width: 'max-content', display: 'flex', flexDirection: 'column' }}>
                         {collections ? <>
                             {collections.map((collection) => {
                                 return (
@@ -112,7 +112,7 @@ const NavMenu = ({ open, setOpenMenu, language, changeLanguage }) => {
             <MenuTabOpenable text={'محصولات'}
                 id={'menu-products'}
                 children={
-                    <Box sx={{ width: 'max-content', display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ transition: '500ms ease', width: 'max-content', display: 'flex', flexDirection: 'column' }}>
                         {collections ? <>
                             {collections.map((collection) => {
                                 return (

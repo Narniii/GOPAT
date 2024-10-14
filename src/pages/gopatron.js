@@ -117,7 +117,7 @@ const Gopatron = ({ language }) => {
         <>
             <Header hideDetailsOnMobile={true} images={[gopatron, gopatron2]}
                 title={language == 'en' ? `Gopatron` : `گوپترون`}
-                subtitle={language == 'en' ? `Customer Service` : 'خدمان مشتریان'} />
+                subtitle={language == 'en' ? `Customer Service` : 'خدمات مشتریان'} />
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
                 {/* section about gopatron */}

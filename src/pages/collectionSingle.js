@@ -60,7 +60,7 @@ const CollectionSingle = ({ language }) => {
                 mt: { xs: 'none', md: '60px' },
                 display: { xs: 'grid', md: 'flex' },
                 flexDirection: 'column', gap: '32px',
-                gridTemplateColumns: 'auto auto', rowGap: '16px', columnGap: '8px',
+                gridTemplateColumns: '1fr 1fr', rowGap: '16px', columnGap: '8px',
                 boxSizing: 'border-box', px: { xs: '16px', sm: '24px', md: '64px', lg: '256px' }, mb: { xs: '50px', md: '60px' }
             }}>
                 {products ? <>
@@ -76,10 +76,14 @@ const CollectionSingle = ({ language }) => {
                     </> : <Typography
                         sx={{ textTransform: 'capitalize', color: '#08113B', textAlign: 'center', fontWeight: 500 }}>
                         {language == 'en' ? 'There Are No Products in this collection yet' : 'محصولی در این مجموعه یافت نشد'}</Typography>}
-                </> : <CircularProgress sx={{ color: '#08113b' }} />}
+                </> : <Box sx={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+                    <CircularProgress sx={{ color: '#08113b' }} />
+                </Box>}
             </Box>
         </>
-            : <CircularProgress sx={{ color: '#08113b' }} />}
+            : <Box sx={{ display: 'flex', width: '100%', height: '500px', alignItems: 'center', justifyContent: 'center' }}>
+                <CircularProgress sx={{ color: '#08113b' }} />
+            </Box>}
     </>);
 }
 

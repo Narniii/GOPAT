@@ -46,7 +46,7 @@ const About = ({ language }) => {
         <>
             <Header hideDetailsOnMobile={true} images={[about]} title={language == 'en' ?
                 `About GOPAT` : `درباره گوپت`}
-                subtitle={language == 'en' ? `Founded In Tehran, Iran.` : `تاسیس شده در تهران،ایران`} />
+                subtitle={language == 'en' ? `Founded In Tehran, Iran.` : ` تهران،ایران`} />
 
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
 
@@ -71,7 +71,7 @@ const About = ({ language }) => {
                         }}>
                             {language == 'en' ?
 
-                                ` Founded In Tehran, Iran.` : `تاسیس شده در تهران،ایران`}
+                                ` Founded In Tehran, Iran.` : ` تهران،ایران`}
                         </Typography>
                     </Box>
                     <Typography sx={{

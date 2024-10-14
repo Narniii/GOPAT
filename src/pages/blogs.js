@@ -88,6 +88,7 @@ const Blogs = ({ language }) => {
             }
         })
         let response = await request.json()
+        console.log(response)
         setBlogs(response.data)
         setTotalBlogs(response.data)
         setTopBlog(response.data[0])
@@ -159,7 +160,7 @@ const Blogs = ({ language }) => {
                             width: '100%', flexWrap: 'nowrap'
                         }}>
                             <Image sx={{
-                                backgroundImage: `url('https://admin.gopatjewelry.com${topBlog.attributes.coverimage.data[0].attributes.url}')`,
+                                backgroundImage: topBlog.attributes.coverimage.data ? `url('https://admin.gopatjewelry.com${topBlog.attributes.coverimage.data[0].attributes.url}')` : undefined,
                                 width: { xs: '100vw', md: '100%' }
                             }} />
                         </Box>
@@ -193,7 +194,9 @@ const Blogs = ({ language }) => {
                             <ButtonOutline text={language == 'en' ? 'read more' : 'بیشتر بخوانید'} action={() => navigate(`/blog/${topBlog.id}/${topBlog.attributes.title}`)} />
                         </Details>
                     </Box>
-                </> : <Skeleton height={'400px'} />}
+                </> : <Box sx={{ display: 'flex', width: '100%', height: '500px', alignItems: 'center', justifyContent: 'center' }}>
+                    <CircularProgress sx={{ color: '#08113b' }} />
+                </Box>}
             <Box sx={{
                 width: '100%', display: 'flex',
                 flexDirection: { xs: 'column', md: 'row-reverse' },
@@ -350,7 +353,7 @@ const Blogs = ({ language }) => {
                         <Typography sx={{ color: '#08113b', fontWeight: 500, textAlign: 'center', width: '100%' }}>{language == 'en' ? `No Blog Found` : `بلاگی یافت نشد`}</Typography>
                     }
                     </>
-                    : <CircularProgress sx={{ color: '#08113b' }} />}
+                    : undefined}
             </Box>
 
         </>);

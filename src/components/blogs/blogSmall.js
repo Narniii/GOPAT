@@ -47,7 +47,7 @@ const BlogSmall = ({ image, title, id, subtitle, description, date, titleFa, sub
                 <ButtonOutline text={language == 'en' ? 'Read More' : 'بیشتر بخوانید'} action={() => navigate(`/blog/${id}/${title}`)} />
             </Details>
             <Image sx={{
-                aspectRatio: { xs: '4/3', md: '1/1' },
+                aspectRatio: { xs: '3/4', md: '1/1' },
                 //  width: { xs: '100%', md: '480px' },
                 width: { xs: '100%', md: '50%' },
                 backgroundImage: `url(${image})`,

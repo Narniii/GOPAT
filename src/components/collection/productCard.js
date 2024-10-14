@@ -56,7 +56,7 @@ const ProductCard = ({ name, images, price, details, link, nameFa, detailsFa, la
                 <Typography
                     variant="h6"
                     sx={{ my: '8px', whiteSpace: 'nowrap', fontSize: { xs: '12px', sm: '14px', md: '16px' }, color: '#08113B' }}>
-                    {price} T
+                    {price ? price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : undefined} T
                 </Typography>
                 <ButtonFillRound action={() => navigate(link)} text={language == 'en' ? 'Order' : 'سفارش'} />
             </Box>

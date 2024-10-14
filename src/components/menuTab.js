@@ -20,6 +20,7 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
         <Box sx={{
             display: 'flex', flexDirection: 'column', width: '100%',
             transition: '500ms ease', borderBottom: '1px solid #d9d9d9',
+            // height: openTab ? 'auto' : '35px',
             py: py ? py : 'unset',
             pb: pb ? pb : 'unset'
         }}>

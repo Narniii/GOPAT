@@ -109,20 +109,13 @@ const Footer = ({ language, changeLanguage }) => {
                     <Box sx={{ display: 'flex' }}>
                         <ExpDesktop>
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                                {language == 'en' ? 'About' : 'درباره ما'}
+                                {language == 'en' ? 'GOPAT team' : 'تیم گوپت'}
                             </Typography>
-                            <Links sx={{
-                                fontSize: { xs: '12px', md: '14px' },
-                            }}>
-                                <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'GOPAT team' : 'تیم گوپت'}
-                                </Link>
-                            </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'Diamond And Material' : 'الماس و متریال'}
+                                    {language == 'en' ? 'About Us' : 'درباره ما'}
                                 </Link>
                             </Links>
                             <Links sx={{
@@ -132,6 +125,14 @@ const Footer = ({ language, changeLanguage }) => {
                                     {language == 'en' ? 'Find A Store' : 'فروش حضوری'}
                                 </Link>
                             </Links>
+                            <Links sx={{
+                                fontSize: { xs: '12px', md: '14px' }
+                            }}>
+                                <Link to={'/contact-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Contact Us' : 'تماس با ما'}
+                                </Link>
+                            </Links>
+
                         </ExpDesktop>
                         <ExpDesktop>
                             <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
@@ -140,14 +141,21 @@ const Footer = ({ language, changeLanguage }) => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link to={'/gopatron#repurchasing'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'Return & exchange' : 'بازخرید و تعویض'}
+                                <Link to={'/privacy-policy'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Exchange' : 'تعویض'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/privacy-policy'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Return' : 'بازخرید'}
+                                </Link>
+                            </Links>
+                            <Links sx={{
+                                fontSize: { xs: '12px', md: '14px' }
+                            }}>
+                                <Link to={'/privacy-policy'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     {language == 'en' ? 'Deliveries timeline' : 'زمانبندی ارسال'}
                                 </Link>
                             </Links>
@@ -166,8 +174,15 @@ const Footer = ({ language, changeLanguage }) => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link to={'/gopatron#gifting'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'Gifting' : 'هدیه'}
+                                <Link to={'/gopatron#counseling'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Private Counseling' : 'مشاوره اختصاصی'}
+                                </Link>
+                            </Links>
+                            <Links sx={{
+                                fontSize: { xs: '12px', md: '14px' }
+                            }}>
+                                <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Free Deliveries' : 'ارسال رایگان'}
                                 </Link>
                             </Links>
                         </ExpDesktop>
@@ -222,8 +237,15 @@ const Footer = ({ language, changeLanguage }) => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link to={'/gopatron#gifting'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'Gifting' : 'هدیه'}
+                                <Link to={'/gopatron#counseling'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Private Counseling' : 'مشاوره اختصاصی'}
+                                </Link>
+                            </Links>
+                            <Links sx={{
+                                fontSize: { xs: '12px', md: '14px' }
+                            }}>
+                                <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Free Deliveries' : 'ارسال رایگان'}
                                 </Link>
                             </Links>
                         </Box> : undefined
@@ -244,14 +266,21 @@ const Footer = ({ language, changeLanguage }) => {
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link to={'/gopatron#repurchasing'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'Return & exchange' : 'بازخرید و تعویض'}
+                                <Link to={'/privacy-policy'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Exchange' : 'تعویض'}
                                 </Link>
                             </Links>
                             <Links sx={{
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
-                                <Link to={'/gopatron#deliveries'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={'/privacy-policy'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Return' : 'بازخرید'}
+                                </Link>
+                            </Links>
+                            <Links sx={{
+                                fontSize: { xs: '12px', md: '14px' }
+                            }}>
+                                <Link to={'/privacy-policy'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     {language == 'en' ? 'Deliveries timeline' : 'زمانبندی ارسال'}
                                 </Link>
                             </Links>
@@ -264,7 +293,7 @@ const Footer = ({ language, changeLanguage }) => {
                         onClick={changeAboutOpened}
                         sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
-                            {language == 'en' ? 'About' : 'درباره ما'}
+                            {language == 'en' ? 'GOPAT team' : 'تیم گوپت'}
                         </Typography>
                         <button id="PMbuttonAbout" className="pmButton" >
                             <span></span>
@@ -277,14 +306,7 @@ const Footer = ({ language, changeLanguage }) => {
                                 fontSize: { xs: '12px', md: '14px' }
                             }}>
                                 <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'GOPAT team' : 'تیم گوپت'}
-                                </Link>
-                            </Links>
-                            <Links sx={{
-                                fontSize: { xs: '12px', md: '14px' }
-                            }}>
-                                <Link to={'/about-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    {language == 'en' ? 'Diamond And Material' : 'الماس و متریال'}
+                                    {language == 'en' ? 'About Us' : 'درباره ما'}
                                 </Link>
                             </Links>
                             <Links sx={{
@@ -292,6 +314,13 @@ const Footer = ({ language, changeLanguage }) => {
                             }}>
                                 <Link to={'/contact-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     {language == 'en' ? 'Find A Store' : 'فروش حضوری'}
+                                </Link>
+                            </Links>
+                            <Links sx={{
+                                fontSize: { xs: '12px', md: '14px' }
+                            }}>
+                                <Link to={'/contact-us'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {language == 'en' ? 'Contact Us' : 'تماس با ما'}
                                 </Link>
                             </Links>
                         </Box> : undefined

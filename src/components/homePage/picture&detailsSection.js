@@ -3,12 +3,15 @@ import ButtonOutline from "../buttons/buttonOutline";
 import jamshid from '../../assets/Persepolis.jpg'
 import gopat from '../../assets/Gopat.jpg'
 import nader from '../../assets/Nader-Mohaddes.jpg'
+import stars from '../../assets/Tishtar-Blog.jpg'
 import diamond from '../../assets/Diamond.jpg'
 import diamondRough from '../../assets/Rough-Diamond.jpg'
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PicsAndDets = ({ language }) => {
     const [blogs, setBlogs] = useState(undefined)
+    const navigate = useNavigate()
     const getBlogs = async () => {
         let request = await fetch(`https://admin.gopatjewelry.com/api/blogs?populate=*`, {
             method: 'GET',
@@ -70,20 +73,21 @@ const PicsAndDets = ({ language }) => {
                             }} />
                             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
                                 <Typography variant='h2'
-                                    sx={{ color: '#08113b', fontWeight: '500', fontSize: { xs: '20px', sm: '22px', md: '24px' }, }}>GOPAT Mythology</Typography>
+                                    sx={{ color: '#08113b', fontWeight: '500', fontSize: { xs: '20px', sm: '22px', md: '24px' }, }}>
+                                    {language == 'en' ? blogs.find((blog) => blog.id == 3).attributes.title : blogs.find((blog) => blog.id == 3).attributes.titleFa}
+                                </Typography>
                                 <Typography variant="p" sx={{
                                     px: '16px', boxSizing: 'border-box',
-                                    width: '100%',
+                                    width: { xs: '100%', sm: '320px', md: '420px' },
                                     overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
                                     textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' },
                                     fontStyle: 'italic', color: '#999999'
                                 }}>
-                                    This mythological figure symbolizes the
-                                    protection and prosperity of livestock, which
-                                    were vital to the sustenance and economy of
-                                    early Iranian societies.
+                                    {language == 'en' ? blogs.find((blog) => blog.id == 3).attributes.description : blogs.find((blog) => blog.id == 3).attributes.descriptionFa}
                                 </Typography>
-                                <ButtonOutline text={language == 'en' ? 'READ MORE' : 'بیشتر بخوانید'} />
+                                <ButtonOutline text={language == 'en' ? 'READ MORE' : 'بیشتر بخوانید'}
+                                    action={() => navigate(`/blog/${blogs.find((blog) => blog.id == 3).id}/${blogs.find((blog) => blog.id == 3).attributes.title}`)}
+                                />
                             </Box>
                         </Box>
                     </Box>
@@ -95,7 +99,7 @@ const PicsAndDets = ({ language }) => {
                         <Box sx={{
                             width: { xs: '100%', sm: '320px', md: '610px' },
                             // height: { xs: '437px', sm: '420px', md: '814px' },
-                            backgroundImage: `url(${nader})`, aspectRatio: '3/4',
+                            backgroundImage: `url(${stars})`, aspectRatio: '3/4',
                             justifySelf: 'center', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'
                         }} />
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
@@ -103,7 +107,8 @@ const PicsAndDets = ({ language }) => {
                                 color: '#08113b',
                                 fontWeight: '500', fontSize: { xs: '20px', sm: '22px', md: '24px' },
                             }}>
-                                Entrepreneurs</Typography>
+                                {language == 'en' ? blogs.find((blog) => blog.id == 1).attributes.title : blogs.find((blog) => blog.id == 1).attributes.titleFa}
+                            </Typography>
                             <Typography variant="p" sx={{
                                 width: { xs: '100%', md: '320px' },
                                 overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
@@ -111,12 +116,10 @@ const PicsAndDets = ({ language }) => {
                                 fontStyle: 'italic', color: '#999999', px: '16px', boxSizing: 'border-box',
 
                             }}>
-                                This mythological figure symbolizes the
-                                protection and prosperity of livestock, which
-                                were vital to the sustenance and economy of
-                                early Iranian societies.
+                                {language == 'en' ? blogs.find((blog) => blog.id == 1).attributes.description : blogs.find((blog) => blog.id == 1).attributes.descriptionFa}
                             </Typography>
-                            <ButtonOutline text={language == 'en' ? 'READ MORE' : 'بیشتر بخوانید'} />
+                            <ButtonOutline text={language == 'en' ? 'READ MORE' : 'بیشتر بخوانید'}
+                                action={() => navigate(`/blog/${blogs.find((blog) => blog.id == 1).id}/${blogs.find((blog) => blog.id == 1).attributes.title}`)} />
                         </Box>
                     </Box>
 
@@ -153,19 +156,19 @@ const PicsAndDets = ({ language }) => {
                             <Typography variant='h2' sx={{
                                 color: '#08113b', fontWeight: '500',
                                 fontSize: { xs: '20px', sm: '22px', md: '24px' },
-                            }}>Diamonds</Typography>
+                            }}> {language == 'en' ? 'Diamonds' : 'الماس'}</Typography>
                             <Typography variant="p" sx={{
                                 width: { xs: '100%', md: '320px' },
                                 overflowWrap: 'break-word', mb: { xs: '16px', sm: '24px', md: '32px' },
                                 px: '16px', boxSizing: 'border-box',
                                 textAlign: 'center', fontSize: { xs: '12px', sm: '14px', md: '16px' }, fontStyle: 'italic', color: '#999999'
                             }}>
-                                This mythological figure symbolizes the
-                                protection and prosperity of livestock, which
-                                were vital to the sustenance and economy of
-                                early Iranian societies.
+
+                                {language == 'en' ? blogs.find((blog) => blog.id == 2).attributes.description : blogs.find((blog) => blog.id == 2).attributes.descriptionFa}
                             </Typography>
-                            <ButtonOutline text={language == 'en' ? 'READ MORE' : 'بیشتر بخوانید'} />
+                            <ButtonOutline text={language == 'en' ? 'READ MORE' : 'بیشتر بخوانید'}
+                                action={() => navigate(`/blog/${blogs.find((blog) => blog.id == 2).id}/${blogs.find((blog) => blog.id == 2).attributes.title}`)}
+                            />
                         </Box>
                     </Box>
 
