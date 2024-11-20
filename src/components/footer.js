@@ -25,7 +25,9 @@ const ExpDesktop = styled(Box)(({ theme }) => ({
 const ExpMobile = styled(Box)(({ theme }) => ({
     flexDirection: 'column', boxSizing: 'border-box',
     borderTop: '1px solid #d9d9d9', color: '#666666', width: '100%',
-    padding: '12px'
+    transition: '500ms ease',
+    padding: '12px',
+
 }))
 const Links = styled(Typography)(({ theme }) => ({
     width: 'max-content', transition: '500ms ease',
@@ -214,7 +216,9 @@ const Footer = ({ language, changeLanguage }) => {
                 </Typography>
             </FootDesktop>
             <FootMobile sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <ExpMobile>
+                <ExpMobile sx={{
+                    height: csDetOpened ? `111px` : '57px',
+                }}>
                     <Box onClick={changeCSOpened} sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                             {language == 'en' ? 'Customer Service' : 'خدمات مشتریان'}
@@ -251,7 +255,9 @@ const Footer = ({ language, changeLanguage }) => {
                         </Box> : undefined
                     }
                 </ExpMobile>
-                <ExpMobile>
+                <ExpMobile sx={{
+                    height: policiesDetOpened ? `111px` : '57px',
+                }}>
                     <Box onClick={changePoliciesOpened} sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ fontWeight: '500', fontSize: { xs: '14px', md: '16px' } }}>
                             {language == 'en' ? 'Policies' : 'قوانین و ضوابط'}
@@ -288,7 +294,9 @@ const Footer = ({ language, changeLanguage }) => {
                     }
 
                 </ExpMobile>
-                <ExpMobile >
+                <ExpMobile sx={{
+                    height: aboutDetOpened ? `111px` : '57px',
+                }}>
                     <Box
                         onClick={changeAboutOpened}
                         sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>

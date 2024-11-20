@@ -120,19 +120,16 @@ const Blogs = ({ language }) => {
     const id = open ? 'filters-popper' : undefined;
 
     const addToSelected = (filter) => {
-        if (selectedFilters.includes(filter)) {
-            let array = selectedFilters
-            const index = array.indexOf(filter);
-            if (index > -1) { // only splice array when item is found
-                array.splice(index, 1); // 2nd parameter means remove one item only
+        setSelectedFilters((prevSelectedFilters) => {
+            if (prevSelectedFilters.includes(filter)) {
+                // Remove the filter if it's already selected
+                return prevSelectedFilters.filter(f => f !== filter);
+            } else {
+                // Add the filter to the selected filters array
+                return [...prevSelectedFilters, filter];
             }
-            setSelectedFilters(array)
-        } else {
-            let array = selectedFilters
-            array.push(filter)
-            setSelectedFilters(array)
-        }
-    }
+        });
+    };
     useEffect(() => {
         if (searchedPhrase && searchedPhrase !== '') {
             const newBlogs = totalblogs.filter((blog) => blog.attributes.title.toLowerCase().includes(searchedPhrase.toLowerCase()) || blog.attributes.titleFa.toLowerCase().includes(searchedPhrase.toLowerCase()))
@@ -141,6 +138,10 @@ const Blogs = ({ language }) => {
             setBlogs(totalblogs)
         }
     }, [searchedPhrase])
+    useEffect(() => {
+        if (selectedFilters)
+            console.log(selectedFilters)
+    }, [selectedFilters])
     return (
         <>
             {topBlog ?
@@ -261,10 +262,9 @@ const Blogs = ({ language }) => {
                                                 <FilterInputBox key={filter}>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
                                                     <FilterInput
-                                                        onChange={() => addToSelected(filter)}
+                                                        onChange={() => addToSelected(filter)} // directly update selected filters
+                                                        checked={selectedFilters.includes(filter)} // controlled checkbox
                                                         type="checkbox" value={filter}
-                                                        // onClick={() => addToSelected(filter)}
-                                                        checked={selectedFilters.includes(filter)}
                                                     />
                                                 </FilterInputBox>
                                             )
@@ -275,10 +275,9 @@ const Blogs = ({ language }) => {
                                                 <FilterInputBox key={filter}>
                                                     <Typography sx={{ color: '#5F6368', fontWeight: 500 }}>{filter}</Typography>
                                                     <FilterInput
-                                                        onChange={() => addToSelected(filter)}
+                                                        onChange={() => addToSelected(filter)} // directly update selected filters
+                                                        checked={selectedFilters.includes(filter)} // controlled checkbox
                                                         type="checkbox" value={filter}
-                                                        // onClick={() => addToSelected(filter)}
-                                                        checked={selectedFilters.includes(filter)}
                                                     />
                                                 </FilterInputBox>
                                             )
@@ -305,7 +304,10 @@ const Blogs = ({ language }) => {
                                         <FilterInput
                                             type="checkbox" value={filter}
                                             // checked={selectedFilters.includes(filter)}
-                                            onClick={() => addToSelected(filter)} />
+                                            onChange={() => addToSelected(filter)} // directly update selected filters
+                                            checked={selectedFilters.includes(filter)} // controlled checkbox
+
+                                        />
                                     </FilterInputBox>
                                 )
                             })}
@@ -317,7 +319,10 @@ const Blogs = ({ language }) => {
                                         <FilterInput
                                             type="checkbox" value={filter}
                                             // checked={selectedFilters.includes(filter)}
-                                            onClick={() => addToSelected(filter)} />
+                                            onChange={() => addToSelected(filter)} // directly update selected filters
+                                            checked={selectedFilters.includes(filter)} // controlled checkbox
+
+                                        />
                                     </FilterInputBox>
                                 )
                             })}

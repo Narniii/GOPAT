@@ -1,10 +1,13 @@
 import { Box, Typography } from '@mui/material';
 import '../App.css';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
     const [openTab, setOpenTab] = useState(false)
+    const [height, setHeight] = useState(0); // Track height of the content
+    const contentRef = useRef(null); // Reference to the content box
+
     function changeButtonClass() {
         var element = document.getElementById(id);
         if (openTab) {
@@ -15,15 +18,23 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
             setOpenTab(true)
         }
     }
+    useEffect(() => {
+        if (contentRef.current) {
+            setHeight(contentRef.current.clientHeight); // Set height to the full content height
+        }
+    }, [children]); // Recalculate height if content changes
 
     return (
         <Box sx={{
             display: 'flex', flexDirection: 'column', width: '100%',
-            transition: '500ms ease', borderBottom: '1px solid #d9d9d9',
-            // height: openTab ? 'auto' : '35px',
+            borderBottom: '1px solid #d9d9d9',
+            height: openTab ? `${height}px` : '35px',
+            // overflow: 'hidden',
+            transition: '500ms ease',
             py: py ? py : 'unset',
             pb: pb ? pb : 'unset'
-        }}>
+        }}
+            ref={contentRef}>
             <Box
                 onClick={changeButtonClass}
                 sx={{
@@ -40,8 +51,10 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
                 </button>
             </Box>
             {openTab && <Box sx={{
-                transition: '500ms ease',
-            }}>{children}</Box>}
+                height: openTab ? `auto` : '0',
+                transition: 'height 500ms ease',
+            }} >
+                {children}</Box>}
         </Box>
     );
 }
