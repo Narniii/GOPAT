@@ -28,7 +28,7 @@ export const MenuTabOpenable = ({ text, children, id, py, pb }) => {
         <Box sx={{
             display: 'flex', flexDirection: 'column', width: '100%',
             borderBottom: '1px solid #d9d9d9',
-            height: openTab ? `${height}px` : '35px',
+            height: openTab ? `69px` : '35px',
             // overflow: 'hidden',
             transition: '500ms ease',
             py: py ? py : 'unset',
